@@ -1,3 +1,4 @@
+import { FirebaseService } from './../../services/firebase.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
+    this.firebaseService.getData().subscribe(data => console.log(data));
   }
 
 }
