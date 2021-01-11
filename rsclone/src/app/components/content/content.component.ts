@@ -11,7 +11,12 @@ export class ContentComponent implements OnInit {
   constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
-    this.firebaseService.getData().subscribe(data => console.log(data));
+    // this.firebaseService.setData();
+    this.firebaseService.getData().subscribe(data => {
+      data.forEach(el => {
+        console.log(el);
+      });
+    });
   }
 
 }
