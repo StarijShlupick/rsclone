@@ -19,6 +19,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      animation: start-screen-content 1.5s;
       .content__header {
         font-size: 7.2rem;
         line-height: 7.2rem;
@@ -33,9 +34,20 @@
       }
     }
   }
+  &__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    app-theme-switcher{
+      margin-top: 25%;
+      margin-right: 7%;
+      animation: theme-switcher 2s;
+    }
+  }
 }
 .start-screen__logo {
   max-width: 1300px;
+  width: 100%;
   &:hover #arm-and-bottle {
     animation: arm--hover 1.5s infinite alternate;
   }
@@ -134,5 +146,25 @@
   }
   to {
     transform: translate(15%, -70%) rotate(35deg);
+  }
+}
+@keyframes start-screen-content {
+  from {
+    transform: translateY(20%);
+    opacity: 0%;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+@keyframes theme-switcher {
+  from {
+    transform: translateX(20%);
+    opacity: 0%;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 100%;
   }
 }
