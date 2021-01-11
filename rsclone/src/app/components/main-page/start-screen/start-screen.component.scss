@@ -1,9 +1,45 @@
+.start-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .global-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    .start-screen__content {
+      position: absolute;
+      top: 5%;
+      right: 0;
+      padding: 0 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .content__header {
+        font-size: 7.2rem;
+        line-height: 7.2rem;
+        text-transform: uppercase;
+        color: #5e9641;
+        margin-bottom: 30px;
+      }
+      .content__text {
+        max-width: 660px;
+        font-size: 3.6rem;
+        line-height: 4.2rem;
+      }
+    }
+  }
+}
 .start-screen__logo {
   max-width: 1300px;
-  &:hover #arm-and-bottle{
+  &:hover #arm-and-bottle {
     animation: arm--hover 1.5s infinite alternate;
   }
-  &:hover #backet-lid{
+  &:hover #backet-lid {
     animation: backet-lid 2s infinite alternate;
   }
   svg {
@@ -16,7 +52,7 @@
     transform-box: fill-box;
     animation: man 2s infinite alternate;
   }
-  #arm-and-bottle{
+  #arm-and-bottle {
     transform-origin: center;
     transform-box: fill-box;
     animation: arm 2s infinite alternate;
