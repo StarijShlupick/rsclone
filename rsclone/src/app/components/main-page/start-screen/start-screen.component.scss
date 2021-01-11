@@ -23,7 +23,7 @@
         font-size: 7.2rem;
         line-height: 7.2rem;
         text-transform: uppercase;
-        color: var(--second-accent-color);
+        color: var(--first-accent-color);
         margin-bottom: 30px;
       }
       .content__text {
@@ -70,6 +70,9 @@
     transform-origin: bottom;
     transform-box: fill-box;
     animation: background 1.5s;
+    #background_2{
+      fill: var(--second-background-color);
+    }
   }
 }
 

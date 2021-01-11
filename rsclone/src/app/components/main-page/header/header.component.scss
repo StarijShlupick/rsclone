@@ -34,6 +34,20 @@
   #logo-leaf {
     transform-origin: bottom;
     transform-box: fill-box;
+    #Vector_5{
+      fill: var(--first-accent-color);
+    }
+    #Vector_6{
+      fill: var(--second-accent-color);
+    }
+  }
+  #logo-base{
+    #Vector, #Vector_4{
+    fill: var(--second-accent-color);
+  }
+  #Vector_2, #Vector_3 {
+    fill: var(--first-accent-color);
+  }
   }
   &:hover #logo-leaf {
     animation: logo 1.5s linear infinite;

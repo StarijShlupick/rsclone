@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentComponent } from './components/content/content.component';
 import { HeaderComponent } from './components/main-page/header/header.component';
 import { StartScreenComponent } from './components/main-page/start-screen/start-screen.component';
+import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/theme-switcher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentComponent,
     HeaderComponent,
-    StartScreenComponent
+    StartScreenComponent,
+    ThemeSwitcherComponent
   ],
   imports: [
     BrowserModule,
