@@ -1,0 +1,12 @@
+<div class="second-screen">
+  <div
+    class="item"
+    *ngFor="let item of wasteItems; let i = index"
+    [routerLink]="['', item.id]"
+  >
+    <div class="img-container">
+      <img src="{{ item.icon }}" alt="{{ item.title }}" />
+    </div>
+    <h3 class="item-title">{{ item.title }}</h3>
+  </div>
+</div>
