@@ -1,3 +1,4 @@
+import { WasteData } from './../../models/wasteDate.model';
 import { FirebaseService } from './../../services/firebase.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
+  wasteData: WasteData[];
+
   constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
     // this.firebaseService.setData();
     this.firebaseService.getData().subscribe(data => {
-      data.forEach(el => {
-        console.log(el);
-      });
+      this.wasteData = this.firebaseService.addDataToObject(data);
     });
   }
 
