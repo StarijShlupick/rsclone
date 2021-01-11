@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~normalize.css';
+@import "~normalize.css";
+:root {
+  --first-accent-color: #94c83d;
+  --second-accent-color: #5e9641;
+  --first-background-color: #e0e0e0; 
+  --second-background-color: #F2F2F2;
+  --global-background-color: #ffffff;
+  --text-color: #000000;
+}
 
 html {
   box-sizing: border-box;
@@ -12,7 +20,12 @@ html {
   box-sizing: inherit;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+  background-color: var(--global-background-color);
+}
 
 .global-container {
   max-width: 1880px;
