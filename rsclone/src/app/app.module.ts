@@ -9,6 +9,12 @@ import { SecondScreenComponent } from './components/second-screen/second-screen/
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
 import { WasteService } from './services/waste.service';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { FirebaseService } from './services/firebase.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,8 +22,15 @@ import { WasteService } from './services/waste.service';
     SecondScreenComponent,
     WasteInfoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [WasteService],
-  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
+  ],
+  providers: [FirebaseService, WasteService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
