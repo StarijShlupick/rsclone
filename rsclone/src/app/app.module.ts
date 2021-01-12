@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentComponent } from './components/content/content.component';
 import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
+import { MapComponent } from './components/map/map.component';
 import { WasteService } from './services/waste.service';
 
 import { AngularFireModule } from '@angular/fire';
@@ -21,6 +22,7 @@ import { FirebaseService } from './services/firebase.service';
     ContentComponent,
     SecondScreenComponent,
     WasteInfoComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,4 +35,4 @@ import { FirebaseService } from './services/firebase.service';
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
