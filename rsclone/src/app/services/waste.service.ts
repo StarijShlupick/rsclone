@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface WasteItem {
-  id: number;
-  title: string;
-  icon: string;
-  info: string;
-}
-
+import { WasteItem } from '../models/wasteItem.model';
 @Injectable()
 export class WasteService {
   constructor() {}
@@ -15,49 +8,49 @@ export class WasteService {
     {
       id: 1,
       title: 'paper',
-      icon: '../../assets/paper.svg',
+      icon: '../../assets/icons/paper.svg',
       info: this.getTestText(),
     },
     {
       id: 2,
       title: 'plastic',
-      icon: '../../assets/plastic.svg',
+      icon: '../../assets/icons/plastic.svg',
       info: this.getTestText(),
     },
     {
       id: 3,
       title: 'glass',
-      icon: '../../assets/glass.svg',
+      icon: '../../assets/icons/glass.svg',
       info: this.getTestText(),
     },
     {
       id: 4,
       title: 'metal',
-      icon: '../../assets/metal.svg',
+      icon: '../../assets/icons/metal.svg',
       info: this.getTestText(),
     },
     {
       id: 5,
       title: 'Hazardous',
-      icon: '../../assets/hazardousWaste.svg',
+      icon: '../../assets/icons/hazardousWaste.svg',
       info: this.getTestText(),
     },
     {
       id: 6,
       title: 'Light Bulb',
-      icon: '../../assets/lightBulb.svg',
+      icon: '../../assets/icons/lightBulb.svg',
       info: this.getTestText(),
     },
     {
       id: 7,
       title: 'things',
-      icon: '../../assets/things.svg',
+      icon: '../../assets/icons/things.svg',
       info: this.getTestText(),
     },
     {
       id: 8,
       title: 'battery',
-      icon: '../../assets/battery.svg',
+      icon: '../../assets/icons/battery.svg',
       info: this.getTestText(),
     },
   ];

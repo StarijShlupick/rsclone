@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WasteItem, WasteService } from '../../../services/waste.service';
+import { WasteItem } from 'src/app/models/wasteItem.model';
+import { WasteService } from '../../../services/waste.service';
 
 @Component({
   selector: 'app-waste-info',
