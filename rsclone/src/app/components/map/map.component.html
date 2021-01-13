@@ -1,3 +1,12 @@
 <div class="map-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Selected City</mat-label>
+    <mat-select [(ngModel)]="selectedCity" name="city">
+      <mat-option *ngFor="let city of cities" [value]="city.value" (click)="cityToJson('Brest')">
+        {{city.viewValue}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
   <div id="map"></div>
 </div>

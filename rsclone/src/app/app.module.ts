@@ -9,6 +9,7 @@ import { SecondScreenComponent } from './components/second-screen/second-screen/
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
 import { MapComponent } from './components/map/map.component';
 import { WasteService } from './services/waste.service';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -30,7 +31,8 @@ import { FirebaseService } from './services/firebase.service';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MatSelectModule,
   ],
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
-import { WasteData } from '../../models/wasteDate.model';
 import { environment } from '../../../environments/environment';
+import { WasteData } from '../../models/wasteDate.model';
+import { Cities } from '../../models/mapData.model';
+import { ICollectionsGeoJSON } from '../../models/mapData.model';
+import { IGeoJson } from '../../models/mapData.model';
+import { CitiesGeoJson } from '../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
@@ -9,39 +13,36 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
-  providers: [FirebaseService]
 })
 export class MapComponent implements OnInit {
   wasteData: WasteData[];
   map: mapboxgl.map;
-  geoJson: any;
+  geoJson: ICollectionsGeoJSON;
+  selectedCity: string;
+  cities: Cities[] = [
+    { value: 'city-1', viewValue: 'Minsk' },
+    { value: 'city-2', viewValue: 'Vitebsk' },
+    { value: 'city-3', viewValue: 'Grodno' },
+    { value: 'city-4', viewValue: 'Mogilev' },
+    { value: 'city-5', viewValue: 'Brest' },
+    { value: 'city-6', viewValue: 'Gomel' },
+  ]
 
   constructor(private FirebaseService: FirebaseService) { }
 
   ngOnInit(): void {
     this.FirebaseService.getData().subscribe(items => {
       this.geoJson = this.createGeoJson(items);
-      console.log(this.geoJson);
+
+      (mapboxgl as any).accessToken = environment.mapboxKey;
+      this.map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [27.55, 53.902],
+        zoom: 10.5
+      });
+      this.loadMap();
     });
-
-
-    (mapboxgl as any).accessToken = environment.mapboxKey;
-    this.map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [27.55, 53.902],
-      zoom: 10.5
-    });
-
-    this.loadMap();
-
-    this.map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-      })
-    );
-    this.map.addControl(new mapboxgl.NavigationControl());
   }
 
   createGeoJson(data) {
@@ -89,6 +90,14 @@ export class MapComponent implements OnInit {
         "data": this.geoJson
       });
       this.addMarkers();
+
+      this.map.addControl(
+        new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl
+        })
+      );
+      this.map.addControl(new mapboxgl.NavigationControl());
     })
   }
 
@@ -96,6 +105,22 @@ export class MapComponent implements OnInit {
     this.geoJson['features'].forEach((marker) => {
       const newMarker = new mapboxgl.Marker()
         .setLngLat(marker.geometry.coordinates).addTo(this.map);
+    });
+  }
+
+  cityToJson(city) {
+    console.log(city);
+    const currentGeoObj = CitiesGeoJson.features.find((obj) => {
+      return obj.properties.city === city;
+    });
+
+    this.flyToCity(currentGeoObj);
+  }
+
+  flyToCity(currentFeature): void {
+    this.map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 10
     });
   }
 
