@@ -8,15 +8,6 @@
   --global-background-color: #ffffff;
   --text-color: #000000;
 }
-// night theme
-// :root {
-//   --first-accent-color: #b6f7c1;
-//   --second-accent-color: #7e97a6;
-//   --first-background-color: #63686e; 
-//   --second-background-color: #a4c2c2;
-//   --global-background-color: #373640;
-//   --text-color: #ffffff;
-// }
 
 html {
   box-sizing: border-box;
@@ -34,6 +25,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: var(--text-color);
   background-color: var(--global-background-color);
+  transition: color 1s;
+  transition: background-color 1s;
 }
 
 .global-container {

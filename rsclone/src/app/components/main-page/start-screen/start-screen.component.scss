@@ -26,6 +26,7 @@
         text-transform: uppercase;
         color: var(--first-accent-color);
         margin-bottom: 30px;
+        transition: color 1s;
       }
       .content__text {
         max-width: 660px;
@@ -84,6 +85,7 @@
     animation: background 1.5s;
     #background_2{
       fill: var(--second-background-color);
+      transition: fill 1s;
     }
   }
 }
@@ -95,6 +97,7 @@
     font-size: 3.5rem;
     color: var(--text-color);
     animation: start-screen-content .7s infinite alternate;
+    transition: color 1s;
   }
 }
 

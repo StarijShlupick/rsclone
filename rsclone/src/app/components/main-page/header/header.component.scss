@@ -1,5 +1,6 @@
 .header {
   background: var(--first-background-color);
+  transition: background 1s;
   .global-container {
     height: 80px;
     display: flex;
@@ -36,17 +37,21 @@
     transform-box: fill-box;
     #Vector_5{
       fill: var(--first-accent-color);
+      transition: fill 1s;
     }
     #Vector_6{
       fill: var(--second-accent-color);
+      transition: fill 1s;
     }
   }
   #logo-base{
     #Vector, #Vector_4{
     fill: var(--second-accent-color);
+    transition: fill 1s;
   }
   #Vector_2, #Vector_3 {
     fill: var(--first-accent-color);
+    transition: fill 1s;
   }
   }
   &:hover #logo-leaf {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/theme/theme.service';
 
 @Component({
   selector: 'app-theme-switcher',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemeSwitcherComponent implements OnInit {
 
-  constructor() { }
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit(): void {
   }
-
+  setLightTheme() {
+    this.themeService.setLightTheme();
+  }
+  setDarcTheme() {
+    this.themeService.setDarkTheme();
+  }
 }
