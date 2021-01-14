@@ -14,7 +14,7 @@ export class WasteInfoComponent implements OnInit {
     private wasteService: WasteService
   ) {}
 
-  public waste: WasteItem;
+  waste: WasteItem;
 
   ngOnInit(): void {
     const itemId = this.activatedRoute.snapshot.paramMap.get('id');

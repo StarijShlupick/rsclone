@@ -1,6 +1,7 @@
-import { WasteData } from './../models/wasteDate.model';
+import { WasteData } from './../models/wasteData.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,11 @@ export class FirebaseService {
 
   constructor(public db: AngularFirestore) { }
 
-  public getData() {
+  getData():  Observable<{}> {
     return this.db.collection('/Waste').valueChanges();
   }
 
-  public addDataToObject(data) {
+  addDataToObject(data): WasteData[] {
     const wasteData: WasteData[] = data.map(el => {
       return {
         address: el["address"],

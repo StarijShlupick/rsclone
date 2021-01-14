@@ -1,4 +1,4 @@
-import { WasteData } from './../../models/wasteDate.model';
+import { WasteData } from './../../models/wasteData.model';
 import { FirebaseService } from './../../services/firebase.service';
 import { Component, OnInit } from '@angular/core';
 
