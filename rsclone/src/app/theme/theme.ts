@@ -1,6 +1,6 @@
 export interface Theme {
   name: string;
-  properties: any;
+  properties: object;
 }
 
 export const light: Theme = {

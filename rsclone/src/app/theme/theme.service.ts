@@ -6,18 +6,23 @@ import { Theme, light, dark } from "./theme";
 })
 export class ThemeService {
   private active: Theme = light;
-  private availableThemes: Theme[] = [light, dark];
 
-  getAvailableThemes(): Theme[] {
-    return this.availableThemes;
-  }
-
-  getActiveTheme(): Theme {
-    return this.active;
+  isLightTheme(): boolean {
+    return this.active.name === light.name;
   }
 
   isDarkTheme(): boolean {
     return this.active.name === dark.name;
+  }
+
+  setActiveTheme(theme: Theme): void {
+    this.active = theme;
+    Object.keys(this.active.properties).forEach(property => {
+      document.documentElement.style.setProperty(
+        property,
+        this.active.properties[property]
+      );
+    });
   }
 
   setDarkTheme(): void {
@@ -28,14 +33,4 @@ export class ThemeService {
     this.setActiveTheme(light);
   }
 
-  setActiveTheme(theme: Theme): void {
-    this.active = theme;
-
-    Object.keys(this.active.properties).forEach(property => {
-      document.documentElement.style.setProperty(
-        property,
-        this.active.properties[property]
-      );
-    });
-  }
 }

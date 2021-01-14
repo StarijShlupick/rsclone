@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from 'src/app/theme/theme.service';
 
 @Component({
@@ -6,16 +6,20 @@ import { ThemeService } from 'src/app/theme/theme.service';
   templateUrl: './theme-switcher.component.html',
   styleUrls: ['./theme-switcher.component.scss']
 })
-export class ThemeSwitcherComponent implements OnInit {
+export class ThemeSwitcherComponent {
+  lightTheme: boolean = this.themeService.isLightTheme();
+  darkTheme: boolean = this.themeService.isDarkTheme();
 
   constructor(private themeService: ThemeService) { }
 
-  ngOnInit(): void {
-  }
-  setLightTheme() {
+  setLightTheme(): void {
     this.themeService.setLightTheme();
+    this.lightTheme = this.themeService.isLightTheme();
+    this.darkTheme = this.themeService.isDarkTheme();
   }
-  setDarcTheme() {
+  setDarcTheme(): void {
     this.themeService.setDarkTheme();
+    this.lightTheme = this.themeService.isLightTheme();
+    this.darkTheme = this.themeService.isDarkTheme();
   }
 }
