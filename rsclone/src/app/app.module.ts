@@ -9,6 +9,15 @@ import { HeaderComponent } from './components/main-page/header/header.component'
 import { StartScreenComponent } from './components/main-page/start-screen/start-screen.component';
 import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/theme-switcher.component';
 import { ThemeModule } from './theme/theme.module';
+import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
+import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
+import { WasteService } from './services/waste.service';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -16,15 +25,20 @@ import { ThemeModule } from './theme/theme.module';
     ContentComponent,
     HeaderComponent,
     StartScreenComponent,
-    ThemeSwitcherComponent
+    ThemeSwitcherComponent,
+    SecondScreenComponent,
+    WasteInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ThemeModule
+    ThemeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
