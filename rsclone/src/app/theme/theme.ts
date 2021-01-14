@@ -1,9 +1,9 @@
-export interface Theme {
+export interface ITheme {
   name: string;
   properties: object;
 }
 
-export const light: Theme = {
+export const light: ITheme = {
   name: "light",
   properties: {
     "--first-accent-color": "#94c83d",
@@ -15,7 +15,7 @@ export const light: Theme = {
   }
 };
 
-export const dark: Theme = {
+export const dark: ITheme = {
   name: "dark",
   properties: {
     "--first-accent-color": "#b6f7c1",

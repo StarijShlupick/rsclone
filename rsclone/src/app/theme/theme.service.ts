@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { Theme, light, dark } from "./theme";
+import { ITheme, light, dark } from "./theme";
 
 @Injectable({
   providedIn: "root"
 })
 export class ThemeService {
-  active: Theme = light;
+  active: ITheme = light;
 
   isLightTheme(): boolean {
     return this.active.name === light.name;
@@ -15,7 +15,7 @@ export class ThemeService {
     return this.active.name === dark.name;
   }
 
-  setActiveTheme(theme: Theme): void {
+  setActiveTheme(theme: ITheme): void {
     this.active = theme;
     localStorage.setItem('theme', this.active.name);
     Object.keys(this.active.properties).forEach(property => {
