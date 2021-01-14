@@ -1,4 +1,4 @@
-export interface WasteData {
+export interface IWasteData {
   address: string;
   batteries: boolean;
   electronicWaste: boolean;
