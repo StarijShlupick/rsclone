@@ -5,7 +5,7 @@ import { Theme, light, dark } from "./theme";
   providedIn: "root"
 })
 export class ThemeService {
-  private active: Theme = light;
+  active: Theme = light;
 
   isLightTheme(): boolean {
     return this.active.name === light.name;
@@ -17,6 +17,7 @@ export class ThemeService {
 
   setActiveTheme(theme: Theme): void {
     this.active = theme;
+    localStorage.setItem('theme', this.active.name);
     Object.keys(this.active.properties).forEach(property => {
       document.documentElement.style.setProperty(
         property,
@@ -25,12 +26,12 @@ export class ThemeService {
     });
   }
 
-  setDarkTheme(): void {
-    this.setActiveTheme(dark);
-  }
-
   setLightTheme(): void {
     this.setActiveTheme(light);
+  }
+
+  setDarkTheme(): void {
+    this.setActiveTheme(dark);
   }
 
 }
