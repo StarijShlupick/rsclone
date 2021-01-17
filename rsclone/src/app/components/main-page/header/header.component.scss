@@ -1,5 +1,5 @@
 .header {
-  background: var(--first-background-color);
+  background: var(--primary-background-color);
   transition: background 1s;
   .global-container {
     height: 80px;
@@ -36,21 +36,21 @@
     transform-origin: bottom;
     transform-box: fill-box;
     #Vector_5{
-      fill: var(--first-accent-color);
+      fill: var(--primary-accent-color);
       transition: fill 1s;
     }
     #Vector_6{
-      fill: var(--second-accent-color);
+      fill: var(--secondary-accent-color);
       transition: fill 1s;
     }
   }
   #logo-base{
     #Vector, #Vector_4{
-    fill: var(--second-accent-color);
+    fill: var(--secondary-accent-color);
     transition: fill 1s;
   }
   #Vector_2, #Vector_3 {
-    fill: var(--first-accent-color);
+    fill: var(--primary-accent-color);
     transition: fill 1s;
   }
   }

@@ -6,11 +6,11 @@ export interface ITheme {
 export const light: ITheme = {
   name: "light",
   properties: {
-    "--first-accent-color": "#94c83d",
-    "--second-accent-color": "#5e9641",
-    "--first-background-color": "#e0e0e0",
-    "--second-background-color": "#EEEEEE",
-    "--global-background-color": "#ffffff",
+    "--primary-accent-color": "#94c83d",
+    "--secondary-accent-color": "#5e9641",
+    "--primary-background-color": "#e0e0e0",
+    "--secondary-background-color": "#EEEEEE",
+    "--body-background-color": "#ffffff",
     "--text-color": "#000000",
   }
 };
@@ -18,11 +18,11 @@ export const light: ITheme = {
 export const dark: ITheme = {
   name: "dark",
   properties: {
-    "--first-accent-color": "#b6f7c1",
-    "--second-accent-color": "#7e97a6",
-    "--first-background-color": "#63686e",
-    "--second-background-color": "#a4c2c2",
-    "--global-background-color": "#373640",
+    "--primary-accent-color": "#b6f7c1",
+    "--secondary-accent-color": "#7e97a6",
+    "--primary-background-color": "#63686e",
+    "--secondary-background-color": "#a4c2c2",
+    "--body-background-color": "#373640",
     "--text-color": "#ffffff",
   }
 };

@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~normalize.css";
 :root {
-  --first-accent-color: #94c83d;
-  --second-accent-color: #5e9641;
-  --first-background-color: #e0e0e0; 
-  --second-background-color: #EEEEEE;
-  --global-background-color: #ffffff;
+  --primary-accent-color: #94c83d;
+  --secondary-accent-color: #5e9641;
+  --primary-background-color: #e0e0e0; 
+  --secondary-background-color: #EEEEEE;
+  --body-background-color: #ffffff;
   --text-color: #000000;
 }
 
@@ -24,7 +24,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: var(--text-color);
-  background-color: var(--global-background-color);
+  background-color: var(--body-background-color);
   transition: color 1s;
   transition: background-color 1s;
 }

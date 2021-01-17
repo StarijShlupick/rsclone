@@ -24,7 +24,7 @@
         font-size: 7.2rem;
         line-height: 7.2rem;
         text-transform: uppercase;
-        color: var(--first-accent-color);
+        color: var(--primary-accent-color);
         margin-bottom: 30px;
         transition: color 1s;
       }
@@ -84,7 +84,7 @@
     transform-box: fill-box;
     animation: background 1.5s;
     #background_2{
-      fill: var(--second-background-color);
+      fill: var(--secondary-background-color);
       transition: fill 1s;
     }
   }
