@@ -3,6 +3,11 @@ export interface ITheme {
   properties: object;
 }
 
+export enum EThemeModes {
+  Light = 'light',
+  Dark = 'dark'
+}
+
 export const light: ITheme = {
   name: "light",
   properties: {

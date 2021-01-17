@@ -1,7 +1,7 @@
 <div class="theme-switcher">
   <h6 class="theme-switcher__header">choose a theme</h6>
   <div class="theme-switcher__group">
-    <div class="theme-circle" [class.theme-circle--active]="lightTheme" (click)="setLightTheme()"></div>
-    <div class="theme-circle" [class.theme-circle--active]="darkTheme" (click)="setDarkTheme()"></div>
+    <div class="theme-circle" [class.theme-circle--active]="lightTheme" (click)="toggleTheme('light')"></div>
+    <div class="theme-circle" [class.theme-circle--active]="darkTheme" (click)="toggleTheme('dark')"></div>
   </div>
 </div>

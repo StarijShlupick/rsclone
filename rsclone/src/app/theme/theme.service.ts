@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ITheme, light, dark } from "./theme";
+import { ITheme, EThemeModes, light, dark } from "./theme";
 
 @Injectable({
   providedIn: "root"
@@ -26,12 +26,8 @@ export class ThemeService {
     });
   }
 
-  setLightTheme(): void {
-    this.setActiveTheme(light);
-  }
-
-  setDarkTheme(): void {
-    this.setActiveTheme(dark);
+  setTheme(theme: EThemeModes): void {
+    theme === EThemeModes.Light ? this.setActiveTheme(light) : this.setActiveTheme(dark);
   }
 
 }

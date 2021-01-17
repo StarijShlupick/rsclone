@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EThemeModes } from 'src/app/theme/theme';
 import { ThemeService } from 'src/app/theme/theme.service';
 
 @Component({
@@ -17,16 +18,11 @@ export class ThemeSwitcherComponent implements OnInit {
   }
 
   setStartTheme(): void {
-    localStorage.getItem('theme') === 'light' ? this.setLightTheme() : this.setDarkTheme();
+    localStorage.getItem('theme') === EThemeModes.Light ? this.themeService.setTheme(EThemeModes.Light) : this.themeService.setTheme(EThemeModes.Dark);
   }
 
-  setLightTheme(): void {
-    this.themeService.setLightTheme();
-    this.lightTheme = this.themeService.isLightTheme();
-    this.darkTheme = this.themeService.isDarkTheme();
-  }
-  setDarkTheme(): void {
-    this.themeService.setDarkTheme();
+  toggleTheme(theme: EThemeModes): void {
+    theme === EThemeModes.Light ? this.themeService.setTheme(EThemeModes.Light) : this.themeService.setTheme(EThemeModes.Dark);
     this.lightTheme = this.themeService.isLightTheme();
     this.darkTheme = this.themeService.isDarkTheme();
   }
