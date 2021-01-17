@@ -17,11 +17,7 @@ export class ThemeSwitcherComponent implements OnInit {
   }
 
   setStartTheme(): void {
-    if (localStorage.getItem('theme') === 'light') {
-      this.setLightTheme();
-    } else if (localStorage.getItem('theme') === 'dark') {
-      this.setDarkTheme();
-    }
+    localStorage.getItem('theme') === 'light' ? this.setLightTheme() : this.setDarkTheme();
   }
 
   setLightTheme(): void {
