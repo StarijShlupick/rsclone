@@ -8,8 +8,8 @@ import { ThemeService } from 'src/app/theme/theme.service';
   styleUrls: ['./theme-switcher.component.scss']
 })
 export class ThemeSwitcherComponent implements OnInit {
-  lightTheme: boolean = this.themeService.isLightTheme();
-  darkTheme: boolean = this.themeService.isDarkTheme();
+  lightTheme: boolean;
+  darkTheme: boolean;
 
   constructor(private themeService: ThemeService) { }
 
@@ -19,11 +19,19 @@ export class ThemeSwitcherComponent implements OnInit {
 
   setStartTheme(): void {
     localStorage.getItem('theme') === EThemeModes.Light ? this.themeService.setTheme(EThemeModes.Light) : this.themeService.setTheme(EThemeModes.Dark);
-  }
-
-  toggleTheme(theme: EThemeModes): void {
-    theme === EThemeModes.Light ? this.themeService.setTheme(EThemeModes.Light) : this.themeService.setTheme(EThemeModes.Dark);
     this.lightTheme = this.themeService.isLightTheme();
     this.darkTheme = this.themeService.isDarkTheme();
+  }
+
+  toggleTheme(theme: string): void {
+    if (theme === 'light') {
+      this.themeService.setTheme(EThemeModes.Light);
+      this.lightTheme = this.themeService.isLightTheme();
+      this.darkTheme = this.themeService.isDarkTheme();
+    } else if (theme === 'dark') {
+      this.themeService.setTheme(EThemeModes.Dark);
+      this.lightTheme = this.themeService.isLightTheme();
+      this.darkTheme = this.themeService.isDarkTheme();
+    }
   }
 }

@@ -29,5 +29,4 @@ export class ThemeService {
   setTheme(theme: EThemeModes): void {
     theme === EThemeModes.Light ? this.setActiveTheme(light) : this.setActiveTheme(dark);
   }
-
 }
