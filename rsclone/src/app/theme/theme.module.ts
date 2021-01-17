@@ -9,4 +9,4 @@ import { ThemeService } from './theme.service';
   ],
   providers: [ThemeService]
 })
-export class ThemeModule { }
+export class ThemeModule {}
