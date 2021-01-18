@@ -1,5 +1,14 @@
-<div class="container">
-  <button class="btn" [routerLink]="''">&larr;</button>
-  <h2>{{ waste.title }}</h2>
-  <div class="waste-info">{{ waste.info }}</div>
+<div class="waste-info">
+  <button class="waste-info__button-back" [routerLink]="''">&larr;</button>
+  <h2 class="waste-info__title">{{ waste.title }}</h2>
+  <div class="details">
+    <div class="details__col">
+      <div class="details__name">Can</div>
+      {{ waste.info }}
+    </div>
+    <div class="details__col">
+      <div class="details__name">Can't</div>
+      {{ waste.info }}
+    </div>
+  </div>
 </div>

@@ -1,0 +1,66 @@
+<div class="form-wrapper">
+  <div class="tabs">
+    <input
+      type="radio"
+      name="tabs-group"
+      id="tab-login"
+      checked
+      (change)="onChangeTab()"
+    />
+    <label for="tab-login">Login</label>
+    <input
+      type="radio"
+      name="tabs-group"
+      id="tab-register"
+      (change)="onChangeTab()"
+    />
+    <label for="tab-register">Sign Up</label>
+  </div>
+  <div class="form">
+    <img class="form__icon" src="../../assets/icons/face.svg" alt="face" />
+    <h2 class="form__title">{{ currentTitleForElementsForm }}</h2>
+    <form [formGroup]="authForm">
+      <input
+        class="form__input"
+        type="text"
+        id="email"
+        formControlName="email"
+        placeholder="Email"
+        autocomplete="off"
+        (keydown.enter)="onSubmit(email.value, password.value)"
+      />
+      <span class="form__error" *ngIf="email.invalid && email.touched"
+        >Check email</span
+      >
+
+      <input
+        class="form__input"
+        type="text"
+        id="password"
+        formControlName="password"
+        placeholder="Password"
+        autocomplete="off"
+        (keydown.enter)="onSubmit(email.value, password.value)"
+      />
+      <span class="form__error" *ngIf="password.invalid && password.touched"
+        >Check password (min 8 char)</span
+      >
+
+      <!--<span class="form__error" *ngIf="isAuthError">{{ authError }}</span>-->
+
+      <div class="form__button-group">
+        <button class="form__button-back" type="submit" (click)="logout()">
+          <!--TODO закрыть форму-->
+          &larr;
+        </button>
+        <button
+          class="form__button-main"
+          (click)="onSubmit(email.value, password.value)"
+        >
+          {{ currentTitleForElementsForm }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="overlay"></div>

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
+import { CognitiveInfoComponent } from './components/second-screen/cognitive-info/cognitive-info.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
 
 const routes: Routes = [
-  { path: '', component: SecondScreenComponent },
+  { path: '', component: CognitiveInfoComponent },
   { path: ':id', component: WasteInfoComponent },
 ];
 
