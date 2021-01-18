@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentComponent } from './components/content/content.component';
+
+import { HeaderComponent } from './components/main-page/header/header.component';
+import { StartScreenComponent } from './components/main-page/start-screen/start-screen.component';
+import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/theme-switcher.component';
+import { ThemeModule } from './theme/theme.module';
 import { CognitiveInfoComponent } from './components/second-screen/cognitive-info/cognitive-info.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
 import { WasteService } from './services/waste.service';
@@ -22,6 +27,9 @@ import { AuthenticationService } from './services/authentication.service';
   declarations: [
     AppComponent,
     ContentComponent,
+    HeaderComponent,
+    StartScreenComponent,
+    ThemeSwitcherComponent,
     CognitiveInfoComponent,
     WasteInfoComponent,
     FormAuthenticationComponent,
@@ -30,6 +38,7 @@ import { AuthenticationService } from './services/authentication.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ThemeModule,
     AngularFireModule.initializeApp({
       //! TODO
       apiKey: 'AIzaSyBQuheIn7YDsb8lMeqCD1pQQSDZFi4C5s0',
