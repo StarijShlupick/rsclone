@@ -1,45 +1,45 @@
-.second-screen {
+.cognitive {
   padding: 2rem 0;
   width: 70vw;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
-}
 
-.item {
-  width: 12rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 1rem;
-  cursor: pointer;
-  outline: none;
+  &__item {
+    width: 12rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+    cursor: pointer;
+    outline: none;
 
-  &:hover {
-    opacity: 0.5;
+    &:hover {
+      opacity: 0.5;
+    }
+    &:active {
+      opacity: 1;
+    }
   }
-  &:active {
-    opacity: 1;
+
+  &__img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 2px solid #94c83d;
+
+    img {
+      width: 60%;
+    }
   }
-}
 
-.img-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  border: 2px solid #94c83d;
-
-  img {
-    width: 60%;
+  &__item-name {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
   }
-}
-
-.item-title {
-  margin-top: 1rem;
-  font-size: 1.8rem;
-  text-transform: uppercase;
 }
