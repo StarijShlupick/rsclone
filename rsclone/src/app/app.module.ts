@@ -10,6 +10,9 @@ import { WasteInfoComponent } from './components/second-screen/waste-info/waste-
 import { MapComponent } from './components/map/map.component';
 import { WasteService } from './services/waste.service';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -33,6 +36,9 @@ import { FirebaseService } from './services/firebase.service';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     MatSelectModule,
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]

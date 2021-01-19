@@ -1,4 +1,4 @@
-export interface Cities {
+export interface ICities {
   value: string;
   viewValue: string;
 }
@@ -11,7 +11,48 @@ export interface ICollectionsGeoJSON {
 export interface IGeoJson {
   type: string;
   geometry: IGeometry;
-  properties: PropertiesGeoJSON;
+  properties: IPropertiesGeoJSON;
+}
+
+export interface IGeoJsonForCity {
+  type: string;
+  geometry: IGeometry;
+  properties: IPropForCity;
+}
+
+interface IPropForCity {
+  city: string;
+}
+
+interface IGeometry {
+  type: string;
+  coordinates: number[];
+}
+
+interface IPropertiesGeoJSON {
+  city: string;
+  address: string;
+  title: string;
+  workingHours: string;
+  phone: string;
+  iconType: string;
+  type: ITypeGeoJson;
+}
+
+interface ITypeGeoJson {
+  batteries: boolean;
+  books: boolean;
+  cloth: boolean;
+  electronicWaste: boolean;
+  glass: boolean;
+  householdItems: boolean;
+  lamps: boolean;
+  metal: boolean;
+  oils: boolean;
+  paper: boolean;
+  plastic: boolean;
+  tires: boolean;
+  wholeClothes: boolean;
 }
 
 export const CitiesGeoJson = {
@@ -96,38 +137,6 @@ export const CitiesGeoJson = {
       }
     }
   ]
-}
-
-interface IGeometry {
-  type: string;
-  coordinates: number[];
-}
-
-interface PropertiesGeoJSON {
-  country: string;
-  city: string;
-  address: string;
-  title: string;
-  workingHours: string;
-  phone: string;
-  iconType: string;
-  type: typeGeoJson;
-}
-
-interface typeGeoJson {
-  batteries: boolean;
-  books: boolean;
-  cloth: boolean;
-  electronicWaste: boolean;
-  glass: boolean;
-  householdItems: boolean;
-  lamps: boolean;
-  metal: boolean;
-  oils: boolean;
-  paper: boolean;
-  plastic: boolean;
-  tires: boolean;
-  wholeClothes: boolean;
 }
 
 
