@@ -5,13 +5,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-
   wasteData: IWasteData[];
 
-  constructor(public firebaseService: FirebaseService) { }
+  constructor(public firebaseService: FirebaseService) {}
+
+  isShowAuthenticationForm = true;
 
   ngOnInit(): void {
     // this.firebaseService.setData();
@@ -20,4 +21,11 @@ export class ContentComponent implements OnInit {
     });
   }
 
+  onOpenAuthenticationForm(): void {
+    this.isShowAuthenticationForm = true;
+  }
+
+  onCloseAuthenticationForm(): void {
+    this.isShowAuthenticationForm = false;
+  }
 }

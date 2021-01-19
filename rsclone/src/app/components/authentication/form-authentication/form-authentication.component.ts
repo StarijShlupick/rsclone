@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -15,6 +15,8 @@ const enum TitlesForForm {
 export class FormAuthenticationComponent implements OnInit {
   authForm: FormGroup;
   isTabLogin = true;
+
+  @Input() isShowAuthenticationForm: Boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -35,7 +37,7 @@ export class FormAuthenticationComponent implements OnInit {
     });
   }
 
-  onChangeTab() {
+  onChangeTab(): void {
     this.isTabLogin = !this.isTabLogin;
   }
 
@@ -46,11 +48,12 @@ export class FormAuthenticationComponent implements OnInit {
   get email() {
     return this.authForm.get('email');
   }
+
   get password() {
     return this.authForm.get('password');
   }
 
-  onSubmit(email: string, password: string) {
+  async onSubmit(email: string, password: string) {
     if (this.authForm.invalid) {
       const controls = this.authForm.controls;
       Object.keys(controls).forEach((control) =>
@@ -64,7 +67,11 @@ export class FormAuthenticationComponent implements OnInit {
       : this.authenticationService.signUp(email, password);
   }
 
-  async logout() {
+  logout() {
     this.authenticationService.logout();
+  }
+
+  onCloseAuthenticationForm(): void {
+    this.isShowAuthenticationForm = false;
   }
 }

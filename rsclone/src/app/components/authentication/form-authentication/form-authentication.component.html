@@ -1,4 +1,4 @@
-<div class="form-wrapper">
+<div class="form-wrapper" *ngIf="isShowAuthenticationForm">
   <div class="tabs">
     <input
       type="radio"
@@ -49,8 +49,11 @@
       <!--<span class="form__error" *ngIf="isAuthError">{{ authError }}</span>-->
 
       <div class="form__button-group">
-        <button class="form__button-back" type="submit" (click)="logout()">
-          <!--TODO закрыть форму-->
+        <button
+          class="form__button-back"
+          type="submit"
+          (click)="onCloseAuthenticationForm()"
+        >
           &larr;
         </button>
         <button
@@ -63,4 +66,8 @@
     </form>
   </div>
 </div>
-<div class="overlay"></div>
+<div
+  class="overlay"
+  *ngIf="isShowAuthenticationForm"
+  (click)="onCloseAuthenticationForm()"
+></div>
