@@ -11,7 +11,12 @@ import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/th
 import { ThemeModule } from './theme/theme.module';
 import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
+import { MapComponent } from './components/map/map.component';
 import { WasteService } from './services/waste.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -36,6 +41,7 @@ import {MatMenuModule} from '@angular/material/menu';
     PwaButtonComponent,
     InfoComponent,
     FooterComponent
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +53,12 @@ import {MatMenuModule} from '@angular/material/menu';
     AngularFireDatabaseModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MatMenuModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
