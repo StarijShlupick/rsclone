@@ -5,7 +5,7 @@ import { WasteInfoComponent } from './components/second-screen/waste-info/waste-
 
 const routes: Routes = [
   { path: '', component: CognitiveInfoComponent },
-  { path: ':id', component: WasteInfoComponent },
+  { path: ':title', component: WasteInfoComponent },
 ];
 
 @NgModule({

@@ -1,54 +1,46 @@
 import { Injectable } from '@angular/core';
-import { WasteItem } from '../models/wasteItem.model';
+import { IWasteItem } from '../models/wasteItem.model';
 @Injectable()
 export class WasteService {
   constructor() {}
 
-  private wasteItems: WasteItem[] = [
+  private wasteItems: IWasteItem[] = [
     {
-      id: 1,
       title: 'paper',
       icon: '../../assets/icons/paper.svg',
       info: this.getTestText(),
     },
     {
-      id: 2,
       title: 'plastic',
       icon: '../../assets/icons/plastic.svg',
       info: this.getTestText(),
     },
     {
-      id: 3,
       title: 'glass',
       icon: '../../assets/icons/glass.svg',
       info: this.getTestText(),
     },
     {
-      id: 4,
       title: 'metal',
       icon: '../../assets/icons/metal.svg',
       info: this.getTestText(),
     },
     {
-      id: 5,
       title: 'Hazardous',
       icon: '../../assets/icons/hazardousWaste.svg',
       info: this.getTestText(),
     },
     {
-      id: 6,
       title: 'Light Bulb',
       icon: '../../assets/icons/lightBulb.svg',
       info: this.getTestText(),
     },
     {
-      id: 7,
       title: 'things',
       icon: '../../assets/icons/things.svg',
       info: this.getTestText(),
     },
     {
-      id: 8,
       title: 'battery',
       icon: '../../assets/icons/battery.svg',
       info: this.getTestText(),
@@ -64,11 +56,11 @@ export class WasteService {
      laborum.`;
   }
 
-  public getWasteItems(): Array<WasteItem> {
+  public getWasteItems(): Array<IWasteItem> {
     return this.wasteItems;
   }
 
-  public getCurrentWaste(id: number): WasteItem {
-    return this.wasteItems.find((el) => el.id === id);
+  public getCurrentWaste(title: string): IWasteItem {
+    return this.wasteItems.find((el) => el.title === title);
   }
 }

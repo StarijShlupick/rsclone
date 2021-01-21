@@ -2,7 +2,7 @@
   <div
     class="cognitive__item"
     *ngFor="let item of wasteItems"
-    [routerLink]="['', item.id]"
+    [routerLink]="['', item.title]"
   >
     <div class="cognitive__img-box">
       <img src="{{ item.icon }}" alt="{{ item.title }}" />
