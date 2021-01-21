@@ -14,7 +14,7 @@ export class FirebaseService {
     return this.db.collection<IWasteData>('/Waste').valueChanges();
   }
 
-  addDataToObject(data:IWasteData[]): IWasteData[] {
+  addDataToObject(data: IWasteData[]): IWasteData[] {
     return data.map(el => {
       return {
         address: el.address,
@@ -37,7 +37,7 @@ export class FirebaseService {
         householdItems: el.householdItems,
         wholeClothes: el.wholeClothes,
         city: el.city
-      }
+      };
     });
   }
 

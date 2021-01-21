@@ -12,7 +12,12 @@ import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/th
 import { ThemeModule } from './theme/theme.module';
 import { CognitiveInfoComponent } from './components/second-screen/cognitive-info/cognitive-info.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
+import { MapComponent } from './components/map/map.component';
 import { WasteService } from './services/waste.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -20,9 +25,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import { FormAuthenticationComponent } from './components/authentication/form-authentication/form-authentication.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './services/authentication.service';
 import { ControlAuthenticationComponent } from './components/authentication/control-authentication/control-authentication.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { PwaButtonComponent } from './components/main-page/pwa-button/pwa-button.component';
+import { InfoComponent } from './components/info-screen/info/info.component';
+import { FooterComponent } from './components/info-screen/footer/footer.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -35,6 +44,11 @@ import { ControlAuthenticationComponent } from './components/authentication/cont
     WasteInfoComponent,
     FormAuthenticationComponent,
     ControlAuthenticationComponent,
+    WasteInfoComponent,
+    PwaButtonComponent,
+    InfoComponent,
+    FooterComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +66,14 @@ import { ControlAuthenticationComponent } from './components/authentication/cont
     }),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
+    MatMenuModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [FirebaseService, WasteService, AuthenticationService],
