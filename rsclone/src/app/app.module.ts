@@ -22,6 +22,7 @@ import { FirebaseService } from './services/firebase.service';
 import { FormAuthenticationComponent } from './components/authentication/form-authentication/form-authentication.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './services/authentication.service';
+import { ControlAuthenticationComponent } from './components/authentication/control-authentication/control-authentication.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthenticationService } from './services/authentication.service';
     CognitiveInfoComponent,
     WasteInfoComponent,
     FormAuthenticationComponent,
+    ControlAuthenticationComponent,
   ],
   imports: [
     BrowserModule,

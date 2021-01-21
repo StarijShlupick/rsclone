@@ -1,7 +1,6 @@
 import { IWasteData } from './../../models/wasteData.model';
 import { FirebaseService } from './../../services/firebase.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-content',
@@ -10,12 +9,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class ContentComponent implements OnInit {
   wasteData: IWasteData[];
-  isShowAuthenticationForm = true;
+  isShowAuthenticationForm = false;
 
-  constructor(
-    public firebaseService: FirebaseService,
-    private authenticationService: AuthenticationService //TODO: убрать если не нужно
-  ) {}
+  constructor(public firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
     // this.firebaseService.setData();
