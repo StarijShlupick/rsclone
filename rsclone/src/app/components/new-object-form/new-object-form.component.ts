@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 
@@ -33,6 +34,11 @@ export class NewObjectFormComponent implements OnInit {
       center: [this.lng, this.lat]
     });
    this.map.addControl(new mapboxgl.NavigationControl());
+  }
+
+  onAddObject(form: NgForm): void {
+    const value = form.value;
+    console.log(value);
   }
 
 }

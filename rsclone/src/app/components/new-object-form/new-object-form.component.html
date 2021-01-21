@@ -1,1 +1,19 @@
-<div id="map" class="map-container"> </div>
+<div id="map" class="map-container"></div>
+<form (ngSubmit)="onAddObject(f)" #f="ngForm">
+  <div>
+    <div>
+      <label for="name">Название объекта</label>
+      <input type="text" id="name" class="form-input" name="name" ngModel required/>
+    </div>
+    <div>
+      <label for="type">Тип объекта</label>
+      <input type="text" id="type" class="form-input" name="type" ngModel required/>
+    </div>
+    <div>
+      <label for="location">Коардинаты объекта на карте</label>
+      <input type="text" id="location" class="form-input" name="x" ngModel required />
+      <input type="text" id="location" class="form-input" name="y" ngModel required />
+    </div>
+    <button type="submit" [disabled]="!f.valid">Add</button>
+  </div>
+</form>
