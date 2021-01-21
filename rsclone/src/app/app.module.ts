@@ -23,6 +23,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { NewObjectFormComponent } from './components/new-object-form/new-object-form.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FirebaseService } from './services/firebase.service';
     SecondScreenComponent,
     WasteInfoComponent,
     MapComponent,
+    NewObjectFormComponent,
   ],
   imports: [
     BrowserModule,
