@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { environment } from '../../../environments/environment';
-import { WasteData } from '../../models/wasteDate.model';
+import { IWasteData } from '../../models/wasteData.model';
 import { ICities } from '../../models/mapData.model';
 import { ICollectionsGeoJSON } from '../../models/mapData.model';
 import { IGeoJson } from '../../models/mapData.model';
@@ -16,9 +16,9 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  wasteData: WasteData[];
+  wasteData: IWasteData[];
   map: mapboxgl.Map;
-  popup: mapboxgl.Popup
+  popup: mapboxgl.Popup;
   geoJson: ICollectionsGeoJSON;
   selectedCity: string;
   cities: ICities[] = [
@@ -28,7 +28,7 @@ export class MapComponent implements OnInit {
     { value: 'city-4', viewValue: 'Mogilev' },
     { value: 'city-5', viewValue: 'Brest' },
     { value: 'city-6', viewValue: 'Gomel' },
-  ]
+  ];
 
   constructor(private FirebaseService: FirebaseService) { }
 
@@ -51,32 +51,32 @@ export class MapComponent implements OnInit {
     const geoJson: ICollectionsGeoJSON = { 'type': 'FeatureCollection', 'features': [] };
     for (let key in data) {
       const newFeature: IGeoJson = {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [parseFloat(data[key].location.split(',')[0]), parseFloat(data[key].location.split(',')[1])]
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [parseFloat(data[key].location.split(',')[0]), parseFloat(data[key].location.split(',')[1])]
         },
-        "properties": {
-          "city": data[key].city,
-          "address": data[key].address,
-          "title": data[key].title,
-          "workingHours": data[key].workingHours,
-          "phone": data[key].phone,
-          "iconType": data[key].iconType,
-          "type": {
-            "batteries": data[key].batteries,
-            "books": data[key].books,
-            "cloth": data[key].cloth,
-            "electronicWaste": data[key].electronicWaste,
-            "glass": data[key].glass,
-            "householdItems": data[key].householdItems,
-            "lamps": data[key].lamps,
-            "metal": data[key].metal,
-            "oils": data[key].oils,
-            "paper": data[key].paper,
-            "plastic": data[key].plastic,
-            "tires": data[key].tires,
-            "wholeClothes": data[key].wholeClothes,
+        'properties': {
+          'city': data[key].city,
+          'address': data[key].address,
+          'title': data[key].title,
+          'workingHours': data[key].workingHours,
+          'phone': data[key].phone,
+          'iconType': data[key].iconType,
+          'type': {
+            'batteries': data[key].batteries,
+            'books': data[key].books,
+            'cloth': data[key].cloth,
+            'electronicWaste': data[key].electronicWaste,
+            'glass': data[key].glass,
+            'householdItems': data[key].householdItems,
+            'lamps': data[key].lamps,
+            'metal': data[key].metal,
+            'oils': data[key].oils,
+            'paper': data[key].paper,
+            'plastic': data[key].plastic,
+            'tires': data[key].tires,
+            'wholeClothes': data[key].wholeClothes,
           }
         }
       }
@@ -88,8 +88,8 @@ export class MapComponent implements OnInit {
   loadMap(): void {
     this.map.on('load', () => {
       this.map.addSource('places', {
-        "type": "geojson",
-        "data": this.geoJson
+        'type': 'geojson',
+        'data': this.geoJson
       });
       this.addMarkers();
 
@@ -122,30 +122,30 @@ export class MapComponent implements OnInit {
         this.flyToPoint(marker.geometry.coordinates);
       });
 
-      const mainPopupInfo: string = `
-      <h3 class="popup-title">${marker.properties.title}</h3>
-      ${marker.properties.address ? `<span class="popup-main-info popup-address">${marker.properties.address}</span>` : ''} 
-      ${marker.properties.workingHours ? `<span class="popup-main-info popup-hours">${marker.properties.workingHours}</span>` : ''} 
-      ${marker.properties.phone ? `<span class="popup-main-info popup-phone">${marker.properties.phone}</span>` : ''}    
-      <div class="popup-waste">
-      ${marker.properties.type.batteries ? `<span class="popup-waste__item batteries" tooltip="батарейки"></span>` : ''}
-      ${marker.properties.type.books ? `<span class="popup-waste__item books" tooltip="книги"></span>` : ''}
-      ${marker.properties.type.cloth ? `<span class="popup-waste__item cloth" tooltip="ткань"></span>` : ''}
-      ${marker.properties.type.electronicWaste ? `<span class="popup-waste__item electronicWaste" tooltip="электроника"></span>` : ''}
-      ${marker.properties.type.glass ? `<span class="popup-waste__item glass" tooltip="стекло"></span>` : ''}
-      ${marker.properties.type.householdItems ? `<span class="popup-waste__item householdItems" tooltip="бытовые отходы"></span>` : ''}
-      ${marker.properties.type.lamps ? `<span class="popup-waste__item lamps" tooltip="лампочки"></span>` : ''}
-      ${marker.properties.type.metal ? `<span class="popup-waste__item metal" tooltip="метал"></span>` : ''}
-      ${marker.properties.type.oils ? `<span class="popup-waste__item oils" tooltip="масло"></span>` : ''}
-      ${marker.properties.type.paper ? `<span class="popup-waste__item paper" tooltip="макулатура"></span>` : ''}
-      ${marker.properties.type.plastic ? `<span class="popup-waste__item plastic" tooltip="пластик"></span>` : ''}
-      ${marker.properties.type.tires ? `<span class="popup-waste__item tires" tooltip="шины"></span>` : ''}
-      ${marker.properties.type.wholeClothes ? `<span class="popup-waste__item wholeClothes" tooltip="одежда"></span>` : ''}      
+      const mainPopupInfo = `
+      <h3 class='popup-title'>${marker.properties.title}</h3>
+      ${marker.properties.address ? `<span class='popup-main-info popup-address'>${marker.properties.address}</span>` : ''}
+      ${marker.properties.workingHours ? `<span class='popup-main-info popup-hours'>${marker.properties.workingHours}</span>` : ''}
+      ${marker.properties.phone ? `<span class='popup-main-info popup-phone'>${marker.properties.phone}</span>` : ''}
+      <div class='popup-waste'>
+      ${marker.properties.type.batteries ? `<span class='popup-waste__item batteries' tooltip='батарейки'></span>` : ''}
+      ${marker.properties.type.books ? `<span class='popup-waste__item books' tooltip='книги'></span>` : ''}
+      ${marker.properties.type.cloth ? `<span class='popup-waste__item cloth' tooltip='ткань'></span>` : ''}
+      ${marker.properties.type.electronicWaste ? `<span class='popup-waste__item electronicWaste' tooltip='электроника'></span>` : ''}
+      ${marker.properties.type.glass ? `<span class='popup-waste__item glass' tooltip='стекло'></span>` : ''}
+      ${marker.properties.type.householdItems ? `<span class='popup-waste__item householdItems' tooltip='бытовые отходы'></span>` : ''}
+      ${marker.properties.type.lamps ? `<span class='popup-waste__item lamps' tooltip='лампочки'></span>` : ''}
+      ${marker.properties.type.metal ? `<span class='popup-waste__item metal' tooltip='метал'></span>` : ''}
+      ${marker.properties.type.oils ? `<span class='popup-waste__item oils' tooltip='масло'></span>` : ''}
+      ${marker.properties.type.paper ? `<span class='popup-waste__item paper' tooltip='макулатура'></span>` : ''}
+      ${marker.properties.type.plastic ? `<span class='popup-waste__item plastic' tooltip='пластик'></span>` : ''}
+      ${marker.properties.type.tires ? `<span class='popup-waste__item tires' tooltip='шины'></span>` : ''}
+      ${marker.properties.type.wholeClothes ? `<span class='popup-waste__item wholeClothes' tooltip='одежда'></span>` : ''}
       </div>
-      `
+      `;
       const popup = new mapboxgl.Popup({
         offset: 15,
-        className: "map-popup"
+        className: 'map-popup'
       })
         .setHTML(mainPopupInfo);
 
