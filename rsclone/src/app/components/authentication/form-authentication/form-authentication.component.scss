@@ -1,20 +1,20 @@
-$color-primary: #4a148c;
-$color-secondary: #00e5ff;
-$color-bg: #eceff1;
+$color-primary: var(--primary-accent-color);
+$color-secondary: var(--secondary-accent-color);
+$color-bg: var(--secondary-background-color);
 $color-warning: #d50000;
 
 @mixin input-template {
-  margin-top: 1rem;
+  margin-top: 1.6rem;
   outline: none;
   text-align: center;
-  border-color: $color-primary;
-  margin-top: 0.8rem;
-  padding: 0.5rem;
+  border: 1px solid $color-primary;
+  margin-top: 1rem;
+  padding: 0.8rem;
 }
 
 @mixin button {
   cursor: pointer;
-  border-radius: 2rem;
+  border-radius: 3.6rem;
   outline: none;
   &:hover {
     opacity: 0.5;
@@ -26,12 +26,12 @@ $color-warning: #d50000;
 .content-wrapper {
   position: fixed;
   top: calc(50vh - 200px);
-  left: calc(50vw - 8rem);
+  left: calc(50vw - 14rem);
   z-index: 100;
-  width: 16rem;
+  width: 26rem;
   background-color: $color-bg;
-  border-radius: 0.6rem;
-  margin: 2rem auto;
+  border-radius: 1rem;
+  margin: 3.2rem auto;
   overflow: hidden;
 }
 
@@ -40,7 +40,7 @@ $color-warning: #d50000;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 3rem 2rem;
+  padding: 1.6rem 3.5rem 3.2rem;
 
   &__icon {
     width: 80px;
@@ -49,27 +49,29 @@ $color-warning: #d50000;
   &__title {
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.9rem;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
   }
 
   &__input {
     @include input-template;
-    width: 12rem;
-    size: 1.2rem;
-    border-radius: 0.6rem;
+    width: 100%;
+    size: 1.9rem;
+    border-radius: 0.8rem;
     transition: 0.2s transform;
 
     &:focus {
       border-color: $color-secondary;
       transform: scaleX(1.02);
-      border-radius: 2rem;
+      border-radius: 3.2rem;
     }
   }
   &__error {
-    padding: 0.3rem;
+    margin: 0;
+    padding: 0.5rem 0;
     color: $color-warning;
+    font-size: 1rem;
   }
   &__button-group {
     display: flex;
@@ -79,13 +81,13 @@ $color-warning: #d50000;
   &__button-back {
     @include input-template;
     @include button;
-    width: 3rem;
+    width: 30%;
   }
 
   &__button-main {
     @include input-template;
     @include button;
-    width: 8rem;
+    width: 60%;
   }
 }
 
@@ -126,8 +128,8 @@ input.ng-touched.ng-invalid {
     width: 50%;
     text-align: center;
     background-color: #a8a8a8;
-    padding: 0.5rem;
-    font-size: 16px;
+    padding: 0.8rem;
+    font-size: 1.6rem;
     line-height: 1.5;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
     cursor: pointer;
@@ -145,5 +147,6 @@ input.ng-touched.ng-invalid {
     @include button;
     margin-top: 1rem;
     width: 90%;
+    border: 1px solid $color-primary;
   }
 }
