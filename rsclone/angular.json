@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "rsclone"
+  "defaultProject": "rsclone",
+  "cli": {
+    "analytics": "cc3a4df4-8429-4bae-8e46-a5efaffecb35"
+  }
 }
