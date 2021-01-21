@@ -18,5 +18,5 @@ export interface IWasteData {
   books: boolean;
   householdItems: boolean;
   wholeClothes: boolean;
-  city: string
+  city: string;
 }

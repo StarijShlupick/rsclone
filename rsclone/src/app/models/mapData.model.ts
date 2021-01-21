@@ -56,81 +56,81 @@ interface ITypeGeoJson {
 }
 
 export const CitiesGeoJson = {
-  "type": "FeatureCollection",
-  "features": [
+  'type': 'FeatureCollection',
+  'features': [
     {
-      "type": "Feature",
-      "properties": {
-        "city": "Minsk",
+      'type': 'Feature',
+      'properties': {
+        'city': 'Minsk',
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [
           27.555332,
           53.903621
         ]
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "city": "Vitebsk",
+      'type': 'Feature',
+      'properties': {
+        'city': 'Vitebsk',
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [
           30.205186,
           55.187459
         ]
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "city": "Grodno",
+      'type': 'Feature',
+      'properties': {
+        'city': 'Grodno',
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [
           23.822140,
           53.668452
         ]
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "city": "Mogilev",
+      'type': 'Feature',
+      'properties': {
+        'city': 'Mogilev',
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [
           30.332594,
           53.897693
         ]
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "city": "Brest",
+      'type': 'Feature',
+      'properties': {
+        'city': 'Brest',
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [
           23.686458,
           52.086182
         ]
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "city": "Gomel",
+      'type': 'Feature',
+      'properties': {
+        'city': 'Gomel',
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [
           30.994284,
           52.430636
         ]

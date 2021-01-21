@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WasteService } from '../../../services/waste.service';
+import { WasteItem } from '../../../models/wasteItem.model';
 
 @Component({
   selector: 'app-second-screen',
@@ -7,9 +8,11 @@ import { WasteService } from '../../../services/waste.service';
   styleUrls: ['./second-screen.component.scss'],
 })
 export class SecondScreenComponent implements OnInit {
-  constructor(private wasteService: WasteService) {}
 
-  ngOnInit(): void {}
+  wasteItems: WasteItem[];
+  constructor(private wasteService: WasteService) { }
 
-  public wasteItems = this.wasteService.getWasteItems();
+  ngOnInit(): void {
+    this.wasteItems = this.wasteService.getWasteItems();
+   }
 }

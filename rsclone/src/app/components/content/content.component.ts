@@ -15,9 +15,9 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     // this.firebaseService.setData();
-    // this.firebaseService.getData().subscribe((data) => {
-    //   this.wasteData = this.firebaseService.addDataToObject(data);
-    // });
+    this.firebaseService.getData().subscribe((data) => {
+      this.wasteData = this.firebaseService.addDataToObject(data);
+    });
   }
 
 }
