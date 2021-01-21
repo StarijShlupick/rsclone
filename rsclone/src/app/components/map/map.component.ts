@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { environment } from '../../../environments/environment';
-import { WasteData } from '../../models/wasteDate.model';
+import { IWasteData } from '../../models/wasteData.model';
 import { ICities } from '../../models/mapData.model';
 import { ICollectionsGeoJSON } from '../../models/mapData.model';
 import { IGeoJson } from '../../models/mapData.model';
@@ -16,7 +16,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  wasteData: WasteData[];
+  wasteData: IWasteData[];
   map: mapboxgl.Map;
   popup: mapboxgl.Popup
   geoJson: ICollectionsGeoJSON;
@@ -124,9 +124,9 @@ export class MapComponent implements OnInit {
 
       const mainPopupInfo: string = `
       <h3 class="popup-title">${marker.properties.title}</h3>
-      ${marker.properties.address ? `<span class="popup-main-info popup-address">${marker.properties.address}</span>` : ''} 
-      ${marker.properties.workingHours ? `<span class="popup-main-info popup-hours">${marker.properties.workingHours}</span>` : ''} 
-      ${marker.properties.phone ? `<span class="popup-main-info popup-phone">${marker.properties.phone}</span>` : ''}    
+      ${marker.properties.address ? `<span class="popup-main-info popup-address">${marker.properties.address}</span>` : ''}
+      ${marker.properties.workingHours ? `<span class="popup-main-info popup-hours">${marker.properties.workingHours}</span>` : ''}
+      ${marker.properties.phone ? `<span class="popup-main-info popup-phone">${marker.properties.phone}</span>` : ''}
       <div class="popup-waste">
       ${marker.properties.type.batteries ? `<span class="popup-waste__item batteries" tooltip="батарейки"></span>` : ''}
       ${marker.properties.type.books ? `<span class="popup-waste__item books" tooltip="книги"></span>` : ''}
@@ -140,7 +140,7 @@ export class MapComponent implements OnInit {
       ${marker.properties.type.paper ? `<span class="popup-waste__item paper" tooltip="макулатура"></span>` : ''}
       ${marker.properties.type.plastic ? `<span class="popup-waste__item plastic" tooltip="пластик"></span>` : ''}
       ${marker.properties.type.tires ? `<span class="popup-waste__item tires" tooltip="шины"></span>` : ''}
-      ${marker.properties.type.wholeClothes ? `<span class="popup-waste__item wholeClothes" tooltip="одежда"></span>` : ''}      
+      ${marker.properties.type.wholeClothes ? `<span class="popup-waste__item wholeClothes" tooltip="одежда"></span>` : ''}
       </div>
       `
       const popup = new mapboxgl.Popup({
