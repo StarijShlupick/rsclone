@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -14,7 +14,10 @@ const enum TitlesForForm {
 })
 export class FormAuthenticationComponent implements OnInit {
   authForm: FormGroup;
+  authErrorMessage: string;
   isTabLogin = true;
+  isSuccessAuthentication = false;
+  userEmail: string;
 
   @Input() isShowAuthenticationForm: Boolean;
 
@@ -24,6 +27,19 @@ export class FormAuthenticationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.authenticationService.authErrorMessage.subscribe((errorMessage) => {
+      this.authErrorMessage = errorMessage;
+    });
+    this.authenticationService.isSuccessAuthentication.subscribe(
+      (isSuccessAuthentication) => {
+        this.isSuccessAuthentication = isSuccessAuthentication;
+
+        if (isSuccessAuthentication) {
+          this.getUserEmail();
+        }
+      }
+    );
+
     this.authForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [
@@ -41,7 +57,11 @@ export class FormAuthenticationComponent implements OnInit {
     this.isTabLogin = !this.isTabLogin;
   }
 
-  get currentTitleForElementsForm() {
+  getUserEmail(): void {
+    this.userEmail = this.authenticationService.userEmail;
+  }
+
+  get currentTitleForElementsForm(): string {
     return this.isTabLogin ? TitlesForForm.Login : TitlesForForm.SignUp;
   }
 
@@ -65,10 +85,6 @@ export class FormAuthenticationComponent implements OnInit {
     this.isTabLogin
       ? this.authenticationService.login(email, password)
       : this.authenticationService.signUp(email, password);
-  }
-
-  logout() {
-    this.authenticationService.logout();
   }
 
   onCloseAuthenticationForm(): void {

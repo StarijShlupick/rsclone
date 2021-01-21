@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  isLoggedIn = false;
+  authErrorMessage = new BehaviorSubject('');
+  isSuccessAuthentication = new BehaviorSubject(false);
 
   constructor(public firebaseAuth: AngularFireAuth) {}
 
@@ -13,22 +15,25 @@ export class AuthenticationService {
     await this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
+        this.authErrorMessage.next('');
+        this.isSuccessAuthentication.next(true);
       })
-      .catch((er) => {
-        console.log(er.message);
+      .catch((error) => {
+        this.authErrorMessage.next(error.message);
       });
   }
+
   async signUp(email: string, password: string) {
-    this.firebaseAuth
+    await this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
-        this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
+        this.authErrorMessage.next('');
+        this.isSuccessAuthentication.next(true);
       })
-      .catch((er) => {
-        console.log(er.message);
+      .catch((error) => {
+        this.authErrorMessage.next(error.message);
       });
   }
 
@@ -40,8 +45,9 @@ export class AuthenticationService {
     return JSON.parse(localStorage.getItem('user')).email;
   }
 
-  logout() {
+  logout(): void {
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
+    this.isSuccessAuthentication.next(false);
   }
 }

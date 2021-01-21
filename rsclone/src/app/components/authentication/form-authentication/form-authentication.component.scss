@@ -15,6 +15,7 @@ $color-warning: #d50000;
 @mixin button {
   cursor: pointer;
   border-radius: 2rem;
+  outline: none;
   &:hover {
     opacity: 0.5;
   }
@@ -22,7 +23,7 @@ $color-warning: #d50000;
     transform: scaleX(0.9);
   }
 }
-.form-wrapper {
+.content-wrapper {
   position: fixed;
   top: calc(50vh - 200px);
   left: calc(50vw - 8rem);
@@ -130,5 +131,19 @@ input.ng-touched.ng-invalid {
     line-height: 1.5;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
     cursor: pointer;
+  }
+}
+
+.info-success-auth {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    @include button;
+    margin-top: 1rem;
+    width: 90%;
   }
 }

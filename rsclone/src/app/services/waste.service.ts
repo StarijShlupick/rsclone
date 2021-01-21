@@ -68,7 +68,7 @@ export class WasteService {
     return this.wasteItems;
   }
 
-  public getCurrentWaste(id: number) {
+  public getCurrentWaste(id: number): WasteItem {
     return this.wasteItems.find((el) => el.id === id);
   }
 }
