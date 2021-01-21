@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 const enum TitlesForForm {
@@ -12,12 +13,13 @@ const enum TitlesForForm {
   templateUrl: './form-authentication.component.html',
   styleUrls: ['./form-authentication.component.scss'],
 })
-export class FormAuthenticationComponent implements OnInit {
+export class FormAuthenticationComponent implements OnInit, OnDestroy {
   authForm: FormGroup;
   authErrorMessage: string;
   isTabLogin = true;
   isSuccessAuthentication = false;
   userEmail: string;
+  private subscribtions = new Subscription();
 
   @Input() isShowAuthenticationForm: Boolean;
 
@@ -26,18 +28,25 @@ export class FormAuthenticationComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
-  ngOnInit(): void {
-    this.authenticationService.authErrorMessage.subscribe((errorMessage) => {
-      this.authErrorMessage = errorMessage;
-    });
-    this.authenticationService.isSuccessAuthentication.subscribe(
-      (isSuccessAuthentication) => {
-        this.isSuccessAuthentication = isSuccessAuthentication;
+  ngOnDestroy(): void {
+    this.subscribtions.unsubscribe();
+  }
 
-        if (isSuccessAuthentication) {
-          this.getUserEmail();
+  ngOnInit(): void {
+    this.subscribtions.add(
+      this.authenticationService.authErrorMessage.subscribe((errorMessage) => {
+        this.authErrorMessage = errorMessage;
+      })
+    );
+    this.subscribtions.add(
+      this.authenticationService.isSuccessAuthentication.subscribe(
+        (isSuccessAuthentication) => {
+          this.isSuccessAuthentication = isSuccessAuthentication;
+          if (isSuccessAuthentication) {
+            this.getUserEmail();
+          }
         }
-      }
+      )
     );
 
     this.authForm = this.fb.group({

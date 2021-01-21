@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  authErrorMessage = new BehaviorSubject('');
-  isSuccessAuthentication = new BehaviorSubject(false);
+  private errorMessage$ = new BehaviorSubject('');
+  private isSuccessAuthentication$ = new BehaviorSubject(false);
 
   constructor(public firebaseAuth: AngularFireAuth) {}
 
@@ -16,11 +16,11 @@ export class AuthenticationService {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         localStorage.setItem('user', JSON.stringify(res.user));
-        this.authErrorMessage.next('');
-        this.isSuccessAuthentication.next(true);
+        this.errorMessage$.next('');
+        this.isSuccessAuthentication$.next(true);
       })
       .catch((error) => {
-        this.authErrorMessage.next(error.message);
+        this.errorMessage$.next(error.message);
       });
   }
 
@@ -29,12 +29,20 @@ export class AuthenticationService {
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         localStorage.setItem('user', JSON.stringify(res.user));
-        this.authErrorMessage.next('');
-        this.isSuccessAuthentication.next(true);
+        this.errorMessage$.next('');
+        this.isSuccessAuthentication$.next(true);
       })
       .catch((error) => {
-        this.authErrorMessage.next(error.message);
+        this.errorMessage$.next(error.message);
       });
+  }
+
+  get authErrorMessage(): Observable<string> {
+    return this.errorMessage$.asObservable();
+  }
+
+  get isSuccessAuthentication(): Observable<boolean> {
+    return this.isSuccessAuthentication$.asObservable();
   }
 
   get isLogged(): Boolean {
@@ -48,6 +56,6 @@ export class AuthenticationService {
   logout(): void {
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
-    this.isSuccessAuthentication.next(false);
+    this.isSuccessAuthentication$.next(false);
   }
 }
