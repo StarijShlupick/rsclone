@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -17,15 +24,16 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
   authForm: FormGroup;
   authErrorMessage: string;
   isTabLogin = true;
-  isSuccessAuthentication = false;
-  userEmail: string;
   private subscribtions = new Subscription();
 
-  @Input() isShowAuthenticationForm: Boolean;
+  @Input() isShowAuthenticationForm: boolean;
+  @Input() isLogged: boolean;
+  @Input() userEmail: string;
+  @Output() closeAuthenticationForm = new EventEmitter();
 
   constructor(
-    private fb: FormBuilder,
-    private authenticationService: AuthenticationService
+    public fb: FormBuilder,
+    public authenticationService: AuthenticationService
   ) {}
 
   ngOnDestroy(): void {
@@ -37,16 +45,6 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
       this.authenticationService.authErrorMessage.subscribe((errorMessage) => {
         this.authErrorMessage = errorMessage;
       })
-    );
-    this.subscribtions.add(
-      this.authenticationService.isSuccessAuthentication.subscribe(
-        (isSuccessAuthentication) => {
-          this.isSuccessAuthentication = isSuccessAuthentication;
-          if (isSuccessAuthentication) {
-            this.getUserEmail();
-          }
-        }
-      )
     );
 
     this.authForm = this.fb.group({
@@ -64,10 +62,6 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
 
   onChangeTab(): void {
     this.isTabLogin = !this.isTabLogin;
-  }
-
-  getUserEmail(): void {
-    this.userEmail = this.authenticationService.userEmail;
   }
 
   get currentTitleForElementsForm(): string {
@@ -97,6 +91,6 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
   }
 
   onCloseAuthenticationForm(): void {
-    this.isShowAuthenticationForm = false;
+    this.closeAuthenticationForm.emit(null);
   }
 }

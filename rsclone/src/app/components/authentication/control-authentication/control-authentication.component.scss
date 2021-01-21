@@ -1,3 +1,24 @@
 .auth-controls {
   display: flex;
+  padding: 5rem;
+
+  &__separator {
+    border-right: 1px solid #000000;
+    margin: 0 1rem;
+  }
+
+  &__button {
+    outline: none;
+    border: none;
+    background: none;
+    color: #414141;
+    cursor: pointer;
+
+    &:hover {
+      color: #000000;
+    }
+    &:active {
+      color: #333232;
+    }
+  }
 }

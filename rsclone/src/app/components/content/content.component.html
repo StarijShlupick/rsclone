@@ -2,5 +2,12 @@
 <router-outlet></router-outlet>
 <app-form-authentication
   [isShowAuthenticationForm]="isShowAuthenticationForm"
+  (closeAuthenticationForm)="onCloseAuthenticationForm()"
+  [isLogged]="isLogged"
+  [userEmail]="userEmail"
 ></app-form-authentication>
-<app-control-authentication></app-control-authentication>
+<app-control-authentication
+  [isLogged]="isLogged"
+  [userEmail]="userEmail"
+  (onOpenAuthenticationForm)="onOpenAuthenticationForm()"
+></app-control-authentication>

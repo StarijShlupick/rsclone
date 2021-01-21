@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   private errorMessage$ = new BehaviorSubject('');
-  private isSuccessAuthentication$ = new BehaviorSubject(false);
+  private isSuccessAuthentication$ = new Subject<boolean>();
 
   constructor(public firebaseAuth: AngularFireAuth) {}
 
@@ -45,7 +45,7 @@ export class AuthenticationService {
     return this.isSuccessAuthentication$.asObservable();
   }
 
-  get isLogged(): Boolean {
+  get isLogged(): boolean {
     return localStorage.getItem('user') !== null;
   }
 

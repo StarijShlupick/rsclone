@@ -1,4 +1,17 @@
 <div class="auth-controls">
-  <button class="auth-controls__enter">Войти</button>
-  <button class="auth-controls__out">Выйти</button>
+  <button
+    class="auth-controls__button"
+    *ngIf="!isLogged; else userInfo"
+    (click)="openAuthenticationForm()"
+  >
+    Войти
+  </button>
+  <span class="auth-controls__separator" *ngIf="isLogged"></span>
+  <button class="auth-controls__button" *ngIf="isLogged" (click)="logout()">
+    Выйти
+  </button>
 </div>
+
+<ng-template #userInfo>
+  <div class="auth-controls__user-info">{{ userEmail }}</div>
+</ng-template>

@@ -1,8 +1,5 @@
 <div class="content-wrapper" *ngIf="isShowAuthenticationForm">
-  <div
-    class="content"
-    *ngIf="!isSuccessAuthentication; else successAuthentication"
-  >
+  <div class="content" *ngIf="!isLogged; else successAuthentication">
     <div class="tabs">
       <input
         type="radio"
