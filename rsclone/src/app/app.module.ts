@@ -11,7 +11,12 @@ import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/th
 import { ThemeModule } from './theme/theme.module';
 import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
+import { MapComponent } from './components/map/map.component';
 import { WasteService } from './services/waste.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -27,7 +32,8 @@ import { FirebaseService } from './services/firebase.service';
     StartScreenComponent,
     ThemeSwitcherComponent,
     SecondScreenComponent,
-    WasteInfoComponent
+    WasteInfoComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +42,13 @@ import { FirebaseService } from './services/firebase.service';
     ThemeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
