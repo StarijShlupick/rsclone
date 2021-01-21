@@ -23,6 +23,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { PwaButtonComponent } from './components/main-page/pwa-button/pwa-button.component';
+import { InfoComponent } from './components/info-screen/info/info.component';
+import { FooterComponent } from './components/info-screen/footer/footer.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,10 @@ import { FirebaseService } from './services/firebase.service';
     ThemeSwitcherComponent,
     SecondScreenComponent,
     WasteInfoComponent,
-    MapComponent,
+    PwaButtonComponent,
+    InfoComponent,
+    FooterComponent
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,8 @@ import { FirebaseService } from './services/firebase.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatMenuModule
     MatSelectModule,
     MatSlideToggleModule,
     FormsModule,
