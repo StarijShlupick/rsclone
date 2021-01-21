@@ -27,7 +27,6 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // this.firebaseService.setData();
-    this.updateUserEmail();
 
     this.firebaseService.getData().subscribe((data) => {
       this.wasteData = this.firebaseService.addDataToObject(data);
@@ -36,12 +35,8 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.subscribtion.add(
       this.authenticationService.isSuccessAuthentication.subscribe(
         (isSuccessAuthentication) => {
-          this.isLogged = isSuccessAuthentication;
-          if (isSuccessAuthentication) {
-            this.updateUserEmail();
-          } else {
-            this.deleteUserEmail();
-          }
+          this.isLogged = this.getIsLoggedInfoFromService();
+          this.updateUserEmail();
         }
       )
     );
@@ -49,10 +44,6 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   updateUserEmail(): void {
     this.userEmail = this.authenticationService.userEmail;
-  }
-
-  deleteUserEmail(): void {
-    this.userEmail = '';
   }
 
   getIsLoggedInfoFromService(): boolean {

@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class AuthenticationService {
   private errorMessage$ = new BehaviorSubject('');
-  private isSuccessAuthentication$ = new Subject<boolean>();
+  private isSuccessAuthentication$ = new BehaviorSubject<boolean>(false);
 
   constructor(public firebaseAuth: AngularFireAuth) {}
 
@@ -50,7 +50,7 @@ export class AuthenticationService {
   }
 
   get userEmail(): string {
-    return JSON.parse(localStorage.getItem('user')).email;
+    return this.isLogged ? JSON.parse(localStorage.getItem('user')).email : '';
   }
 
   logout(): void {

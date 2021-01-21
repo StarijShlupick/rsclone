@@ -5,7 +5,7 @@
         type="radio"
         name="tabs-group"
         id="tab-login"
-        checked
+        [checked]="isTabLogin"
         (change)="onChangeTab()"
       />
       <label for="tab-login">Login</label>
@@ -13,6 +13,7 @@
         type="radio"
         name="tabs-group"
         id="tab-register"
+        [checked]="!isTabLogin"
         (change)="onChangeTab()"
       />
       <label for="tab-register">Sign Up</label>
