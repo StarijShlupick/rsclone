@@ -14,7 +14,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   isShowAuthenticationForm = false;
   userEmail: string;
   private subscribtion = new Subscription();
-  isLogged = this.getIsLoggedInfoFromService();
+  isLogged: boolean;
 
   constructor(
     public firebaseService: FirebaseService,
