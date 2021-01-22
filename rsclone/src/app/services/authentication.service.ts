@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,27 +14,33 @@ export class AuthenticationService {
   async login(email: string, password: string) {
     await this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.user));
-        this.errorMessage$.next('');
-        this.isSuccessAuthentication$.next(true);
+      .then((response) => {
+        this.authenticateUser(response.user);
       })
       .catch((error) => {
-        this.errorMessage$.next(error.message);
+        this.sendErrorMessage(error.message);
       });
   }
 
   async signUp(email: string, password: string) {
     await this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.user));
-        this.errorMessage$.next('');
-        this.isSuccessAuthentication$.next(true);
+      .then((response) => {
+        this.authenticateUser(response);
       })
       .catch((error) => {
-        this.errorMessage$.next(error.message);
+        this.sendErrorMessage(error.message);
       });
+  }
+
+  authenticateUser(user: object) {
+    localStorage.setItem('user', JSON.stringify(user));
+    this.errorMessage$.next('');
+    this.isSuccessAuthentication$.next(true);
+  }
+
+  sendErrorMessage(message: string) {
+    this.errorMessage$.next(message);
   }
 
   get authErrorMessage(): Observable<string> {
