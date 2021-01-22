@@ -1,4 +1,6 @@
+import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
@@ -10,6 +12,8 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./new-object-form.component.scss']
 })
 export class NewObjectFormComponent implements OnInit {
+
+  @Output() addNewObject = new EventEmitter<object>();
 
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11';
@@ -38,7 +42,7 @@ export class NewObjectFormComponent implements OnInit {
 
   onAddObject(form: NgForm): void {
     const value = form.value;
-    console.log(value);
+    this.addNewObject.emit(value);
   }
 
 }

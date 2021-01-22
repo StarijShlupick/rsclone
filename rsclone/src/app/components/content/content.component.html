@@ -1,4 +1,5 @@
 <app-start-screen></app-start-screen>
 <router-outlet></router-outlet>
-<app-new-object-form></app-new-object-form>
+<app-new-object-form  (addNewObject)="firebaseService.setData($event)"
+></app-new-object-form>
 <!-- <app-map></app-map> -->

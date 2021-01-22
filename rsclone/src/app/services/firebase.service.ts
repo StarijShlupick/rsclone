@@ -41,10 +41,7 @@ export class FirebaseService {
     });
   }
 
-  // setData() {
-  //   this.item.forEach(i => {
-  //     this.db.collection('/Waste').add(i);
-  //   })
-  // }
-
+  setData(data): void {
+    this.db.collection<IWasteData>('/NewObjects').add(data);
+  }
 }
