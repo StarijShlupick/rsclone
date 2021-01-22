@@ -18,6 +18,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { BurgerMenuComponent } from './components/burger-menu/burger-menu.component';
+import {BurgerDirective} from './models/burger.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FirebaseService } from './services/firebase.service';
     StartScreenComponent,
     ThemeSwitcherComponent,
     SecondScreenComponent,
-    WasteInfoComponent
+    WasteInfoComponent,
+    BurgerMenuComponent,
+    BurgerDirective
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { FirebaseService } from './services/firebase.service';
     AngularFireDatabaseModule
   ],
   providers: [FirebaseService, WasteService],
+  entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
