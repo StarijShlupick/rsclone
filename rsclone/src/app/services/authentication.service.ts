@@ -26,7 +26,7 @@ export class AuthenticationService {
     await this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-        this.authenticateUser(response);
+        this.authenticateUser(response.user);
       })
       .catch((error) => {
         this.sendErrorMessage(error.message);
