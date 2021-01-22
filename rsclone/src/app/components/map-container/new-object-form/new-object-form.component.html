@@ -1,12 +1,13 @@
 <div id="map" class="map-container"></div>
 <app-new-object-button (openForm)="onOpenForm()"></app-new-object-button>
 <form (ngSubmit)="onAddObject(f)" #f="ngForm" *ngIf="formOpend">
-  <img
+  <span class="closeButton" (click)="onCloseForm()"></span>
+  <!-- <img
     class="closeButton"
-    src="../../../../assets/icons/close.svg"
+    xlink:href="../../../../assets/icons/close.svg"
     alt="close"
     (click)="onCloseForm()"
-  />
+  /> -->
   <h3 class="title">Add an object in the "Secondary resources" section</h3>
   <div class="inputContainer">
     <input

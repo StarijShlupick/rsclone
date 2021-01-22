@@ -25,16 +25,18 @@ form {
   z-index: 2;
 
   .closeButton {
+    display: inline-block;
     width: 3rem;
+    height: 3rem;
+    background-size: cover;
     align-self: flex-start;
     cursor: pointer;
-    fill: var(--text-color);
+    mask: url(../../../../assets/icons/close.svg);
+    background: var(--text-color);
   }
 
   .closeButton:hover {
-    -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out;
+    opacity: 0.4;
   }
 
   .title {
