@@ -11,8 +11,28 @@
     </div>
     <div>
       <label for="location">Коардинаты объекта на карте</label>
-      <input type="text" id="location" class="form-input" name="x" ngModel required />
-      <input type="text" id="location" class="form-input" name="y" ngModel required />
+      <input type="text" id="location" class="form-input" name="x" ngModel required pattern="^[1-9]+[0-9]*$"/>
+      <input type="text" id="location" class="form-input" name="y" ngModel required pattern="^[1-9]+[0-9]*$" />
+    </div>
+    <div>
+      <label for="address">Адрес</label>
+      <input type="text" id="address" class="form-input" name="address" ngModel required/>
+    </div>
+    <div>
+      <label for="phone">Контактная информация</label>
+      <input type="text" id="phone" class="form-input" name="phone" ngModel/>
+    </div>
+    <div>
+      <label for="schedule">График работы</label>
+      <input type="text" id="schedule" class="form-input" name="schedule" ngModel/>
+    </div>
+    <div>
+      <label for="information">Информация об объекте</label>
+      <input type="text" id="information" class="form-input" name="information" ngModel required/>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-input" name="email" ngModel required/>
     </div>
     <button type="submit" [disabled]="!f.valid">Add</button>
   </div>
