@@ -1,12 +1,13 @@
 .map-container {
   position: relative;
-  height: 500px;
+  height: 100vh;
   margin: 50px auto;
 }
 
 #map {
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 
 .mat-form-field {

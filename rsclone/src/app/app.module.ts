@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -24,6 +25,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import { NewObjectFormComponent } from './components/map-container/new-object-form/new-object-form.component';
+import { NewObjectButtonComponent } from './components/map-container/new-object-button/new-object-button.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { NewObjectFormComponent } from './components/map-container/new-object-fo
     WasteInfoComponent,
     MapComponent,
     NewObjectFormComponent,
+    NewObjectButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { NewObjectFormComponent } from './components/map-container/new-object-fo
     MatSelectModule,
     MatSlideToggleModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]
