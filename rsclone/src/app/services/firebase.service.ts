@@ -1,3 +1,4 @@
+import { INewCollectionPoint } from './../models/newСollectionPoint.model';
 import { IWasteData } from './../models/wasteData.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -41,7 +42,7 @@ export class FirebaseService {
     });
   }
 
-  setData(data): void {
-    this.db.collection<IWasteData>('/NewObjects').add(data);
+  setData(data: INewCollectionPoint): void {
+    this.db.collection<INewCollectionPoint>('/NewObjects').add(data);
   }
 }
