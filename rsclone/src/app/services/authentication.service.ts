@@ -33,13 +33,13 @@ export class AuthenticationService {
       });
   }
 
-  authenticateUser(user: object) {
+  authenticateUser(user: object): void {
     localStorage.setItem('user', JSON.stringify(user));
     this.errorMessage$.next('');
     this.isSuccessAuthentication$.next(true);
   }
 
-  sendErrorMessage(message: string) {
+  sendErrorMessage(message: string): void {
     this.errorMessage$.next(message);
   }
 
