@@ -11,7 +11,7 @@ import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/th
 import { ThemeModule } from './theme/theme.module';
 import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
-import { MapComponent } from './components/map/map.component';
+import { MapComponent } from './components/map-container/map/map.component';
 import { WasteService } from './services/waste.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -23,7 +23,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
-import { NewObjectFormComponent } from './components/new-object-form/new-object-form.component';
+import { NewObjectFormComponent } from './components/map-container/new-object-form/new-object-form.component';
 
 @NgModule({
   declarations: [

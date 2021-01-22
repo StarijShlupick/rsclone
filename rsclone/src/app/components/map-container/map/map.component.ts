@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
-import { environment } from '../../../environments/environment';
-import { IWasteData } from '../../models/wasteData.model';
-import { ICities } from '../../models/mapData.model';
-import { ICollectionsGeoJSON } from '../../models/mapData.model';
-import { IGeoJson } from '../../models/mapData.model';
-import { IGeoJsonForCity } from '../../models/mapData.model';
-import { CitiesGeoJson } from '../../models/mapData.model';
+import { FirebaseService } from '../../../services/firebase.service';
+import { environment } from '../../../../environments/environment';
+import { IWasteData } from '../../../models/wasteData.model';
+import { ICities } from '../../../models/mapData.model';
+import { ICollectionsGeoJSON } from '../../../models/mapData.model';
+import { IGeoJson } from '../../../models/mapData.model';
+import { IGeoJsonForCity } from '../../../models/mapData.model';
+import { CitiesGeoJson } from '../../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 

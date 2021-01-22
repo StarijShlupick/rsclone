@@ -1,10 +1,9 @@
 import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-new-object-form',
