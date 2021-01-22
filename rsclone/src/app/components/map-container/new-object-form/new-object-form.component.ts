@@ -12,6 +12,8 @@ import { environment } from '../../../../environments/environment';
 })
 export class NewObjectFormComponent implements OnInit {
 
+  formOpend: boolean;
+
   @Output() addNewObject = new EventEmitter<object>();
 
   map: mapboxgl.Map;
@@ -42,6 +44,15 @@ export class NewObjectFormComponent implements OnInit {
   onAddObject(form: NgForm): void {
     const value = form.value;
     this.addNewObject.emit(value);
+    this.onCloseForm();
+  }
+
+  onOpenForm(): void {
+    this.formOpend = true;
+  }
+
+  onCloseForm(): void {
+    this.formOpend = false;
   }
 
 }

@@ -24,6 +24,19 @@ form {
 
   z-index: 2;
 
+  .closeButton {
+    width: 3rem;
+    align-self: flex-start;
+    cursor: pointer;
+    fill: var(--text-color);
+  }
+
+  .closeButton:hover {
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+  }
+
   .title {
     font-size: 2.5rem;
     font-weight: 500;
