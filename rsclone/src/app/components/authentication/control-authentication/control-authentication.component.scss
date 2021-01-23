@@ -1,0 +1,27 @@
+$color-primary: #000000;
+$color-secondary: #414141;
+
+.auth-controls {
+  display: flex;
+  padding: 5rem;
+
+  &__separator {
+    border-right: 1px solid $color-primary;
+    margin: 0 1rem;
+  }
+
+  &__button {
+    outline: none;
+    border: none;
+    background: none;
+    color: $color-secondary;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary;
+    }
+    &:active {
+      color: $color-secondary;
+    }
+  }
+}

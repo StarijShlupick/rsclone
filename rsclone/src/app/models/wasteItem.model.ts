@@ -1,5 +1,4 @@
-export interface WasteItem {
-  id: number;
+export interface IWasteItem {
   title: string;
   icon: string;
   info: string;

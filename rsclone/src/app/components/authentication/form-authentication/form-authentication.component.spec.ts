@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondScreenComponent } from './second-screen.component';
+import { FormAuthenticationComponent } from './form-authentication.component';
 
-describe('SecondScreenComponent', () => {
-  let component: SecondScreenComponent;
-  let fixture: ComponentFixture<SecondScreenComponent>;
+describe('FormAuthenticationComponent', () => {
+  let component: FormAuthenticationComponent;
+  let fixture: ComponentFixture<FormAuthenticationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecondScreenComponent ]
+      declarations: [ FormAuthenticationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SecondScreenComponent);
+    fixture = TestBed.createComponent(FormAuthenticationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

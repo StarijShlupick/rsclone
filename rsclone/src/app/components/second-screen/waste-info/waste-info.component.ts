@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WasteItem } from 'src/app/models/wasteItem.model';
+import { IWasteItem } from 'src/app/models/wasteItem.model';
 import { WasteService } from '../../../services/waste.service';
 
 @Component({
@@ -14,10 +14,10 @@ export class WasteInfoComponent implements OnInit {
     private wasteService: WasteService
   ) {}
 
-  waste: WasteItem;
+  waste: IWasteItem;
 
   ngOnInit(): void {
-    const itemId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.waste = this.wasteService.getCurrentWaste(+itemId);
+    const itemTitle = this.activatedRoute.snapshot.paramMap.get('title');
+    this.waste = this.wasteService.getCurrentWaste(itemTitle);
   }
 }
