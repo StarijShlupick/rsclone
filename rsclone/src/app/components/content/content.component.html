@@ -2,14 +2,14 @@
 <router-outlet></router-outlet>
 <app-form-authentication
   [isShowAuthenticationForm]="isShowAuthenticationForm"
-  (closeAuthenticationForm)="onCloseAuthenticationForm()"
+  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
   [isLogged]="isLogged"
   [userEmail]="userEmail"
 ></app-form-authentication>
 <app-control-authentication
   [isLogged]="isLogged"
   [userEmail]="userEmail"
-  (onOpenAuthenticationForm)="onOpenAuthenticationForm()"
+  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
 ></app-control-authentication>
 <app-map></app-map>
 <app-info></app-info>

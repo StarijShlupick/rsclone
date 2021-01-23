@@ -1,9 +1,12 @@
+$color-primary: #000000;
+$color-secondary: #414141;
+
 .auth-controls {
   display: flex;
   padding: 5rem;
 
   &__separator {
-    border-right: 1px solid #000000;
+    border-right: 1px solid $color-primary;
     margin: 0 1rem;
   }
 
@@ -11,14 +14,14 @@
     outline: none;
     border: none;
     background: none;
-    color: #414141;
+    color: $color-secondary;
     cursor: pointer;
 
     &:hover {
-      color: #000000;
+      color: $color-primary;
     }
     &:active {
-      color: #333232;
+      color: $color-secondary;
     }
   }
 }

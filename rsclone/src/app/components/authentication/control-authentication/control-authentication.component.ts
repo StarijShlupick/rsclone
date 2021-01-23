@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormState } from 'src/app/models/formControl.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -6,19 +7,17 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   templateUrl: './control-authentication.component.html',
   styleUrls: ['./control-authentication.component.scss'],
 })
-export class ControlAuthenticationComponent implements OnInit {
+export class ControlAuthenticationComponent {
   constructor(public authenticationService: AuthenticationService) {}
 
   @Input() isLogged: boolean;
   @Input() userEmail: boolean;
   @Input() isShowAuthenticationForm: boolean;
 
-  @Output() onOpenAuthenticationForm = new EventEmitter();
-
-  ngOnInit(): void {}
+  @Output() onOpenAndCloseAuthenticationForm = new EventEmitter<boolean>();
 
   openAuthenticationForm(): void {
-    this.onOpenAuthenticationForm.emit(null);
+    this.onOpenAndCloseAuthenticationForm.emit(FormState.Open);
   }
 
   logout(): void {

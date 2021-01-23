@@ -50,11 +50,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     return this.authenticationService.isLogged;
   }
 
-  onOpenAuthenticationForm(): void {
-    this.isShowAuthenticationForm = true;
-  }
-
-  onCloseAuthenticationForm(): void {
-    this.isShowAuthenticationForm = false;
+  onOpenAndCloseAuthenticationForm(isOpen: boolean): void {
+    this.isShowAuthenticationForm = isOpen;
   }
 }

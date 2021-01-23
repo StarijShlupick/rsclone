@@ -6,15 +6,15 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { FormState, TitlesForForm } from 'src/app/models/formControl.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-
-const enum TitlesForForm {
-  Login = 'Login',
-  SignUp = 'Sign Up',
-}
-
 @Component({
   selector: 'app-form-authentication',
   templateUrl: './form-authentication.component.html',
@@ -23,13 +23,14 @@ const enum TitlesForForm {
 export class FormAuthenticationComponent implements OnInit, OnDestroy {
   authForm: FormGroup;
   authErrorMessage: string;
-  isTabLogin = true;
-  private subscribtions = new Subscription();
+  isTabLogin: boolean = true;
+  private subscribtions: Subscription = new Subscription();
 
   @Input() isShowAuthenticationForm: boolean;
   @Input() isLogged: boolean;
   @Input() userEmail: string;
-  @Output() closeAuthenticationForm = new EventEmitter();
+  @Output()
+  onOpenAndCloseAuthenticationForm: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     public fb: FormBuilder,
@@ -68,15 +69,15 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
     return this.isTabLogin ? TitlesForForm.Login : TitlesForForm.SignUp;
   }
 
-  get email() {
+  get email(): AbstractControl {
     return this.authForm.get('email');
   }
 
-  get password() {
+  get password(): AbstractControl {
     return this.authForm.get('password');
   }
 
-  async onSubmit(email: string, password: string) {
+  onSubmit(email: string, password: string): void {
     if (this.authForm.invalid) {
       const controls = this.authForm.controls;
       Object.keys(controls).forEach((control) =>
@@ -91,6 +92,6 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
   }
 
   onCloseAuthenticationForm(): void {
-    this.closeAuthenticationForm.emit(null);
+    this.onOpenAndCloseAuthenticationForm.emit(FormState.Close);
   }
 }

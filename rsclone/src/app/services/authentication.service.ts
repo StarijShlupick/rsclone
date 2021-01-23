@@ -6,12 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private errorMessage$ = new BehaviorSubject('');
-  private isSuccessAuthentication$ = new BehaviorSubject<boolean>(false);
+  private errorMessage$: BehaviorSubject<string> = new BehaviorSubject('');
+  private isSuccessAuthentication$: BehaviorSubject<boolean> = new BehaviorSubject(
+    false
+  );
 
   constructor(public firebaseAuth: AngularFireAuth) {}
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string): Promise<void> {
     await this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
@@ -22,7 +24,7 @@ export class AuthenticationService {
       });
   }
 
-  async signUp(email: string, password: string) {
+  async signUp(email: string, password: string): Promise<void> {
     await this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
