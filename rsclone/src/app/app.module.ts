@@ -55,15 +55,7 @@ import { MatMenuModule } from '@angular/material/menu';
     AppRoutingModule,
     BrowserAnimationsModule,
     ThemeModule,
-    AngularFireModule.initializeApp({
-      //! TODO
-      apiKey: 'AIzaSyBQuheIn7YDsb8lMeqCD1pQQSDZFi4C5s0',
-      authDomain: 'my-green-auth.firebaseapp.com',
-      projectId: 'my-green-auth',
-      storageBucket: 'my-green-auth.appspot.com',
-      messagingSenderId: '1071666379145',
-      appId: '1:1071666379145:web:4b6f549f18a8ea1956c958',
-    }),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ReactiveFormsModule,
