@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import { BurgerMenuComponent } from './components/burger-menu/burger-menu.component';
 import {BurgerDirective} from './models/burger.directive';
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {BurgerDirective} from './models/burger.directive';
     SecondScreenComponent,
     WasteInfoComponent,
     BurgerMenuComponent,
-    BurgerDirective
+    BurgerDirective,
+    MenuButtonComponent
   ],
   imports: [
     BrowserModule,

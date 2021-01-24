@@ -20,4 +20,105 @@ $backdrop-color: #000000;
   width: 100%;
   background-color: var(--body-background-color);
   z-index: 10;
+  transition: background-color 1s;
+  &__header{
+    padding: 30px 0;
+    background-color: var(--primary-background-color);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  &__close-btn{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    user-select: none;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover{
+      transform: scale(1.1);
+    }
+    i{
+      display: block;
+      font-size: 4rem;
+    }
+  }
+  .container{
+     padding: 0 30px;
+   }
+}
+.burger-menu__body{
+  height: 100%;
+  .container{
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  max-width: 80%;
+  svg {
+    width: 60px;
+    height: 60px;
+    display: block;
+  }
+  a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  &__text{
+    font-size: 3.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-left: 5px;
+    &--green{
+      color: var(--primary-accent-color);
+      margin-right: 5px;
+    }
+  }
+  #logo-leaf {
+    transform-origin: bottom;
+    transform-box: fill-box;
+    #Vector_5{
+      fill: var(--primary-accent-color);
+      transition: fill 1s;
+    }
+    #Vector_6{
+      fill: var(--secondary-accent-color);
+      transition: fill 1s;
+    }
+  }
+  #logo-base{
+    #Vector, #Vector_4{
+      fill: var(--secondary-accent-color);
+      transition: fill 1s;
+    }
+    #Vector_2, #Vector_3 {
+      fill: var(--primary-accent-color);
+      transition: fill 1s;
+    }
+  }
+  &:hover #logo-leaf {
+    animation: logo 1.5s linear infinite;
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: skew(5deg, 2deg);
+  }
+  25% {
+    transform: skew(-5deg, -4deg);
+  }
+  50% {
+    transform: skew(5deg, 3deg);
+  }
+  75% {
+    transform: skew(-5deg, -2deg);
+  }
+  100% {
+    transform: skew(5deg, 2deg);
+  }
 }
