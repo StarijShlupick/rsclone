@@ -1,5 +1,25 @@
 <mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle>
 <div class="map-container">
+  <button class="layers" type="button" (click)="showFilter()">
+    <span class="layers-icon"></span>
+  </button>
+  <div class="filter-panel" [ngClass]="filterStatus ? 'filter-panel--active' : '' ">
+    <div class="filter-panel__title">Chose the required material:</div>
+    <div class="filter-panel__list">
+      <figure class="filter-panel__item">
+        <div class="filter-panel__image varied" [ngClass]="isAllActive() ? 'filter-panel__image--active' : '' "
+          (click)="selectAll()"></div>
+        <figcaption>All</figcaption>
+      </figure>
+
+      <figure *ngFor="let type of wasteTypes" class="filter-panel__item">
+        <div [class]="type.type + ' filter-panel__image' " [attr.data-id]="type.id" [attr.data-type]="'l-'+type.type"
+          [ngClass]="type.isActive ? 'filter-panel__image--active' : '' " (click)="toggleActiveLayer($event)"></div>
+        <figcaption>{{type.title_eng}}</figcaption>
+      </figure>
+    </div>
+
+  </div>
   <mat-form-field appearance="fill">
     <mat-label>Selected City</mat-label>
     <mat-select [(ngModel)]="selectedCity" name="city">

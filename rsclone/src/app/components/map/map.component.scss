@@ -2,6 +2,7 @@
   position: relative;
   height: 500px;
   margin: 50px auto;
+  overflow: hidden;
 }
 
 #map {
@@ -83,93 +84,195 @@
     padding: 10px 0;
     margin-top: 10px;
     border-top: 2px dashed green;
+  }
+}
 
-    &__item {
-      position: relative;
-      width: 30px;
-      height: 30px;
-      background-size: cover;
+::ng-deep .popup-waste__item {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
 
-      &[tooltip]::after {
-        content: attr(tooltip);
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -20px;
-        font-size: 15px;
-        opacity: 0;
-        transition: 0.3s;
-        pointer-events: none;
-      }
+  &[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    font-size: 15px;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+  }
 
-      &[tooltip]:hover::after {
-        opacity: 1;
-      }
+  &[tooltip]:hover::after {
+    opacity: 1;
+  }
+}
+
+::ng-deep .batteries {
+  background: url(../../../assets/waste/batteries.png) center center;
+  background-size: cover;
+}
+
+::ng-deep .books {
+  background: url(../../../assets/waste/books_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .cloth {
+  background: url(../../../assets/waste/cloth_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .electronicWaste {
+  background: url(../../../assets/waste/electronicWaste_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .glass {
+  background: url(../../../assets/waste/glass.png) center center;
+  background-size: cover;
+}
+
+::ng-deep .householdItems {
+  background: url(../../../assets/waste/householdItems_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .lamps {
+  background: url(../../../assets/waste/lamps_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .metal {
+  background: url(../../../assets/waste/metal_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .oils {
+  background: url(../../../assets/waste/oils_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .paper {
+  background: url(../../../assets/waste/paper.png) center center;
+  background-size: cover;
+}
+
+::ng-deep .plastic {
+  background: url(../../../assets/waste/plastic_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .tires {
+  background: url(../../../assets/waste/tires_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .wholeClothes {
+  background: url(../../../assets/waste/wholeClothes_svg.svg) center center;
+  background-size: cover;
+}
+
+::ng-deep .varied {
+  background: url(../../../assets/waste/varied_svg.svg) center center;
+  background-size: cover;
+}
+
+.layers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 29px;
+  height: 29px;
+  z-index: 3;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .1);
+  border-radius: 4px;
+  outline: none;
+
+  &-icon {
+    display: block;
+    background-image: url(../../../assets/icons/layers.svg);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.filter-panel {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 10px 15px;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 120px;
+  background-color: rgba($color: #ffffff, $alpha: .9);
+  border-radius: 4px;
+  z-index: 3;
+  transition: .3s ease-in-out;
+
+  &--active {
+    bottom: 25px;
+    transition: .3s ease-in-out;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    line-height: 1.3;
+  }
+
+  &__item {
+    margin: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    figcaption {
+      font-size: 12px;
+      font-weight: bold;
     }
   }
 
-  .batteries {
-    background: url(../../../assets/waste/batteries.png) center center;
-    background-size: cover;
+  &__list {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
-  .books {
-    background: url(../../../assets/waste/books_24px.png) center center;
-    background-size: cover;
-  }
+  &__image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .1);
+    cursor: pointer;
 
-  .cloth {
-    background: url(../../../assets/waste/cloth_24px.png) center center;
-    background-size: cover;
+    &--active {
+      box-shadow: 0 0 0 2px rgba(18, 105, 0, 0.6);
+    }
   }
+}
 
-  .electronicWaste {
-    background: url(../../../assets/waste/electronicWaste_24px.png) center center;
-    background-size: cover;
-  }
-
-  .glass {
-    background: url(../../../assets/waste/glass.png) center center;
-    background-size: cover;
-  }
-
-  .householdItems {
-    background: url(../../../assets/waste/householdItems_24px.png) center center;
-    background-size: cover;
-  }
-
-  .lamps {
-    background: url(../../../assets/waste/lamps_24px.png) center center;
-    background-size: cover;
-  }
-
-  .metal {
-    background: url(../../../assets/waste/metal.png) center center;
-    background-size: cover;
-  }
-
-  .oils {
-    background: url(../../../assets/waste/oils_24px.png) center center;
-    background-size: cover;
-  }
-
-  .paper {
-    background: url(../../../assets/waste/paper.png) center center;
-    background-size: cover;
-  }
-
-  .plastic {
-    background: url(../../../assets/waste/plastic_24px.png) center center;
-    background-size: cover;
-  }
-
-  .tires {
-    background: url(../../../assets/waste/tires_24px.png) center center;
-    background-size: cover;
-  }
-
-  .wholeClothes {
-    background: url(../../../assets/waste/wholeClothes_24px.png) center center;
-    background-size: cover;
-  }
+::ng-deep .hide {
+  visibility: hidden;
 }

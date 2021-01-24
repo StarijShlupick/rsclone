@@ -27,7 +27,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { PwaButtonComponent } from './components/main-page/pwa-button/pwa-button.component';
 import { InfoComponent } from './components/info-screen/info/info.component';
 import { FooterComponent } from './components/info-screen/footer/footer.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -40,8 +40,8 @@ import {MatMenuModule} from '@angular/material/menu';
     WasteInfoComponent,
     PwaButtonComponent,
     InfoComponent,
-    FooterComponent
-    MapComponent
+    FooterComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,11 +52,11 @@ import {MatMenuModule} from '@angular/material/menu';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    MatMenuModule
+    MatMenuModule,
     MatSelectModule,
     MatSlideToggleModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [FirebaseService, WasteService],
   bootstrap: [AppComponent]

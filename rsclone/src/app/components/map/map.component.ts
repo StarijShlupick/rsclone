@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 import { environment } from '../../../environments/environment';
 import { IWasteData } from '../../models/wasteData.model';
-import { ICities } from '../../models/mapData.model';
-import { ICollectionsGeoJSON } from '../../models/mapData.model';
-import { IGeoJson } from '../../models/mapData.model';
-import { IGeoJsonForCity } from '../../models/mapData.model';
-import { CitiesGeoJson } from '../../models/mapData.model';
+import { CitiesGeoJson, IGeoJsonForCity, IGeoJson, ICollectionsGeoJSON, ICities, wasteTypes, IWasteTypes } from '../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
@@ -29,6 +25,9 @@ export class MapComponent implements OnInit {
     { value: 'city-5', viewValue: 'Brest' },
     { value: 'city-6', viewValue: 'Gomel' },
   ];
+  filterStatus: boolean = false;
+  isSelectAll: boolean = true;
+  wasteTypes: IWasteTypes[] = wasteTypes;
 
   constructor(private FirebaseService: FirebaseService) { }
 
@@ -107,8 +106,9 @@ export class MapComponent implements OnInit {
 
   addMarkers(): void {
     this.geoJson['features'].forEach((marker) => {
+      const availableTypes: string[] = Object.keys(marker.properties.type).filter((key) => marker.properties.type[key]);
       const mapMarker: HTMLDivElement = document.createElement('div');
-      mapMarker.className = 'marker';
+      mapMarker.className = `marker ${this.getIconClasses(availableTypes)}`;
       mapMarker.style.backgroundImage = `url(./assets/waste/${marker.properties.iconType}.png)`;
       mapMarker.style.width = '24px';
       mapMarker.style.height = '24px';
@@ -122,27 +122,12 @@ export class MapComponent implements OnInit {
         this.flyToPoint(marker.geometry.coordinates);
       });
 
-      const mainPopupInfo = `
+      const mainPopupInfo: string = `
       <h3 class='popup-title'>${marker.properties.title}</h3>
       ${marker.properties.address ? `<span class='popup-main-info popup-address'>${marker.properties.address}</span>` : ''}
       ${marker.properties.workingHours ? `<span class='popup-main-info popup-hours'>${marker.properties.workingHours}</span>` : ''}
       ${marker.properties.phone ? `<span class='popup-main-info popup-phone'>${marker.properties.phone}</span>` : ''}
-      <div class='popup-waste'>
-      ${marker.properties.type.batteries ? `<span class='popup-waste__item batteries' tooltip='батарейки'></span>` : ''}
-      ${marker.properties.type.books ? `<span class='popup-waste__item books' tooltip='книги'></span>` : ''}
-      ${marker.properties.type.cloth ? `<span class='popup-waste__item cloth' tooltip='ткань'></span>` : ''}
-      ${marker.properties.type.electronicWaste ? `<span class='popup-waste__item electronicWaste' tooltip='электроника'></span>` : ''}
-      ${marker.properties.type.glass ? `<span class='popup-waste__item glass' tooltip='стекло'></span>` : ''}
-      ${marker.properties.type.householdItems ? `<span class='popup-waste__item householdItems' tooltip='бытовые отходы'></span>` : ''}
-      ${marker.properties.type.lamps ? `<span class='popup-waste__item lamps' tooltip='лампочки'></span>` : ''}
-      ${marker.properties.type.metal ? `<span class='popup-waste__item metal' tooltip='метал'></span>` : ''}
-      ${marker.properties.type.oils ? `<span class='popup-waste__item oils' tooltip='масло'></span>` : ''}
-      ${marker.properties.type.paper ? `<span class='popup-waste__item paper' tooltip='макулатура'></span>` : ''}
-      ${marker.properties.type.plastic ? `<span class='popup-waste__item plastic' tooltip='пластик'></span>` : ''}
-      ${marker.properties.type.tires ? `<span class='popup-waste__item tires' tooltip='шины'></span>` : ''}
-      ${marker.properties.type.wholeClothes ? `<span class='popup-waste__item wholeClothes' tooltip='одежда'></span>` : ''}
-      </div>
-      `;
+      <div class='popup-waste'>${this.createPopupContent(availableTypes)}</div>`;
       const popup = new mapboxgl.Popup({
         offset: 15,
         className: 'map-popup'
@@ -153,11 +138,30 @@ export class MapComponent implements OnInit {
     });
   }
 
+  getIconClasses(types): string {
+    return types.map((type) => {
+      return `l-${type}`;
+    }).join(' ');
+  }
+
+  createPopupContent(types): string {
+    return types.map((item) => {
+      return `<span class="popup-waste__item ${item}" tooltip=${this.defineToolpit(item)}></span>`
+    }).join('')
+  }
+
+  defineToolpit(type): string {
+    return this.wasteTypes.map((item) => {
+      if (item.type === type) {
+        return item.title_eng
+      }
+    }).join('');
+  }
+
   cityToJson(city): void {
     const currentGeoObj: IGeoJsonForCity = CitiesGeoJson.features.find((obj) => {
       return obj.properties.city === city;
     });
-
     this.flyToCity(currentGeoObj);
   }
 
@@ -177,5 +181,65 @@ export class MapComponent implements OnInit {
 
   switchLayer(e): void {
     e.checked ? this.map.setStyle('mapbox://styles/mapbox/dark-v10') : this.map.setStyle('mapbox://styles/mapbox/streets-v11');
+  }
+
+  showFilter(): void {
+    this.filterStatus = !this.filterStatus;
+  }
+
+  toggleActiveLayer(e): void {
+    const id: number = parseInt(e.target.dataset.id);
+    const type = e.target.dataset.type;
+    const allMarkers: Element[] = Array.from(document.getElementsByClassName('marker'));
+    const markers: Element[] = Array.from(document.getElementsByClassName(type));
+    allMarkers.forEach((marker) => {
+      marker.classList.add('hide');
+    });
+    markers.forEach((marker) => {
+      marker.classList.remove('hide');
+    })
+    this.isSelectAll = false;
+    this.wasteTypes = this.wasteTypes.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          isActive: true
+        }
+      }
+      return {
+        ...item,
+        isActive: false
+      }
+    });
+  }
+
+  isAllActive(): boolean {
+    return this.wasteTypes.every((item) => item.isActive);
+  }
+
+  selectAll(): void {
+    this.isSelectAll = !this.isSelectAll;
+    const markers: Element[] = Array.from(document.getElementsByClassName('marker'));
+    markers.forEach((marker) => {
+      if (!this.isSelectAll) {
+        marker.classList.add('hide');
+      } else {
+        marker.classList.remove('hide');
+      }
+    });
+
+    this.wasteTypes = this.wasteTypes.map((item) => {
+      if (this.isAllActive()) {
+
+        return {
+          ...item,
+          isActive: false
+        }
+      }
+      return {
+        ...item,
+        isActive: true
+      }
+    })
   }
 }
