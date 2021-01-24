@@ -21,6 +21,7 @@ import { FirebaseService } from './services/firebase.service';
 import { BurgerMenuComponent } from './components/burger-menu/burger-menu.component';
 import {BurgerDirective} from './models/burger.directive';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
     ThemeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MatMenuModule
   ],
   providers: [FirebaseService, WasteService],
   entryComponents: [BurgerMenuComponent],

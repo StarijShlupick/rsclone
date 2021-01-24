@@ -1,4 +1,7 @@
 $backdrop-color: #000000;
+a{
+  text-decoration: none;
+}
 
 .backdrop{
   position: fixed;
@@ -54,7 +57,32 @@ $backdrop-color: #000000;
     justify-content: space-between;
   }
 }
-
+.developers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: inherit;
+  background: none;
+  outline: none;
+  padding: 5px 5px 5px 10px;
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+  transition: all .3s;
+  i{
+    display: block;
+    font-size: 2.5rem;
+    transition: all .2s;
+  }
+  &:hover{
+    background: var(--primary-background-color);
+  }
+  &:hover i{
+    transform: rotate(-180deg);
+  }
+}
 .logo {
   max-width: 80%;
   svg {
@@ -65,7 +93,6 @@ $backdrop-color: #000000;
   a{
     display: flex;
     align-items: center;
-    text-decoration: none;
   }
   &__text{
     font-size: 3.4rem;
