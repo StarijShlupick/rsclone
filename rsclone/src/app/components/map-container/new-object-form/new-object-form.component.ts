@@ -1,4 +1,4 @@
-import { Output } from '@angular/core';
+import { Output, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -15,6 +15,7 @@ export class NewObjectFormComponent implements OnInit {
   formOpend: boolean;
 
   @Output() addNewObject = new EventEmitter<object>();
+  @ViewChild('f') newObjextForm: NgForm;
 
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11';
@@ -22,9 +23,12 @@ export class NewObjectFormComponent implements OnInit {
   lng = 6.172652;
   zoom = 12;
 
+  latitude: number;
+  longitude: number;
+
   constructor() {
     mapboxgl.accessToken = environment.mapbox.accessToken;
-   }
+  }
 
   ngOnInit(): void {
 
@@ -38,7 +42,23 @@ export class NewObjectFormComponent implements OnInit {
       zoom: this.zoom,
       center: [this.lng, this.lat]
     });
-   this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.addControl(new mapboxgl.NavigationControl());
+    this.map.on('click', function (e) {
+      console.log(e.lngLat.wrap());
+      this.latitude = e.lngLat.Lat;
+      this.longitude = e.lngLat.Lng;
+      // this.newObjextForm.setValue({
+      //   name: null,
+      //   type: null,
+      //   x: e.lngLat.Lat,
+      //   y: e.lngLat.Lng,
+      //   address: null,
+      //   phone: null,
+      //   schedule: null,
+      //   information: null,
+      //   email: null
+      // });
+    });
   }
 
   onAddObject(form: NgForm): void {
@@ -54,5 +74,4 @@ export class NewObjectFormComponent implements OnInit {
   onCloseForm(): void {
     this.formOpend = false;
   }
-
 }
