@@ -1,0 +1,12 @@
+<div class="cognitive">
+  <div
+    class="cognitive__item"
+    *ngFor="let item of wasteItems"
+    [routerLink]="['', item.title]"
+  >
+    <div class="cognitive__img-box">
+      <img src="{{ item.icon }}" alt="{{ item.title }}" />
+    </div>
+    <h3 class="cognitive__item-name">{{ item.title }}</h3>
+  </div>
+</div>
