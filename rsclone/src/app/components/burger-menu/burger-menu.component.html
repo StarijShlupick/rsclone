@@ -1,5 +1,5 @@
-<div class="backdrop" (click)="close.emit()"></div>
-<div class="burger-menu">
+<div class="backdrop" [@backdrop] (click)="close.emit()"></div>
+<div class="burger-menu" [@menu]>
   <div class="burger-menu__header">
     <div class="container">
       <div class="burger-menu__close-btn" (click)="close.emit()">
