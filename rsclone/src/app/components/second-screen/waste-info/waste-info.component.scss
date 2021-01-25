@@ -1,28 +1,40 @@
-.container {
+.waste-info {
   padding: 2rem;
   width: 80vw;
+  height: 100vh;
   margin: 0 auto;
+
+  &__button-back {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    background: none;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto;
+  }
 }
 
-h2 {
-  text-align: center;
-  text-transform: uppercase;
-  margin: 0 auto;
-}
-
-.waste-info {
+.details {
   padding: 2rem 0;
   display: flex;
   margin: 0 auto;
-}
+  width: 100%;
 
-.btn {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  font-size: 1.5rem;
-  background: none;
-  &:hover {
-    opacity: 0.5;
+  &__name {
+    padding: 1rem;
+    font-weight: 600;
+  }
+
+  &__col {
+    width: 50%;
+    padding: 0.4rem;
   }
 }

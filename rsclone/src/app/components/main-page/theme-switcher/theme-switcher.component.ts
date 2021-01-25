@@ -13,12 +13,14 @@ export class ThemeSwitcherComponent implements OnInit {
 
   constructor(private themeService: ThemeService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.setStartTheme();
   }
 
   setStartTheme(): void {
-    localStorage.getItem('theme') === EThemeModes.Light ? this.themeService.setTheme(EThemeModes.Light) : this.themeService.setTheme(EThemeModes.Dark);
+    localStorage.getItem('theme') === EThemeModes.Light ? this.themeService.setTheme(EThemeModes.Light) :
+     this.themeService.setTheme(EThemeModes.Dark);
+
     this.lightTheme = this.themeService.isLightTheme();
     this.darkTheme = this.themeService.isDarkTheme();
   }
