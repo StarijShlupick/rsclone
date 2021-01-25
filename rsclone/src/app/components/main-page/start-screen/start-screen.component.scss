@@ -35,11 +35,11 @@
       }
     }
   }
-  &__container{
+  &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    app-theme-switcher{
+    app-theme-switcher {
       margin-top: 25%;
       margin-right: 7%;
       animation: theme-switcher 2s;
@@ -83,20 +83,20 @@
     transform-origin: bottom;
     transform-box: fill-box;
     animation: background 1.5s;
-    #background_2{
+    #background_2 {
       fill: var(--secondary-background-color);
       transition: fill 1s;
     }
   }
 }
-.scroll-down{
+.scroll-down {
   user-select: none;
   margin: 0 auto 10px auto;
-  .material-icons{
+  .material-icons {
     display: block;
     font-size: 3.5rem;
     color: var(--text-color);
-    animation: start-screen-content .7s infinite alternate;
+    animation: start-screen-content 0.7s infinite alternate;
     transition: color 1s;
   }
 }
@@ -179,5 +179,26 @@
   to {
     transform: translateX(0%);
     opacity: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .start-screen {
+    .global-container {
+      .start-screen__content {
+        position: inherit;
+        order: -1;
+      }
+      .start-screen__container {
+        flex-direction: column;
+
+        .start-screen__logo {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    app-theme-switcher {
+      margin: 0;
+    }
   }
 }

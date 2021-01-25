@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { ITheme, EThemeModes, light, dark } from "./theme";
+import { Injectable } from '@angular/core';
+import { ITheme, EThemeModes, light, dark } from './theme';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ThemeService {
   active: ITheme = light;
