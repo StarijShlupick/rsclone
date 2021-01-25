@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
 import { environment } from '../../../../environments/environment';
 import { IWasteData } from '../../../models/wasteData.model';
@@ -9,6 +9,7 @@ import { IGeoJsonForCity } from '../../../models/mapData.model';
 import { CitiesGeoJson } from '../../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-map',
@@ -16,6 +17,12 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+
+  formOpend: boolean;
+  latitude: number;
+  longitude: number;
+  @Output() addNewObject = new EventEmitter();
+
   wasteData: IWasteData[];
   map: mapboxgl.Map;
   popup: mapboxgl.Popup;
@@ -43,7 +50,14 @@ export class MapComponent implements OnInit {
         center: [27.55, 53.902],
         zoom: 10.5
       });
+
       this.loadMap();
+
+      this.map.on('click', function (e) {
+        this.latitude = e.lngLat.lat;
+        this.longitude = e.lngLat.lng;
+      });
+
     });
   }
 
@@ -116,7 +130,7 @@ export class MapComponent implements OnInit {
 
       mapMarker.addEventListener('mouseenter', () => {
         mapMarker.style.cursor = 'pointer';
-      })
+      });
 
       mapMarker.addEventListener('click', (e) => {
         this.flyToPoint(marker.geometry.coordinates);
@@ -177,5 +191,19 @@ export class MapComponent implements OnInit {
 
   switchLayer(e): void {
     e.checked ? this.map.setStyle('mapbox://styles/mapbox/dark-v10') : this.map.setStyle('mapbox://styles/mapbox/streets-v11');
+  }
+
+  onOpenForm(): void {
+    this.formOpend = true;
+  }
+
+  onCloseForm(): void {
+    this.formOpend = false;
+  }
+
+  onAddObject(form: NgForm): void {
+    const value = form.value;
+    this.addNewObject.emit(value);
+    this.onCloseForm();
   }
 }

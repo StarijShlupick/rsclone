@@ -1,6 +1,4 @@
-<div id="map" class="map-container"></div>
-<app-new-object-button (openForm)="onOpenForm()"></app-new-object-button>
-<form (ngSubmit)="onAddObject(f)" #f="ngForm" *ngIf="formOpend">
+<form (ngSubmit)="addNewObject.emit(f)" #f="ngForm">
   <span class="closeButton" (click)="onCloseForm()"></span>
   <h3 class="title">Add an object in the "Secondary resources" section</h3>
   <div class="inputContainer">
