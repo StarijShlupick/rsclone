@@ -19,8 +19,6 @@ import { NgForm } from '@angular/forms';
 export class MapComponent implements OnInit {
 
   formOpend: boolean;
-  latitude: number;
-  longitude: number;
   @Output() addNewObject = new EventEmitter();
 
   wasteData: IWasteData[];
@@ -52,12 +50,6 @@ export class MapComponent implements OnInit {
       });
 
       this.loadMap();
-
-      this.map.on('click', function (e) {
-        this.latitude = e.lngLat.lat;
-        this.longitude = e.lngLat.lng;
-      });
-
     });
   }
 

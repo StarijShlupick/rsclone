@@ -2,6 +2,7 @@ import { Input, Output, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import * as mapboxgl from 'mapbox-gl';
 
 @Component({
   selector: 'app-new-object-form',
@@ -10,35 +11,40 @@ import { NgForm } from '@angular/forms';
 })
 export class NewObjectFormComponent implements OnInit {
 
+  latitude: number;
+  longitude: number;
+
   @Input() formOpend: boolean;
-  @Input() latitude: number;
-  @Input() longitude: number;
+  @Input() map: mapboxgl.Map;
 
   @Output() addNewObject = new EventEmitter<object>();
-  @ViewChild('f') newObjextForm: NgForm;
+  @ViewChild('f', { static: false }) newObjectForm: NgForm;
   @Output() closeForm = new EventEmitter();
 
   ngOnInit(): void {
-    // this.newObjextForm.setValue({
-    //   name: null,
-    //   type: null,
-    //   x: this.latitude,
-    //   y: this.longitude,
-    //   address: null,
-    //   phone: null,
-    //   schedule: null,
-    //   information: null,
-    //   email: null
-    // });
-  }
-
-  ngOnChanges() {
-    (this.latitude || this.longitude) && alert('done');
+    this.onMapClick();
   }
 
   onCloseForm(): void {
     this.closeForm.emit(null);
-    console.log(this.latitude);
   }
 
+  onMapClick(): void {
+    this.map.on('click', function (e) {
+      this.latitude = e.lngLat.lat;
+      this.longitude = e.lngLat.lng;
+
+      this.newObjectForm.setValue({
+        name: null,
+        type: null,
+        x: e.lngLat.lat,
+        y: e.lngLat.lng,
+        address: null,
+        phone: null,
+        schedule: null,
+        information: null,
+        email: null
+      });
+    });
+  }
 }
