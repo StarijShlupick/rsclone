@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SoundService } from 'src/app/services/sound.service';
 import { WasteService } from '../../../services/waste.service';
 
 @Component({
@@ -7,7 +8,14 @@ import { WasteService } from '../../../services/waste.service';
   styleUrls: ['./cognitive-info.component.scss'],
 })
 export class CognitiveInfoComponent {
-  constructor(private wasteService: WasteService) {}
+  constructor(
+    private wasteService: WasteService,
+    private soundService: SoundService
+  ) {}
 
   wasteItems = this.wasteService.getWasteItems();
+
+  soundClick(): void {
+    this.soundService.soundClickPrimary();
+  }
 }
