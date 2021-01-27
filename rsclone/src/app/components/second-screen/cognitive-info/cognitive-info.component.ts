@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UrlSound } from 'src/app/models/urlSound.model';
 import { SoundService } from 'src/app/services/sound.service';
 import { WasteService } from '../../../services/waste.service';
 
@@ -16,6 +17,6 @@ export class CognitiveInfoComponent {
   wasteItems = this.wasteService.getWasteItems();
 
   soundClick(): void {
-    this.soundService.soundClickPrimary();
+    this.soundService.playSound(UrlSound.Primary);
   }
 }

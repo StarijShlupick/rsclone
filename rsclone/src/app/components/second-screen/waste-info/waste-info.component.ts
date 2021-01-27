@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UrlSound } from 'src/app/models/urlSound.model';
 import { IWasteItem } from 'src/app/models/wasteItem.model';
 import { SoundService } from 'src/app/services/sound.service';
 import { WasteService } from '../../../services/waste.service';
@@ -24,6 +25,6 @@ export class WasteInfoComponent implements OnInit {
   }
 
   soundClick(): void {
-    this.soundService.soundClickSecondary();
+    this.soundService.playSound(UrlSound.Secondary);
   }
 }
