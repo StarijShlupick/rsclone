@@ -19,7 +19,7 @@ export class NewObjectFormComponent implements  OnChanges {
   @ViewChild('f', { static: false }) newObjectForm: NgForm;
 
   ngOnChanges(coordinates: any): void {
-    if (this.coordinates) {
+    if (this.coordinates &&  this.newObjectForm) {
       this.newObjectForm.setValue({
         name: null,
         type: null,

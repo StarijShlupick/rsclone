@@ -52,24 +52,26 @@ export class MapComponent implements OnInit {
       });
 
       this.map.on('click', (event) => {
-        const coordinates: number[] = [event.lngLat.lng, event.lngLat.lat];
+        if (this.formOpend) {
+          const coordinates: number[] = [event.lngLat.lng, event.lngLat.lat];
 
-        const mapMarker: HTMLDivElement = document.createElement('div');
-        mapMarker.className = 'marker';
-        mapMarker.style.backgroundImage = `url(./assets/waste/pin.png)`;
-        mapMarker.style.width = '24px';
-        mapMarker.style.height = '24px';
-        mapMarker.style.backgroundSize = '24px 24px';
+          const mapMarker: HTMLDivElement = document.createElement('div');
+          mapMarker.className = 'marker';
+          mapMarker.style.backgroundImage = `url(./assets/waste/pin.png)`;
+          mapMarker.style.width = '24px';
+          mapMarker.style.height = '24px';
+          mapMarker.style.backgroundSize = '24px 24px';
 
-        mapMarker.addEventListener('mouseenter', () => {
-          mapMarker.style.cursor = 'pointer';
-        });
+          mapMarker.addEventListener('mouseenter', () => {
+            mapMarker.style.cursor = 'pointer';
+          });
 
-        this.marker && this.marker.remove();
-        this.marker = new mapboxgl.Marker(mapMarker).setLngLat(coordinates).addTo(this.map);
-        console.log(typeof this.marker );
-
-        this.coordinates =  coordinates;
+          this.marker && this.marker.remove();
+          this.marker = new mapboxgl.Marker(mapMarker).setLngLat(coordinates).addTo(this.map);
+          this.coordinates = coordinates;
+        } else if (this.marker) {
+          this.marker.remove();
+        }
       });
 
       this.loadMap();
