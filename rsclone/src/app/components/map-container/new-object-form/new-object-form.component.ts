@@ -1,5 +1,5 @@
 import { Input, Output, ViewChild } from '@angular/core';
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 

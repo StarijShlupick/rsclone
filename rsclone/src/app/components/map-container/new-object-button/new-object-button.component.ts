@@ -1,19 +1,15 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-object-button',
   templateUrl: './new-object-button.component.html',
   styleUrls: ['./new-object-button.component.scss']
 })
-export class NewObjectButtonComponent implements OnInit {
+export class NewObjectButtonComponent {
 
   @Output() openForm = new EventEmitter();
-
-  ngOnInit(): void {
-  }
 
   onOpenForm(): void {
     this.openForm.emit(null);
   }
-
 }
