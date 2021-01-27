@@ -1,50 +1,40 @@
 import { Input, Output, ViewChild } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import * as mapboxgl from 'mapbox-gl';
 
 @Component({
   selector: 'app-new-object-form',
   templateUrl: './new-object-form.component.html',
   styleUrls: ['./new-object-form.component.scss']
 })
-export class NewObjectFormComponent implements OnInit {
-
-  latitude: number;
-  longitude: number;
+export class NewObjectFormComponent implements  OnChanges {
 
   @Input() formOpend: boolean;
-  @Input() map: mapboxgl.Map;
+  @Input() coordinates: number[];
 
   @Output() addNewObject = new EventEmitter<object>();
-  @ViewChild('f', { static: false }) newObjectForm: NgForm;
   @Output() closeForm = new EventEmitter();
 
-  ngOnInit(): void {
-    this.onMapClick();
-  }
+  @ViewChild('f', { static: false }) newObjectForm: NgForm;
 
-  onCloseForm(): void {
-    this.closeForm.emit(null);
-  }
-
-  onMapClick(): void {
-    this.map.on('click', function (e) {
-      this.latitude = e.lngLat.lat;
-      this.longitude = e.lngLat.lng;
-
+  ngOnChanges(coordinates: any): void {
+    if (this.coordinates) {
       this.newObjectForm.setValue({
         name: null,
         type: null,
-        x: e.lngLat.lat,
-        y: e.lngLat.lng,
+        x: this.coordinates[0],
+        y: this.coordinates[1],
         address: null,
         phone: null,
         schedule: null,
         information: null,
         email: null
       });
-    });
+    }
+  }
+
+  onCloseForm(): void {
+    this.closeForm.emit(null);
   }
 }
