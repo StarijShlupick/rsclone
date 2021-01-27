@@ -22,7 +22,7 @@ export class MapComponent implements OnInit {
   coordinates: number[];
   marker: any;
   @Input() userEmail: string;
-  @Output() addNewObject = new EventEmitter();
+  @Output() addNewObject: EventEmitter<any> = new EventEmitter();
 
   wasteData: IWasteData[];
   map: mapboxgl.Map;

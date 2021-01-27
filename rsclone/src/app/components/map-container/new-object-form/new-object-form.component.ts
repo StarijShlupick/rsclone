@@ -14,8 +14,8 @@ export class NewObjectFormComponent implements OnChanges {
   @Input() coordinates: number[];
   @Input() userEmail: string;
 
-  @Output() addNewObject = new EventEmitter<object>();
-  @Output() closeForm = new EventEmitter();
+  @Output() addNewObject: EventEmitter<object> = new EventEmitter<object>();
+  @Output() closeForm: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('f', { static: false }) newObjectForm: NgForm;
 

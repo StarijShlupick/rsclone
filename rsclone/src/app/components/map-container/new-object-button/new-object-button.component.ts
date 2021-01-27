@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NewObjectButtonComponent {
 
-  @Output() openForm = new EventEmitter();
+  @Output() openForm: EventEmitter<any> = new EventEmitter();
 
   onOpenForm(): void {
     this.openForm.emit(null);

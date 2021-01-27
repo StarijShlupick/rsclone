@@ -29,12 +29,12 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
   @Input() isShowAuthenticationForm: boolean;
   @Input() isLogged: boolean;
   @Input() userEmail: string;
-  @Output() onOpenAndCloseAuthenticationForm: EventEmitter<boolean> = new EventEmitter();
+  @Output() onOpenAndCloseAuthenticationForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     public fb: FormBuilder,
     public authenticationService: AuthenticationService
-  ) {}
+  ) { }
 
   ngOnDestroy(): void {
     this.subscribtions.unsubscribe();
