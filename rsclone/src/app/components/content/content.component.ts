@@ -39,7 +39,6 @@ export class ContentComponent implements OnInit, OnDestroy {
       )
     );
   }
-
   updateUserEmail(): void {
     this.userEmail = this.authenticationService.userEmail;
   }
