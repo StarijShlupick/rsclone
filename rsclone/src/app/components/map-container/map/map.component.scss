@@ -1,12 +1,13 @@
 .map-container {
   position: relative;
-  height: 500px;
+  height: 100vh;
   margin: 50px auto;
 }
 
 #map {
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 
 .mat-form-field {
@@ -57,21 +58,21 @@
 
   .popup-address {
     &::before {
-      background: url(../../../assets/icons/pin.svg) center center;
+      background: url(../../../../assets/icons/pin.svg) center center;
       background-size: 24px 24px;
     }
   }
 
   .popup-hours {
     &::before {
-      background: url(../../../assets/icons/clock.svg) center center;
+      background: url(../../../../assets/icons/clock.svg) center center;
       background-size: 24px 24px;
     }
   }
 
   .popup-phone {
     &::before {
-      background: url(../../../assets/icons/phone.svg) center center;
+      background: url(../../../../assets/icons/phone.svg) center center;
       background-size: 24px 24px;
     }
   }
@@ -109,67 +110,67 @@
   }
 
   .batteries {
-    background: url(../../../assets/waste/batteries.png) center center;
+    background: url(../../../../assets/waste/batteries.png) center center;
     background-size: cover;
   }
 
   .books {
-    background: url(../../../assets/waste/books_24px.png) center center;
+    background: url(../../../../assets/waste/books_24px.png) center center;
     background-size: cover;
   }
 
   .cloth {
-    background: url(../../../assets/waste/cloth_24px.png) center center;
+    background: url(../../../../assets/waste/cloth_24px.png) center center;
     background-size: cover;
   }
 
   .electronicWaste {
-    background: url(../../../assets/waste/electronicWaste_24px.png) center center;
+    background: url(../../../../assets/waste/electronicWaste_24px.png) center center;
     background-size: cover;
   }
 
   .glass {
-    background: url(../../../assets/waste/glass.png) center center;
+    background: url(../../../../assets/waste/glass.png) center center;
     background-size: cover;
   }
 
   .householdItems {
-    background: url(../../../assets/waste/householdItems_24px.png) center center;
+    background: url(../../../../assets/waste/householdItems_24px.png) center center;
     background-size: cover;
   }
 
   .lamps {
-    background: url(../../../assets/waste/lamps_24px.png) center center;
+    background: url(../../../../assets/waste/lamps_24px.png) center center;
     background-size: cover;
   }
 
   .metal {
-    background: url(../../../assets/waste/metal.png) center center;
+    background: url(../../../../assets/waste/metal.png) center center;
     background-size: cover;
   }
 
   .oils {
-    background: url(../../../assets/waste/oils_24px.png) center center;
+    background: url(../../../../assets/waste/oils_24px.png) center center;
     background-size: cover;
   }
 
   .paper {
-    background: url(../../../assets/waste/paper.png) center center;
+    background: url(../../../../assets/waste/paper.png) center center;
     background-size: cover;
   }
 
   .plastic {
-    background: url(../../../assets/waste/plastic_24px.png) center center;
+    background: url(../../../../assets/waste/plastic_24px.png) center center;
     background-size: cover;
   }
 
   .tires {
-    background: url(../../../assets/waste/tires_24px.png) center center;
+    background: url(../../../../assets/waste/tires_24px.png) center center;
     background-size: cover;
   }
 
   .wholeClothes {
-    background: url(../../../assets/waste/wholeClothes_24px.png) center center;
+    background: url(../../../../assets/waste/wholeClothes_24px.png) center center;
     background-size: cover;
   }
 }

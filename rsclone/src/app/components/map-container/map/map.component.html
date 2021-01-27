@@ -1,4 +1,4 @@
-<mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle>
+<!-- <mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle> -->
 <div class="map-container">
   <mat-form-field appearance="fill">
     <mat-label>Selected City</mat-label>
@@ -7,7 +7,8 @@
         {{city.viewValue}}
       </mat-option>
     </mat-select>
-
   </mat-form-field>
   <div id="map"></div>
+  <app-new-object-button (openForm)="onOpenForm()" *ngIf="!formOpend"></app-new-object-button>
+  <app-new-object-form [formOpend]="formOpend" [coordinates]="coordinates" (closeForm)="onCloseForm()" (addNewObject) = "onAddObject($event)" *ngIf="formOpend"></app-new-object-form>
 </div>

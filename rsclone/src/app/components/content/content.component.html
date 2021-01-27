@@ -11,5 +11,5 @@
   [userEmail]="userEmail"
   (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
 ></app-control-authentication>
-<app-map></app-map>
+<app-map (addNewObject)="firebaseService.setData($event)"></app-map>
 <app-info></app-info>
