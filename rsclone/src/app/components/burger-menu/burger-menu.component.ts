@@ -25,5 +25,5 @@ import {animate, style, transition, trigger} from '@angular/animations';
   ]
 })
 export class BurgerMenuComponent {
-  @Output() close = new EventEmitter<void>();
+  @Output() close: EventEmitter<void> = new EventEmitter<void>();
 }

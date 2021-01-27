@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
+import {Component, ComponentFactoryResolver, ViewChild} from '@angular/core';
 import {BurgerMenuComponent} from '../burger-menu/burger-menu.component';
 import {BurgerDirective} from '../../models/burger.directive';
 
@@ -7,14 +7,12 @@ import {BurgerDirective} from '../../models/burger.directive';
   templateUrl: './menu-button.component.html',
   styleUrls: ['./menu-button.component.scss']
 })
-export class MenuButtonComponent implements OnInit {
+export class MenuButtonComponent {
 
   @ViewChild(BurgerDirective) burgerDir: BurgerDirective;
 
   constructor(private resolver: ComponentFactoryResolver) { }
 
-  ngOnInit(): void {
-  }
   showBurgerMenu(): void {
     const burgerMenuFactory = this.resolver.resolveComponentFactory(BurgerMenuComponent);
     this.burgerDir.containerBurgerMenu.clear();
