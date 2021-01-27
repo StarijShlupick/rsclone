@@ -24,6 +24,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { BurgerMenuComponent } from './components/burger-menu/burger-menu.component';
+import {BurgerDirective} from './models/burger.directive';
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { FormAuthenticationComponent } from './components/authentication/form-authentication/form-authentication.component';
 import { AuthenticationService } from './services/authentication.service';
 import { ControlAuthenticationComponent } from './components/authentication/control-authentication/control-authentication.component';
@@ -40,6 +43,9 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     StartScreenComponent,
     ThemeSwitcherComponent,
+    BurgerMenuComponent,
+    BurgerDirective,
+    MenuButtonComponent,
     CognitiveInfoComponent,
     WasteInfoComponent,
     FormAuthenticationComponent,
@@ -48,7 +54,7 @@ import { MatMenuModule } from '@angular/material/menu';
     PwaButtonComponent,
     InfoComponent,
     FooterComponent,
-    MapComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +75,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
   ],
   providers: [FirebaseService, WasteService, AuthenticationService],
+  entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
