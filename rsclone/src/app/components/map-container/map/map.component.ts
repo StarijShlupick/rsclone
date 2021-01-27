@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
 import { environment } from '../../../../environments/environment';
 import { IWasteData } from '../../../models/wasteData.model';
@@ -21,6 +21,7 @@ export class MapComponent implements OnInit {
   formOpend: boolean;
   coordinates: number[];
   marker: any;
+  @Input() userEmail: string;
   @Output() addNewObject = new EventEmitter();
 
   wasteData: IWasteData[];

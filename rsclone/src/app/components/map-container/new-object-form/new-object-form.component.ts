@@ -8,10 +8,11 @@ import { NgForm } from '@angular/forms';
   templateUrl: './new-object-form.component.html',
   styleUrls: ['./new-object-form.component.scss']
 })
-export class NewObjectFormComponent implements  OnChanges {
+export class NewObjectFormComponent implements OnChanges {
 
   @Input() formOpend: boolean;
   @Input() coordinates: number[];
+  @Input() userEmail: string;
 
   @Output() addNewObject = new EventEmitter<object>();
   @Output() closeForm = new EventEmitter();
@@ -19,7 +20,7 @@ export class NewObjectFormComponent implements  OnChanges {
   @ViewChild('f', { static: false }) newObjectForm: NgForm;
 
   ngOnChanges(coordinates: any): void {
-    if (this.coordinates &&  this.newObjectForm) {
+    if (this.coordinates && this.newObjectForm) {
       this.newObjectForm.setValue({
         name: null,
         type: null,
@@ -29,7 +30,7 @@ export class NewObjectFormComponent implements  OnChanges {
         phone: null,
         schedule: null,
         information: null,
-        email: null
+        email: this.userEmail
       });
     }
   }
