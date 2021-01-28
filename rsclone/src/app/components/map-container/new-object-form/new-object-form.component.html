@@ -1,0 +1,101 @@
+<form (ngSubmit)="addNewObject.emit(f)" #f="ngForm">
+  <span class="closeButton" (click)="onCloseForm()"></span>
+  <h3 class="title">Add an object in the "Secondary resources" section</h3>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="name"
+      class="form-input"
+      name="name"
+      placeholder="Name"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="type"
+      class="form-input"
+      name="type"
+      placeholder="Type"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer locationInput">
+    <input
+      type="number"
+      id="x"
+      class="form-input"
+      name="x"
+      placeholder="Latitude"
+      ngModel
+      required
+    />
+    <input
+      type="number"
+      id="y"
+      class="form-input"
+      name="y"
+      placeholder="Longitude"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="address"
+      class="form-input"
+      name="address"
+      placeholder="Address"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="phone"
+      class="form-input"
+      name="phone"
+      placeholder="Phone"
+      ngModel
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="schedule"
+      class="form-input"
+      name="schedule"
+      placeholder="Schedule"
+      ngModel
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="information"
+      class="form-input"
+      name="information"
+      placeholder="Information"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="email"
+      id="email"
+      class="form-input"
+      name="email"
+      placeholder="Email"
+      ngModel
+      required
+      email
+    />
+  </div>
+  <button class="addButton" type="submit" [disabled]="!f.valid">ADD</button>
+</form>

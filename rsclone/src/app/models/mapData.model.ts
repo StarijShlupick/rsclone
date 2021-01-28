@@ -137,6 +137,6 @@ export const CitiesGeoJson = {
       }
     }
   ]
-}
+};
 
 

@@ -14,7 +14,7 @@ export class ControlAuthenticationComponent {
   @Input() userEmail: boolean;
   @Input() isShowAuthenticationForm: boolean;
 
-  @Output() onOpenAndCloseAuthenticationForm = new EventEmitter<boolean>();
+  @Output() onOpenAndCloseAuthenticationForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   openAuthenticationForm(): void {
     this.onOpenAndCloseAuthenticationForm.emit(FormState.Open);
