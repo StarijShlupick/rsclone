@@ -27,6 +27,9 @@ import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import { NewObjectFormComponent } from './components/map-container/new-object-form/new-object-form.component';
 import { NewObjectButtonComponent } from './components/map-container/new-object-button/new-object-button.component';
+import { BurgerMenuComponent } from './components/burger-menu/burger-menu.component';
+import {BurgerDirective} from './models/burger.directive';
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { FormAuthenticationComponent } from './components/authentication/form-authentication/form-authentication.component';
 import { AuthenticationService } from './services/authentication.service';
 import { ControlAuthenticationComponent } from './components/authentication/control-authentication/control-authentication.component';
@@ -43,6 +46,9 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     StartScreenComponent,
     ThemeSwitcherComponent,
+    BurgerMenuComponent,
+    BurgerDirective,
+    MenuButtonComponent,
     CognitiveInfoComponent,
     WasteInfoComponent,
     FormAuthenticationComponent,
@@ -54,6 +60,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MapComponent,
     NewObjectFormComponent,
     NewObjectButtonComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +82,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule
   ],
   providers: [FirebaseService, WasteService, AuthenticationService],
+  entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

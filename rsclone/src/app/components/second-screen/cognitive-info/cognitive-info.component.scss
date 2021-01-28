@@ -16,6 +16,7 @@
     margin: 1rem;
     cursor: pointer;
     outline: none;
+    transition: opacity .3s;
 
     &:hover {
       opacity: 0.5;
@@ -32,7 +33,7 @@
     width: 13vw;
     height: 13vw;
     border-radius: 50%;
-    border: 2px solid #94c83d;
+    border: 2px solid var(--primary-accent-color);
 
     img {
       width: 60%;
@@ -43,12 +44,6 @@
     margin-top: 1rem;
     font-size: 2.8rem;
     text-transform: uppercase;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .cognitive {
-    width: 90vw;
   }
 }
 
@@ -72,5 +67,11 @@
       width: 10rem;
       height: 10rem;
     }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .cognitive {
+    width: 90vw;
   }
 }

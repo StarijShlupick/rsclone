@@ -1,28 +1,40 @@
 <footer class="footer">
   <div class="global-container">
-    <button class="developers" mat-button [matMenuTriggerFor]="aboveMenu">
+    <button class="footer__item developers" mat-button [matMenuTriggerFor]="aboveMenu">
     <span class="material-icons">
       format_list_bulleted
     </span>
       <span class="developers__span">Developers</span>
     </button>
     <mat-menu class="developers__menu" #aboveMenu="matMenu" yPosition="above">
-      <a class="footer__link" href="https://github.com/Polkhoovskaya" target="_blank"><button mat-menu-item>
-        Polkh Volha </button></a>
-      <a class="footer__link" href="https://github.com/bezrukviktor/" target="_blank"><button mat-menu-item>
-        Bezruk Viktor</button></a>
-      <a class="footer__link" href="https://github.com/maxim-tihomirov" target="_blank"><button mat-menu-item>
-        Maxim Tihomirov
-      </button></a>
-      <a class="footer__link" href="https://github.com/StarijShlupick" target="_blank"><button mat-menu-item>
-        Maksim Burakov
-      </button></a>
+      <a class="footer__link" href="https://github.com/Polkhoovskaya" target="_blank">
+        <button mat-menu-item>
+          Polkh Volha
+        </button>
+      </a>
+      <a class="footer__link" href="https://github.com/bezrukviktor/" target="_blank">
+        <button mat-menu-item>
+          Bezruk Viktor
+        </button>
+      </a>
+      <a class="footer__link" href="https://github.com/maxim-tihomirov" target="_blank">
+        <button mat-menu-item>
+          Maxim Tihomirov
+        </button>
+      </a>
+      <a class="footer__link" href="https://github.com/StarijShlupick" target="_blank">
+        <button mat-menu-item>
+          Maksim Burakov
+        </button>
+      </a>
     </mat-menu>
-    <div class="rsschool">
-      <a class="footer__link" href="https://rs.school/js/" target="_blank"><img class="info__img" src="./assets/icons/rs-school.svg" alt="rsschool">
+    <div class="footer__item rsschool">
+      <a class="footer__link" href="https://rs.school/js/" target="_blank"><img class="info__img"
+                                                                                src="./assets/icons/rs-school.svg"
+                                                                                alt="rsschool">
       </a>
     </div>
-    <div class="year">
+    <div class="footer__item year">
       <p class="footer__info">2021 © Green Map - rsclone</p>
     </div>
   </div>

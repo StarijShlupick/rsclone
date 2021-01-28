@@ -52,3 +52,16 @@
     }
   }
 }
+@media (max-width: 370px) {
+  .info{
+    .info__content{
+      .info__header{
+        font-size: 4.5rem;
+        margin-bottom: 20px;
+      }
+      .info__text{
+        font-size: 2rem;
+      }
+    }
+  }
+}
