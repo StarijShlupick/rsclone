@@ -3,6 +3,7 @@
     class="cognitive__item"
     *ngFor="let item of wasteItems"
     [routerLink]="['', item.title]"
+    (click)="soundClick()"
   >
     <div class="cognitive__img-box">
       <img src="{{ item.icon }}" alt="{{ item.title }}" />
