@@ -18,7 +18,7 @@ import { NgForm } from '@angular/forms';
 })
 export class MapComponent implements OnInit {
 
-  formOpend: boolean;
+  formOpend = false;
   coordinates: number[];
   marker: any;
   @Input() userEmail: string;
@@ -211,17 +211,13 @@ export class MapComponent implements OnInit {
     e.checked ? this.map.setStyle('mapbox://styles/mapbox/dark-v10') : this.map.setStyle('mapbox://styles/mapbox/streets-v11');
   }
 
-  onOpenForm(): void {
-    this.formOpend = true;
-  }
-
-  onCloseForm(): void {
-    this.formOpend = false;
+  onOpenCloseForm(): void {
+    this.formOpend =  !this.formOpend;
   }
 
   onAddObject(form: NgForm): void {
     const value = form.value;
     this.addNewObject.emit(value);
-    this.onCloseForm();
+    this.onOpenCloseForm();
   }
 }
