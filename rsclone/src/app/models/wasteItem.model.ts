@@ -1,5 +1,6 @@
 export interface IWasteItem {
   title: string;
   icon: string;
-  info: string;
+  allow: string[];
+  notAllow: string[];
 }
