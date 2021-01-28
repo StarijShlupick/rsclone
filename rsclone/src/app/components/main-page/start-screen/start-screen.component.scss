@@ -182,7 +182,7 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .start-screen {
     .global-container {
       .start-screen__content {
@@ -190,7 +190,9 @@
         order: -1;
       }
       .start-screen__container {
+        height: 100%;
         flex-direction: column;
+        justify-content: space-around;
 
         .start-screen__logo {
           margin-bottom: 2rem;
@@ -199,6 +201,26 @@
     }
     app-theme-switcher {
       margin: 0;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .start-screen__logo {
+    display: none;
+  }
+  .start-screen {
+    .global-container {
+      .start-screen__content {
+        .content__header {
+          font-size: 6.2rem;
+          line-height: 6.2rem;
+        }
+        .content__text {
+          font-size: 2.6rem;
+          line-height: 3.2rem;
+        }
+      }
     }
   }
 }
