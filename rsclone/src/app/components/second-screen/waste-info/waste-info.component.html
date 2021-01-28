@@ -2,21 +2,26 @@
   <button class="waste-info__button-back" [routerLink]="''">&larr;</button>
   <h2 class="waste-info__title">{{ waste.title }}</h2>
   <div class="details">
-    <div class="details__col">
-      <div class="details__name">Can</div>
-      <ul class="details__list">
-        <li class="details__list-item" *ngFor="let item of waste.allow">
-          {{ item }}
-        </li>
-      </ul>
-    </div>
-    <div class="details__col">
-      <div class="details__name-cant">Can't</div>
-      <ul class="details__list">
-        <li class="details__list-item-cant" *ngFor="let item of waste.notAllow">
-          {{ item }}
-        </li>
-      </ul>
+    <div class="details__wrapper">
+      <div class="details__col">
+        <div class="details__name">Can</div>
+        <ul class="details__list">
+          <li class="details__list-item" *ngFor="let item of waste.allow">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <div class="details__col">
+        <div class="details__name-cant">Can't</div>
+        <ul class="details__list">
+          <li
+            class="details__list-item-cant"
+            *ngFor="let item of waste.notAllow"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
