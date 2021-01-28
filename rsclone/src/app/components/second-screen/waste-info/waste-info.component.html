@@ -1,5 +1,11 @@
 <div class="waste-info">
-  <button class="waste-info__button-back" [routerLink]="''">&larr;</button>
+  <button
+    class="waste-info__button-back"
+    [routerLink]="''"
+    (click)="soundClick()"
+  >
+    &larr;
+  </button>
   <h2 class="waste-info__title">{{ waste.title }}</h2>
   <div class="details">
     <div class="details__wrapper">

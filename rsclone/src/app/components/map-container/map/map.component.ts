@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
-import { environment } from '../../../environments/environment';
-import { IWasteData } from '../../models/wasteData.model';
-import { ICities } from '../../models/mapData.model';
-import { ICollectionsGeoJSON } from '../../models/mapData.model';
-import { IGeoJson } from '../../models/mapData.model';
-import { IGeoJsonForCity } from '../../models/mapData.model';
-import { CitiesGeoJson } from '../../models/mapData.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FirebaseService } from '../../../services/firebase.service';
+import { environment } from '../../../../environments/environment';
+import { IWasteData } from '../../../models/wasteData.model';
+import { ICities } from '../../../models/mapData.model';
+import { ICollectionsGeoJSON } from '../../../models/mapData.model';
+import { IGeoJson } from '../../../models/mapData.model';
+import { IGeoJsonForCity } from '../../../models/mapData.model';
+import { CitiesGeoJson } from '../../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-map',
@@ -16,6 +17,13 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+
+  formOpend = false;
+  coordinates: number[];
+  marker: any;
+  @Input() userEmail: string;
+  @Output() addNewObject: EventEmitter<any> = new EventEmitter();
+
   wasteData: IWasteData[];
   map: mapboxgl.Map;
   popup: mapboxgl.Popup;
@@ -43,6 +51,30 @@ export class MapComponent implements OnInit {
         center: [27.55, 53.902],
         zoom: 10.5
       });
+
+      this.map.on('click', (event) => {
+        if (this.formOpend) {
+          const coordinates: number[] = [event.lngLat.lng, event.lngLat.lat];
+
+          const mapMarker: HTMLDivElement = document.createElement('div');
+          mapMarker.className = 'marker';
+          mapMarker.style.backgroundImage = `url(./assets/waste/pin.png)`;
+          mapMarker.style.width = '24px';
+          mapMarker.style.height = '24px';
+          mapMarker.style.backgroundSize = '24px 24px';
+
+          mapMarker.addEventListener('mouseenter', () => {
+            mapMarker.style.cursor = 'pointer';
+          });
+
+          this.marker && this.marker.remove();
+          this.marker = new mapboxgl.Marker(mapMarker).setLngLat(coordinates).addTo(this.map);
+          this.coordinates = coordinates;
+        } else if (this.marker) {
+          this.marker.remove();
+        }
+      });
+
       this.loadMap();
     });
   }
@@ -102,7 +134,7 @@ export class MapComponent implements OnInit {
       this.map.addControl(new mapboxgl.NavigationControl({
         showCompass: false
       }), 'bottom-right');
-    })
+    });
   }
 
   addMarkers(): void {
@@ -116,7 +148,7 @@ export class MapComponent implements OnInit {
 
       mapMarker.addEventListener('mouseenter', () => {
         mapMarker.style.cursor = 'pointer';
-      })
+      });
 
       mapMarker.addEventListener('click', (e) => {
         this.flyToPoint(marker.geometry.coordinates);
@@ -177,5 +209,15 @@ export class MapComponent implements OnInit {
 
   switchLayer(e): void {
     e.checked ? this.map.setStyle('mapbox://styles/mapbox/dark-v10') : this.map.setStyle('mapbox://styles/mapbox/streets-v11');
+  }
+
+  onOpenCloseForm(): void {
+    this.formOpend =  !this.formOpend;
+  }
+
+  onAddObject(form: NgForm): void {
+    const value = form.value;
+    this.addNewObject.emit(value);
+    this.onOpenCloseForm();
   }
 }
