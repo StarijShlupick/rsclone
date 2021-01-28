@@ -32,14 +32,13 @@ export class ContentComponent implements OnInit, OnDestroy {
 
     this.subscribtion.add(
       this.authenticationService.isSuccessAuthentication.subscribe(
-        (isSuccessAuthentication) => {
+        () => {
           this.isLogged = this.getIsLoggedInfoFromService();
           this.updateUserEmail();
         }
       )
     );
   }
-
   updateUserEmail(): void {
     this.userEmail = this.authenticationService.userEmail;
   }

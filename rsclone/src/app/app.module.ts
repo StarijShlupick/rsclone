@@ -12,18 +12,24 @@ import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/th
 import { ThemeModule } from './theme/theme.module';
 import { CognitiveInfoComponent } from './components/second-screen/cognitive-info/cognitive-info.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
-import { MapComponent } from './components/map/map.component';
+import { MapComponent } from './components/map-container/map/map.component';
 import { WasteService } from './services/waste.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
+import { NewObjectFormComponent } from './components/map-container/new-object-form/new-object-form.component';
+import { NewObjectButtonComponent } from './components/map-container/new-object-button/new-object-button.component';
+import { BurgerMenuComponent } from './components/burger-menu/burger-menu.component';
+import {BurgerDirective} from './models/burger.directive';
+import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { FormAuthenticationComponent } from './components/authentication/form-authentication/form-authentication.component';
 import { AuthenticationService } from './services/authentication.service';
 import { ControlAuthenticationComponent } from './components/authentication/control-authentication/control-authentication.component';
@@ -41,6 +47,9 @@ import { SoundService } from './services/sound.service';
     HeaderComponent,
     StartScreenComponent,
     ThemeSwitcherComponent,
+    BurgerMenuComponent,
+    BurgerDirective,
+    MenuButtonComponent,
     CognitiveInfoComponent,
     WasteInfoComponent,
     FormAuthenticationComponent,
@@ -50,6 +59,9 @@ import { SoundService } from './services/sound.service';
     InfoComponent,
     FooterComponent,
     MapComponent,
+    NewObjectFormComponent,
+    NewObjectButtonComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +80,7 @@ import { SoundService } from './services/sound.service';
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [
     FirebaseService,
@@ -75,6 +88,7 @@ import { SoundService } from './services/sound.service';
     AuthenticationService,
     SoundService,
   ],
+  entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
