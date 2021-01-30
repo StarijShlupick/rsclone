@@ -11,4 +11,6 @@
     </mat-select>
   </mat-form-field>
   <div id="map"></div>
+  <app-new-object-button (openForm)="onOpenCloseForm()" *ngIf="!formOpend"></app-new-object-button>
+  <app-new-object-form [userEmail]="userEmail" [formOpend]="formOpend" [coordinates]="coordinates" (closeForm)="onOpenCloseForm()" (addNewObject) = "onAddObject($event)" *ngIf="formOpend"></app-new-object-form>
 </div>
