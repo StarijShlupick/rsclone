@@ -5,7 +5,7 @@
   <div class="filter-panel__title">Chose the required material:</div>
   <div class="filter-panel__list">
     <figure class="filter-panel__item">
-      <div class="filter-panel__image varied" [ngClass]="isAllActive ? 'filter-panel__image--active' : '' "
+      <div class="filter-panel__image varied" [ngClass]="isAllActive() ? 'filter-panel__image--active' : '' "
         (click)="selectAll()"></div>
       <figcaption>All</figcaption>
     </figure>
