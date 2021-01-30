@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~normalize.css';
+@import "~normalize.css";
+:root {
+  --primary-accent-color: #94c83d;
+  --secondary-accent-color: #5e9641;
+  --primary-background-color: #e0e0e0;
+  --secondary-background-color: #EEEEEE;
+  --body-background-color: #ffffff;
+  --text-color: #000000;
+}
 
 html {
   box-sizing: border-box;
+  font-size: 10px;
 }
 
 *,
@@ -10,5 +19,28 @@ html {
 *::before {
   box-sizing: inherit;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+  background-color: var(--body-background-color);
+  transition: color 1s;
+  transition: background-color 1s;
+}
+
+.global-container {
+  max-width: 1880px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  html{
+    font-size: 8px;
+  }
+  .global-container{
+    padding: 0 10px;
+  }
+}
