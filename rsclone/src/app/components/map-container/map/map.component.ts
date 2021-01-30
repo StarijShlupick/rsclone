@@ -122,13 +122,6 @@ export class MapComponent implements OnInit {
         'data': this.geoJson
       });
       this.addMarkers();
-
-      this.map.addControl(
-        new MapboxGeocoder({
-          accessToken: mapboxgl.accessToken,
-          mapboxgl: mapboxgl
-        })
-      );
       this.map.addControl(new mapboxgl.NavigationControl({
         showCompass: false
       }), 'bottom-right');
@@ -152,7 +145,6 @@ export class MapComponent implements OnInit {
       mapMarker.addEventListener('click', (e) => {
         this.flyToPoint(marker.geometry.coordinates);
       });
-
 
       const mainPopupInfo: string = `
       <h3 class='popup-title'>${marker.properties.title}</h3>
@@ -198,13 +190,6 @@ export class MapComponent implements OnInit {
   }
 
   flyToCity(currentFeature: IGeoJsonForCity): void {
-  cityToJson(city): void {
-    const currentGeoObj: IGeoJsonForCity = CitiesGeoJson.features.find((obj) => {
-      return obj.properties.city === city;
-    });
-
-    this.flyToCity(currentGeoObj);
-  }
     this.map.flyTo({
       center: currentFeature.geometry.coordinates,
       zoom: 10.5
@@ -257,8 +242,10 @@ export class MapComponent implements OnInit {
     this.wasteTypes = this.wasteTypes.map((item) => {
       return this.isAllActive() ? { ...item, isActive: !this.isAllActive() } : { ...item, isActive: true }
     })
+  }
+
   onOpenCloseForm(): void {
-    this.formOpend =  !this.formOpend;
+    this.formOpend = !this.formOpend;
   }
 
   onAddObject(form: NgForm): void {

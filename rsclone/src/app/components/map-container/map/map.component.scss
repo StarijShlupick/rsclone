@@ -19,21 +19,17 @@
 }
 
 
-
-:host::ng-deep.mapboxgl-popup-close-button {
-
-::ng-deep.mapboxgl-popup {
+:host::ng-deep.mapboxgl-popup {
   min-width: 300px;
 }
 
-::ng-deep.mapboxgl-popup-close-button {
-  outline: none;
-  font-size: 30px;
+:host::ng-deep.mat-form-field-flex {
+  background-color: rgba($color: #ffffff, $alpha: 0.9);
 }
 
-
-:host::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: rgba($color: #ffffff, $alpha: 0.9);
+:host::ng-deep.mapboxgl-popup-close-button {
+  outline: none;
+  font-size: 30px;
 }
 
 :host::ng-deep .mapboxgl-popup-content {
@@ -116,23 +112,24 @@
   }
 }
 
+:host::ng-deep {
   .batteries {
     background: url(../../../../assets/waste/batteries.png) center center;
     background-size: cover;
   }
 
   .books {
-    background: url(../../../../assets/waste/books_svg.svg) center center;
+    background: url(../../../../assets/waste/books.png) center center;
     background-size: cover;
   }
 
   .cloth {
-    background: url(../../../../assets/waste/cloth_svg.svg) center center;
+    background: url(../../../../assets/waste/cloth.png) center center;
     background-size: cover;
   }
 
   .electronicWaste {
-    background: url(../../../../assets/waste/electronicWaste_svg.svg) center center;
+    background: url(../../../../assets/waste/electricWaste.png) center center;
     background-size: cover;
   }
 
@@ -142,22 +139,22 @@
   }
 
   .householdItems {
-    background: url(../../../../assets/waste/householdItems_svg.svg) center center;
+    background: url(../../../../assets/waste/householdItems.png) center center;
     background-size: cover;
   }
 
   .lamps {
-    background: url(../../../../assets/waste/lamps_svg.svg) center center;
+    background: url(../../../../assets/waste/lamps.png) center center;
     background-size: cover;
   }
 
   .metal {
-    background: url(../../../../assets/waste/metal_svg.svg) center center;
+    background: url(../../../../assets/waste/metal.png) center center;
     background-size: cover;
   }
 
   .oils {
-    background: url(../../../../assets/waste/oils_svg.svg) center center;
+    background: url(../../../../assets/waste/oils.png) center center;
     background-size: cover;
   }
 
@@ -167,22 +164,22 @@
   }
 
   .plastic {
-    background: url(../../../../assets/waste/plastic_svg.svg) center center;
+    background: url(../../../../assets/waste/plastic.png) center center;
     background-size: cover;
   }
 
   .tires {
-    background: url(../../../../assets/waste/tires_svg.svg) center center;
+    background: url(../../../../assets/waste/tires.png) center center;
     background-size: cover;
   }
 
   .wholeClothes {
-    background: url(../../../../assets/waste/wholeClothes_svg.svg) center center;
+    background: url(../../../../assets/waste/wholeClothes.png) center center;
     background-size: cover;
   }
 
   .varied {
-    background: url(../../../../assets/waste/varied_svg.svg) center center;
+    background: url(../../../../assets/waste/varied.png) center center;
     background-size: cover;
   }
 }
@@ -280,9 +277,6 @@
   }
 }
 
-::ng-deep .hide {
+:host::ng-deep .hide {
   visibility: hidden;
-}
-
-  }
 }
