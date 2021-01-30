@@ -1,5 +1,7 @@
 <mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle>
 <div class="map-container">
+  <app-map-filter [isAllActive]="isAllActive" [selectAll]="selectAll" [wasteTypes]="wasteTypes"
+    [toggleActiveLayer]="toggleActiveLayer" [showFilter]="showFilter" [filterStatus]="filterStatus"></app-map-filter>
   <mat-form-field appearance="fill">
     <mat-label>Selected City</mat-label>
     <mat-select [(ngModel)]="selectedCity" name="city">
