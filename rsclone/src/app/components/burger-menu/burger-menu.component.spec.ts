@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondScreenComponent } from './second-screen.component';
+import { BurgerMenuComponent } from './burger-menu.component';
 
-describe('SecondScreenComponent', () => {
-  let component: SecondScreenComponent;
-  let fixture: ComponentFixture<SecondScreenComponent>;
+describe('BurgerMenuComponent', () => {
+  let component: BurgerMenuComponent;
+  let fixture: ComponentFixture<BurgerMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecondScreenComponent ]
+      declarations: [ BurgerMenuComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SecondScreenComponent);
+    fixture = TestBed.createComponent(BurgerMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

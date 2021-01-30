@@ -3,7 +3,7 @@
 :root {
   --primary-accent-color: #94c83d;
   --secondary-accent-color: #5e9641;
-  --primary-background-color: #e0e0e0; 
+  --primary-background-color: #e0e0e0;
   --secondary-background-color: #EEEEEE;
   --body-background-color: #ffffff;
   --text-color: #000000;
@@ -34,4 +34,13 @@ body {
   width: 100%;
   padding: 0 20px;
   margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  html{
+    font-size: 8px;
+  }
+  .global-container{
+    padding: 0 10px;
+  }
 }

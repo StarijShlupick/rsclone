@@ -146,7 +146,7 @@ export const CitiesGeoJson = {
       }
     }
   ]
-}
+};
 
 export const wasteTypes = [
   {
