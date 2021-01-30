@@ -11,7 +11,7 @@ import { ThemeSwitcherComponent } from './components/main-page/theme-switcher/th
 import { ThemeModule } from './theme/theme.module';
 import { SecondScreenComponent } from './components/second-screen/second-screen/second-screen.component';
 import { WasteInfoComponent } from './components/second-screen/waste-info/waste-info.component';
-import { MapComponent } from './components/map/map.component';
+import { MapComponent } from './components/map-container/map/map.component';
 import { WasteService } from './services/waste.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -28,6 +28,7 @@ import { PwaButtonComponent } from './components/main-page/pwa-button/pwa-button
 import { InfoComponent } from './components/info-screen/info/info.component';
 import { FooterComponent } from './components/info-screen/footer/footer.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MapFilterComponent } from './components/map-container/map-filter/map-filter.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatMenuModule } from '@angular/material/menu';
     InfoComponent,
     FooterComponent,
     MapComponent,
+    MapFilterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
-import { environment } from '../../../environments/environment';
-import { IWasteData } from '../../models/wasteData.model';
-import { CitiesGeoJson, IGeoJsonForCity, IGeoJson, ICollectionsGeoJSON, ICities, wasteTypes, IWasteTypes } from '../../models/mapData.model';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { FirebaseService } from '../../../services/firebase.service';
+import { environment } from '../../../../environments/environment';
+import { IWasteData } from '../../../models/wasteData.model';
+import { CitiesGeoJson, IGeoJsonForCity, IGeoJson, ICollectionsGeoJSON, ICities, wasteTypes, IWasteTypes } from '../../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
@@ -12,6 +12,7 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+
   wasteData: IWasteData[];
   map: mapboxgl.Map;
   popup: mapboxgl.Popup;
@@ -29,12 +30,12 @@ export class MapComponent implements OnInit {
   isSelectAll: boolean = true;
   wasteTypes: IWasteTypes[] = wasteTypes;
 
+
   constructor(private FirebaseService: FirebaseService) { }
 
   ngOnInit(): void {
     this.FirebaseService.getData().subscribe(items => {
       this.geoJson = this.createGeoJson(items);
-
       (mapboxgl as any).accessToken = environment.mapboxKey;
       this.map = new mapboxgl.Map({
         container: 'map',
@@ -46,7 +47,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  createGeoJson(data): ICollectionsGeoJSON {
+  createGeoJson(data: IWasteData[]): ICollectionsGeoJSON {
     const geoJson: ICollectionsGeoJSON = { 'type': 'FeatureCollection', 'features': [] };
     for (let key in data) {
       const newFeature: IGeoJson = {
@@ -138,19 +139,19 @@ export class MapComponent implements OnInit {
     });
   }
 
-  getIconClasses(types): string {
+  getIconClasses(types: string[]): string {
     return types.map((type) => {
       return `l-${type}`;
     }).join(' ');
   }
 
-  createPopupContent(types): string {
-    return types.map((item) => {
+  createPopupContent(types: string[]): string {
+    return types.map((item: string) => {
       return `<span class="popup-waste__item ${item}" tooltip=${this.defineToolpit(item)}></span>`
     }).join('')
   }
 
-  defineToolpit(type): string {
+  defineToolpit(type: string): string {
     return this.wasteTypes.map((item) => {
       if (item.type === type) {
         return item.title_eng
@@ -158,21 +159,21 @@ export class MapComponent implements OnInit {
     }).join('');
   }
 
-  cityToJson(city): void {
+  cityToJson(city: string): void {
     const currentGeoObj: IGeoJsonForCity = CitiesGeoJson.features.find((obj) => {
       return obj.properties.city === city;
     });
     this.flyToCity(currentGeoObj);
   }
 
-  flyToCity(currentFeature): void {
+  flyToCity(currentFeature: IGeoJsonForCity): void {
     this.map.flyTo({
       center: currentFeature.geometry.coordinates,
       zoom: 10.5
     });
   }
 
-  flyToPoint(center): void {
+  flyToPoint(center: number[]): void {
     this.map.flyTo({
       center: center,
       zoom: 13.5
@@ -200,16 +201,7 @@ export class MapComponent implements OnInit {
     })
     this.isSelectAll = false;
     this.wasteTypes = this.wasteTypes.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          isActive: true
-        }
-      }
-      return {
-        ...item,
-        isActive: false
-      }
+      return item.id === id ? { ...item, isActive: true } : { ...item, isActive: false }
     });
   }
 
@@ -221,25 +213,11 @@ export class MapComponent implements OnInit {
     this.isSelectAll = !this.isSelectAll;
     const markers: Element[] = Array.from(document.getElementsByClassName('marker'));
     markers.forEach((marker) => {
-      if (!this.isSelectAll) {
-        marker.classList.add('hide');
-      } else {
-        marker.classList.remove('hide');
-      }
+      !this.isSelectAll ? marker.classList.add('hide') : marker.classList.remove('hide');
     });
 
     this.wasteTypes = this.wasteTypes.map((item) => {
-      if (this.isAllActive()) {
-
-        return {
-          ...item,
-          isActive: false
-        }
-      }
-      return {
-        ...item,
-        isActive: true
-      }
+      return this.isAllActive() ? { ...item, isActive: !this.isAllActive() } : { ...item, isActive: true }
     })
   }
 }
