@@ -39,6 +39,7 @@ import { InfoComponent } from './components/info-screen/info/info.component';
 import { FooterComponent } from './components/info-screen/footer/footer.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { SoundService } from './services/sound.service';
+import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { SoundService } from './services/sound.service';
     MapComponent,
     NewObjectFormComponent,
     NewObjectButtonComponent,
-    MapComponent
+    MapComponent,
+    LanguageSwitcherComponent
   ],
   imports: [
     BrowserModule,
