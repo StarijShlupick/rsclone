@@ -4,11 +4,11 @@
     *ngIf="!isLogged; else userInfo"
     (click)="openAuthenticationForm()"
   >
-    Войти
+    {{ 'AUTHENTICATION.CONTROL.LOGIN' | translate }}
   </button>
   <span class="auth-controls__separator" *ngIf="isLogged"></span>
   <button class="auth-controls__button" *ngIf="isLogged" (click)="logout()">
-    Выйти
+    {{ 'AUTHENTICATION.CONTROL.LOGOUT' | translate }}
   </button>
 </div>
 

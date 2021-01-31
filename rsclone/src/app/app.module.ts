@@ -41,7 +41,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MapFilterComponent } from './components/map-container/map-filter/map-filter.component';
 import { SoundService } from './services/sound.service';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -84,13 +90,23 @@ import { LanguageSwitcherComponent } from './components/language-switcher/langua
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    })
   ],
   providers: [
     FirebaseService,
     WasteService,
     AuthenticationService,
     SoundService,
+    TranslateService
   ],
   entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],

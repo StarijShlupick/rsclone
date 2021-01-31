@@ -8,7 +8,7 @@
         [checked]="isTabLogin"
         (change)="onChangeTab()"
       />
-      <label for="tab-login">Login</label>
+      <label for="tab-login">{{ 'AUTHENTICATION.FORM.LOGIN' | translate }}</label>
       <input
         type="radio"
         name="tabs-group"
@@ -16,7 +16,7 @@
         [checked]="!isTabLogin"
         (change)="onChangeTab()"
       />
-      <label for="tab-register">Sign Up</label>
+      <label for="tab-register">{{ 'AUTHENTICATION.FORM.SIGN-UP' | translate }}</label>
     </div>
     <div class="form">
       <img class="form__icon" src="../../assets/icons/face.svg" alt="face" />
@@ -32,7 +32,7 @@
           (keydown.enter)="onSubmit(email.value, password.value)"
         />
         <p class="form__error" *ngIf="email.invalid && email.touched">
-          Check email
+          {{ 'AUTHENTICATION.FORM.CHECK-EMAIL' | translate }}
         </p>
 
         <input
@@ -45,7 +45,7 @@
           (keydown.enter)="onSubmit(email.value, password.value)"
         />
         <p class="form__error" *ngIf="password.invalid && password.touched">
-          Check password (min 8 char)
+          {{ 'AUTHENTICATION.FORM.CHECK-PASSWORD' | translate }}
         </p>
 
         <p class="form__error" *ngIf="authErrorMessage.length">
@@ -79,7 +79,7 @@
 
 <ng-template #successAuthentication>
   <div class="info-success-auth">
-    <p>Hello, you entered with email {{ userEmail }}</p>
+    <p>{{ 'AUTHENTICATION.FORM.SUCCESS' | translate }}: {{ userEmail }}</p>
     <button (click)="onCloseAuthenticationForm()">OK</button>
   </div>
 </ng-template>
