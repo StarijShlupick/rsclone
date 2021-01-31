@@ -1,5 +1,6 @@
 .map-container {
   position: relative;
+  overflow: hidden;
   height: 100vh;
   margin: 50px auto;
 }
@@ -17,20 +18,21 @@
   z-index: 3;
 }
 
-::ng-deep.mapboxgl-popup {
+
+:host::ng-deep.mapboxgl-popup {
   min-width: 300px;
 }
 
-::ng-deep.mapboxgl-popup-close-button {
+:host::ng-deep.mat-form-field-flex {
+  background-color: rgba($color: #ffffff, $alpha: 0.9);
+}
+
+:host::ng-deep.mapboxgl-popup-close-button {
   outline: none;
   font-size: 30px;
 }
 
-::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: rgba($color: #ffffff, $alpha: 0.9);
-}
-
-::ng-deep .mapboxgl-popup-content {
+:host::ng-deep .mapboxgl-popup-content {
   display: flex;
   flex-direction: column;
 
@@ -84,48 +86,50 @@
     padding: 10px 0;
     margin-top: 10px;
     border-top: 2px dashed green;
+  }
+}
 
-    &__item {
-      position: relative;
-      width: 30px;
-      height: 30px;
-      background-size: cover;
+:host::ng-deep .popup-waste__item {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
 
-      &[tooltip]::after {
-        content: attr(tooltip);
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -20px;
-        font-size: 15px;
-        opacity: 0;
-        transition: 0.3s;
-        pointer-events: none;
-      }
-
-      &[tooltip]:hover::after {
-        opacity: 1;
-      }
-    }
+  &[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    font-size: 15px;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
   }
 
+  &[tooltip]:hover::after {
+    opacity: 1;
+  }
+}
+
+:host::ng-deep {
   .batteries {
     background: url(../../../../assets/waste/batteries.png) center center;
     background-size: cover;
   }
 
   .books {
-    background: url(../../../../assets/waste/books_24px.png) center center;
+    background: url(../../../../assets/waste/books.png) center center;
     background-size: cover;
   }
 
   .cloth {
-    background: url(../../../../assets/waste/cloth_24px.png) center center;
+    background: url(../../../../assets/waste/cloth.png) center center;
     background-size: cover;
   }
 
   .electronicWaste {
-    background: url(../../../../assets/waste/electronicWaste_24px.png) center center;
+    background: url(../../../../assets/waste/electricWaste.png) center center;
     background-size: cover;
   }
 
@@ -135,12 +139,12 @@
   }
 
   .householdItems {
-    background: url(../../../../assets/waste/householdItems_24px.png) center center;
+    background: url(../../../../assets/waste/householdItems.png) center center;
     background-size: cover;
   }
 
   .lamps {
-    background: url(../../../../assets/waste/lamps_24px.png) center center;
+    background: url(../../../../assets/waste/lamps.png) center center;
     background-size: cover;
   }
 
@@ -150,7 +154,7 @@
   }
 
   .oils {
-    background: url(../../../../assets/waste/oils_24px.png) center center;
+    background: url(../../../../assets/waste/oils.png) center center;
     background-size: cover;
   }
 
@@ -160,17 +164,119 @@
   }
 
   .plastic {
-    background: url(../../../../assets/waste/plastic_24px.png) center center;
+    background: url(../../../../assets/waste/plastic.png) center center;
     background-size: cover;
   }
 
   .tires {
-    background: url(../../../../assets/waste/tires_24px.png) center center;
+    background: url(../../../../assets/waste/tires.png) center center;
     background-size: cover;
   }
 
   .wholeClothes {
-    background: url(../../../../assets/waste/wholeClothes_24px.png) center center;
+    background: url(../../../../assets/waste/wholeClothes.png) center center;
     background-size: cover;
   }
+
+  .varied {
+    background: url(../../../../assets/waste/varied.png) center center;
+    background-size: cover;
+  }
+}
+
+.layers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 29px;
+  height: 29px;
+  z-index: 3;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .1);
+  border-radius: 4px;
+  outline: none;
+
+  &-icon {
+    display: block;
+    background-image: url(../../../../assets/icons/layers.svg);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.filter-panel {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 10px 15px;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 120px;
+  background-color: rgba($color: #ffffff, $alpha: .9);
+  border-radius: 4px;
+  z-index: 3;
+  transition: .3s ease-in-out;
+
+  &--active {
+    bottom: 25px;
+    transition: .3s ease-in-out;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    line-height: 1.3;
+  }
+
+  &__item {
+    margin: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    figcaption {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .1);
+    cursor: pointer;
+
+    &--active {
+      box-shadow: 0 0 0 2px rgba(18, 105, 0, 0.6);
+    }
+  }
+}
+
+:host::ng-deep .hide {
+  visibility: hidden;
 }
