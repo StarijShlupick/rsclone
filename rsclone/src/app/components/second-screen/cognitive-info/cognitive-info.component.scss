@@ -16,7 +16,7 @@
     margin: 1rem;
     cursor: pointer;
     outline: none;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 
     &:hover {
       opacity: 0.5;
@@ -35,8 +35,33 @@
     border-radius: 50%;
     border: 2px solid var(--primary-accent-color);
 
-    img {
-      width: 60%;
+    .icon-write:before {
+      color: var(--text-color);
+      font-size: 6rem;
+    }
+    .paper:before {
+      content: "\70";
+    }
+    .plastic:before {
+      content: "\e914";
+    }
+    .glass:before {
+      content: "\67";
+    }
+    .metal:before {
+      content: "\6d";
+    }
+    .hazardous:before {
+      content: "\68";
+    }
+    .light:before {
+      content: "\6c";
+    }
+    .things:before {
+      content: "\74";
+    }
+    .battery:before {
+      content: "\62";
     }
   }
 
