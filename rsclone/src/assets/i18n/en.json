@@ -10,6 +10,15 @@
     "WASTE-INFO": {
       "CAN": "Can",
       "CAN-NOT": "Can't"
+    },
+    "WASTE-ITEMS": {
+      "PAPER": {
+        "TITLE": "paper",
+        "ALLOW": "Newspapers, magazines"
+      },
+      "PLASTIC": {
+        "TITLE": "plastic"
+      }
     }
   },
   "MAP-CONTAINER": {
