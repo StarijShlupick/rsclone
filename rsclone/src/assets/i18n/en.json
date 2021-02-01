@@ -14,10 +14,29 @@
     "WASTE-ITEMS": {
       "PAPER": {
         "TITLE": "paper",
-        "ALLOW": "Newspapers, magazines"
+        "ALLOW": "Newspapers, magazines; Catalogs, promotional materials; Notebooks; Envelopes without cellophane and inserts; Old books; Cardboard boxes (from furniture, TV, toys); Wrapping paper and other blank paper; Paper bags (flour, buckwheat, rice)",
+        "NOT-ALLOW": "Paper contaminated with food and grease residues; Paper with staples, staples, tape, adhesive and plastic inserts, springs; Thermal paper (faxes, checks); Laminated paper products, photo paper; Wallpaper; Matchboxes; Food packaging supplemented with a layer of plastic or foil"
       },
       "PLASTIC": {
         "TITLE": "plastic"
+      },
+      "GLASS": {
+        "TITLE": "glass"
+      },
+      "METAL": {
+        "TITLE": "metal"
+      },
+      "HAZARDOUS": {
+        "TITLE": "Hazardous"
+      },
+      "LIGHT-BULB": {
+        "TITLE": "Light Bulb"
+      },
+      "THINGS": {
+        "TITLE": "things"
+      },
+      "BATTERY": {
+        "TITLE": "battery"
       }
     }
   },

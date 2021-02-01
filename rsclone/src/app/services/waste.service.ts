@@ -1,20 +1,46 @@
-import { Injectable } from '@angular/core';
-import { IWasteItem } from '../models/wasteItem.model';
-import { TranslateService } from '@ngx-translate/core';
-import { Observable, Subject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {IWasteItem} from '../models/wasteItem.model';
+import {TranslateService} from '@ngx-translate/core';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable()
 export class WasteService {
-  titlePaper = 'pepe';
+  titlePaper = '';
+  allowPaper = [];
+  notAllowPaper = [];
+  titlePlastic = '';
+  titleGlass = '';
+  titleMetal = '';
+  titleHazardous = '';
+  titleLightBulb = '';
+  titleThings = '';
+  titleBattery = '';
   private waitChanges$: Subject<void> = new Subject();
   wasteItems: IWasteItem[];
 
   constructor(private translate: TranslateService) {
     this.translate
-      .stream(['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE'])
+      .stream(['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.PAPER.ALLOW',
+        'SECOND_SCREEN.WASTE-ITEMS.PAPER.NOT-ALLOW',
+        'SECOND_SCREEN.WASTE-ITEMS.PLASTIC.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.GLASS.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.METAL.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.HAZARDOUS.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.LIGHT-BULB.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.THINGS.TITLE',
+        'SECOND_SCREEN.WASTE-ITEMS.BATTERY.TITLE'])
       .subscribe((translations) => {
         this.titlePaper = translations['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE'];
-        console.log(this.titlePaper);
+        this.allowPaper = translations['SECOND_SCREEN.WASTE-ITEMS.PAPER.ALLOW'].split('; ');
+        this.notAllowPaper = translations['SECOND_SCREEN.WASTE-ITEMS.PAPER.NOT-ALLOW'].split('; ');
+        this.titlePlastic = translations['SECOND_SCREEN.WASTE-ITEMS.PLASTIC.TITLE'];
+        this.titleGlass = translations['SECOND_SCREEN.WASTE-ITEMS.GLASS.TITLE'];
+        this.titleMetal = translations['SECOND_SCREEN.WASTE-ITEMS.METAL.TITLE'];
+        this.titleHazardous = translations['SECOND_SCREEN.WASTE-ITEMS.HAZARDOUS.TITLE'];
+        this.titleLightBulb = translations['SECOND_SCREEN.WASTE-ITEMS.LIGHT-BULB.TITLE'];
+        this.titleThings = translations['SECOND_SCREEN.WASTE-ITEMS.THINGS.TITLE'];
+        this.titleBattery = translations['SECOND_SCREEN.WASTE-ITEMS.BATTERY.TITLE'];
         this.updateDisplay();
       });
   }
@@ -24,28 +50,11 @@ export class WasteService {
       {
         title: this.titlePaper,
         icon: '../../assets/icons/paper.svg',
-        allow: [
-          'Newspapers, magazines',
-          'Catalogs, promotional materials',
-          'Notebooks',
-          'Envelopes without cellophane and inserts',
-          'Old books',
-          'Cardboard boxes (from furniture, TV, toys)',
-          'Wrapping paper and other blank paper',
-          'Paper bags (flour, buckwheat, rice)',
-        ],
-        notAllow: [
-          'Paper contaminated with food and grease residues',
-          'Paper with staples, staples, tape, adhesive and plastic inserts, springs',
-          'Thermal paper (faxes, checks)',
-          'Laminated paper products, photo paper',
-          'Wallpaper',
-          'Matchboxes',
-          'Food packaging supplemented with a layer of plastic or foil',
-        ],
+        allow: this.allowPaper,
+        notAllow: this.notAllowPaper,
       },
       {
-        title: 'plastic',
+        title: this.titlePlastic,
         icon: '../../assets/icons/plastic.svg',
         allow: [
           'Plastic: PET, HDPE, LDPE, PE, PP (digital code: 1, 2, 4, 5)',
@@ -73,7 +82,7 @@ export class WasteService {
         ],
       },
       {
-        title: 'glass',
+        title: this.titleGlass,
         icon: '../../assets/icons/glass.svg',
         allow: [
           'Jars and bottles (alcohol, syrup, oil) ',
@@ -91,7 +100,7 @@ export class WasteService {
         ],
       },
       {
-        title: 'metal',
+        title: this.titleMetal,
         icon: '../../assets/icons/metal.svg',
         allow: [
           'Metal lids and plugs ',
@@ -103,7 +112,7 @@ export class WasteService {
         ],
       },
       {
-        title: 'Hazardous',
+        title: this.titleHazardous,
         icon: '../../assets/icons/hazardousWaste.svg',
         allow: [
           'Batteries',
@@ -121,7 +130,7 @@ export class WasteService {
         ],
       },
       {
-        title: 'Light Bulb',
+        title: this.titleLightBulb,
         icon: '../../assets/icons/lightBulb.svg',
         allow: [
           'Fluorescent lamps (contain mercury vapor and inert gases)',
@@ -132,7 +141,7 @@ export class WasteService {
         notAllow: ['You can rent any lamps'],
       },
       {
-        title: 'things',
+        title: this.titleThings,
         icon: '../../assets/icons/things.svg',
         allow: [
           'Items for the poor are handed over to special collection points',
@@ -143,7 +152,7 @@ export class WasteService {
         notAllow: ['Old clothes and shoes'],
       },
       {
-        title: 'battery',
+        title: this.titleBattery,
         icon: '../../assets/icons/battery.svg',
         allow: [
           'Saline',
