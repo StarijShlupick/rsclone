@@ -6,9 +6,30 @@
     },
     "THEME-SWITCHER": "ВЫБЕРИТЕ ТЕМУ"
   },
+  "SECOND_SCREEN": {
+    "WASTE-INFO": {
+      "CAN": "Можно",
+      "CAN-NOT": "Нельзя"
+    }
+  },
+  "MAP-CONTAINER": {
+    "MAP": {
+      "CITY": "Выбранный город"
+    },
+    "MAP-FILTER": {
+      "PANEL": "Выберите необходимый материал:",
+      "FIGCAPTION": "Все"
+    },
+    "NEW-OBJECT-BUTTON": "Добавить объект",
+    "NEW-OBJECT-FORM": {
+      "TITLE": "Добавить объект в секцию \"Вторичные ресурсы\"",
+      "ADD-BUTTON": "добавить"
+    }
+  },
   "INFO-SCREEN": {
     "FOOTER": {
-      "DEVELOPERS__SPAN": "Разработчики"
+      "DEVELOPERS__SPAN": "Разработчики",
+      "INFO": "2021 © Зеленая Карта - rsclone"
     },
     "INFO": {
       "INFO__HEADER": "Почему это важно?",
@@ -29,5 +50,17 @@
     }
   },
   "BURGER-MENU": {
+    "NAVIGATION": {
+      "START-SCREEN": "Начальный экран",
+      "EDUCATIONAL-INFO": "Образовательная инф-я",
+      "MAP": "Карта",
+      "INFO-PAGE": "Инфо"
+    }
+  },
+  "DEVELOPERS": {
+    "VOLHA": "Ольга Полховская",
+    "VIKTOR": "Виктор Безрук",
+    "MAXIM": "Максим Тихомиров",
+    "MAKSIM": "Максим Бураков"
   }
 }

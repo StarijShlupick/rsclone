@@ -6,9 +6,30 @@
     },
     "THEME-SWITCHER": "choose a theme"
   },
+  "SECOND_SCREEN": {
+    "WASTE-INFO": {
+      "CAN": "Can",
+      "CAN-NOT": "Can't"
+    }
+  },
+  "MAP-CONTAINER": {
+    "MAP": {
+      "CITY": "Selected City"
+    },
+    "MAP-FILTER": {
+      "PANEL": "Chose the required material:",
+      "FIGCAPTION": "All"
+    },
+    "NEW-OBJECT-BUTTON": "ADD NEW OBJECT",
+    "NEW-OBJECT-FORM": {
+      "TITLE": "Add an object in the \"Secondary resources\" section",
+      "ADD-BUTTON": "ADD"
+    }
+  },
   "INFO-SCREEN": {
     "FOOTER": {
-      "DEVELOPERS__SPAN": "Developers"
+      "DEVELOPERS__SPAN": "Developers",
+      "INFO": "2021 © Green Map - rsclone"
     },
     "INFO": {
       "INFO__HEADER": "Why it is Important?",
@@ -29,5 +50,17 @@
     }
   },
   "BURGER-MENU": {
+    "NAVIGATION": {
+      "START-SCREEN": "Start screen",
+      "EDUCATIONAL-INFO": "Educational info",
+      "MAP": "Map",
+      "INFO-PAGE": "Info page"
+    }
+  },
+  "DEVELOPERS": {
+    "VOLHA": "Volha Polkhoovskaya",
+    "VIKTOR": "Viktor Bezruk",
+    "MAXIM": "Maxim Tihomirov",
+    "MAKSIM": "Maksim Burakov"
   }
 }

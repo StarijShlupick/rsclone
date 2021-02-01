@@ -1,9 +1,10 @@
 <mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle>
 <div class="map-container">
   <app-map-filter [isAllActive]="isAllActive" [selectAll]="selectAll" [wasteTypes]="wasteTypes"
-    [toggleActiveLayer]="toggleActiveLayer" [showFilter]="showFilter" [filterStatus]="filterStatus"></app-map-filter>
+                  [toggleActiveLayer]="toggleActiveLayer" [showFilter]="showFilter"
+                  [filterStatus]="filterStatus"></app-map-filter>
   <mat-form-field appearance="fill">
-    <mat-label>Selected City</mat-label>
+    <mat-label>{{ 'MAP-CONTAINER.MAP.CITY' | translate }}</mat-label>
     <mat-select [(ngModel)]="selectedCity" name="city">
       <mat-option *ngFor="let city of cities" [value]="city.value" (click)="cityToJson(city.viewValue)">
         {{city.viewValue}}
@@ -12,5 +13,7 @@
   </mat-form-field>
   <div id="map"></div>
   <app-new-object-button (openForm)="onOpenCloseForm()" *ngIf="!formOpend"></app-new-object-button>
-  <app-new-object-form [userEmail]="userEmail" [formOpend]="formOpend" [coordinates]="coordinates" (closeForm)="onOpenCloseForm()" (addNewObject) = "onAddObject($event)" *ngIf="formOpend"></app-new-object-form>
+  <app-new-object-form [userEmail]="userEmail" [formOpend]="formOpend" [coordinates]="coordinates"
+                       (closeForm)="onOpenCloseForm()" (addNewObject)="onAddObject($event)"
+                       *ngIf="formOpend"></app-new-object-form>
 </div>

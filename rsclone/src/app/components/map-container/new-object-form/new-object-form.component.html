@@ -1,6 +1,6 @@
 <form (ngSubmit)="addNewObject.emit(f)" #f="ngForm">
   <span class="closeButton" (click)="onCloseForm()"></span>
-  <h3 class="title">Add an object in the "Secondary resources" section</h3>
+  <h3 class="title">{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.TITLE' | translate }}</h3>
   <div class="inputContainer">
     <input
       type="text"
@@ -97,5 +97,5 @@
       email
     />
   </div>
-  <button class="addButton" type="submit" [disabled]="!f.valid">ADD</button>
+  <button class="addButton" type="submit" [disabled]="!f.valid">{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.ADD-BUTTON' | translate }}</button>
 </form>

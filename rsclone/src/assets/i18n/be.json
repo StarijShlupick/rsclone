@@ -6,9 +6,30 @@
     },
     "THEME-SWITCHER": "ВЫБЕРЫЦЕ ТЭМУ"
   },
+  "SECOND_SCREEN": {
+    "WASTE-INFO": {
+      "CAN": "Можна",
+      "CAN-NOT": "Нельга"
+    }
+  },
+  "MAP-CONTAINER": {
+    "MAP": {
+      "CITY": "Абраны горад"
+    },
+    "MAP-FILTER": {
+      "PANEL": "Абярыце неабходны матэрыял:",
+      "FIGCAPTION": "Усе"
+    },
+    "NEW-OBJECT-BUTTON": "Дадаць аб'ект",
+    "NEW-OBJECT-FORM": {
+      "TITLE": "Дадаць аб'ект у секцыю \"Другасныя рэсурсы\"",
+      "ADD-BUTTON": "дадаць"
+    }
+  },
   "INFO-SCREEN": {
     "FOOTER": {
-      "DEVELOPERS__SPAN": "Распрацоўнікі"
+      "DEVELOPERS__SPAN": "Распрацоўнікі",
+      "INFO": "2021 © Зялёная Карта - rsclone"
     },
     "INFO": {
       "INFO__HEADER": "Чаму гэта важна?",
@@ -29,5 +50,17 @@
     }
   },
   "BURGER-MENU": {
+    "NAVIGATION": {
+      "START-SCREEN": "Пачатковы экран",
+      "EDUCATIONAL-INFO": "Адукацыйная інф-я",
+      "MAP": "Карта",
+      "INFO-PAGE": "Інфа"
+    }
+  },
+  "DEVELOPERS": {
+    "VOLHA": "Вольга Палхоўская",
+    "VIKTOR": "Віктар Бязрук",
+    "MAXIM": "Максім Ціхаміраў",
+    "MAKSIM": "Максім Буракоў"
   }
 }

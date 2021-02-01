@@ -2,12 +2,12 @@
   <span class="layers-icon"></span>
 </button>
 <div class="filter-panel" [ngClass]="filterStatus ? 'filter-panel--active' : '' ">
-  <div class="filter-panel__title">Chose the required material:</div>
+  <div class="filter-panel__title">{{ 'MAP-CONTAINER.MAP-FILTER.PANEL' | translate }}</div>
   <div class="filter-panel__list">
     <figure class="filter-panel__item">
       <div class="filter-panel__image varied" [ngClass]="isAllActive() ? 'filter-panel__image--active' : '' "
         (click)="selectAll()"></div>
-      <figcaption>All</figcaption>
+      <figcaption>{{ 'MAP-CONTAINER.MAP-FILTER.FIGCAPTION' | translate }}</figcaption>
     </figure>
 
     <figure *ngFor="let type of wasteTypes" class="filter-panel__item">
