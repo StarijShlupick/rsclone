@@ -1,18 +1,25 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { IWasteItem } from '../models/wasteItem.model';
-import {TranslateService} from '@ngx-translate/core';
-
+import { TranslateService } from '@ngx-translate/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class WasteService {
   titlePaper = 'pepe';
-  private wasteItems: IWasteItem[];
+  private wasteItems$: Subject<IWasteItem[]> = new Subject();
+
   constructor(private translate: TranslateService) {
-    this.translate.stream(['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE']).subscribe(translations => {
-      this.titlePaper = translations['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE'];
-      console.log(this.titlePaper);
-    });
-    this.wasteItems = [
+    this.translate
+      .stream(['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE'])
+      .subscribe((translations) => {
+        this.titlePaper = translations['SECOND_SCREEN.WASTE-ITEMS.PAPER.TITLE'];
+        console.log(this.titlePaper);
+        this.updateDisplay();
+      });
+  }
+
+  updateDisplay(): void {
+    this.wasteItems$.next([
       {
         title: this.titlePaper,
         icon: '../../assets/icons/paper.svg',
@@ -145,18 +152,19 @@ export class WasteService {
           'Lithium',
           'Nickel-cadmium',
         ],
-        notAllow: ['Any batteries are recyclable', 'Buy rechargeable batteries!'],
+        notAllow: [
+          'Any batteries are recyclable',
+          'Buy rechargeable batteries!',
+        ],
       },
-    ];
+    ]);
   }
 
-
-
-  public getWasteItems(): Array<IWasteItem> {
-    return this.wasteItems;
+  get wasteItems(): Observable<IWasteItem[]> {
+    return this.wasteItems$.asObservable();
   }
 
-  public getCurrentWaste(title: string): IWasteItem {
-    return this.wasteItems.find((el) => el.title === title);
-  }
+  /* public getCurrentWaste(title: string): IWasteItem {
+    return this.wasteItems.find((el: IWasteItem) => el.title === title);
+  } */
 }
