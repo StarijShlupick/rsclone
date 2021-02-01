@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UrlSound } from 'src/app/models/urlSound.model';
 import { IWasteItem } from 'src/app/models/wasteItem.model';
+import { SoundService } from 'src/app/services/sound.service';
 import { WasteService } from '../../../services/waste.service';
 
 @Component({
@@ -11,7 +13,8 @@ import { WasteService } from '../../../services/waste.service';
 export class WasteInfoComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
-    private wasteService: WasteService
+    private wasteService: WasteService,
+    private soundService: SoundService
   ) {}
 
   waste: IWasteItem;
@@ -19,5 +22,9 @@ export class WasteInfoComponent implements OnInit {
   ngOnInit(): void {
     const itemTitle = this.activatedRoute.snapshot.paramMap.get('title');
     this.waste = this.wasteService.getCurrentWaste(itemTitle);
+  }
+
+  soundClick(): void {
+    this.soundService.playSound(UrlSound.Secondary);
   }
 }

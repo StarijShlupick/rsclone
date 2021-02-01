@@ -8,61 +8,146 @@ export class WasteService {
     {
       title: 'paper',
       icon: '../../assets/icons/paper.svg',
-      info: this.getTestText(),
-      class: 'paper'
+      class: 'paper',
+      allow: [
+        'Newspapers, magazines',
+        'Catalogs, promotional materials',
+        'Notebooks',
+        'Envelopes without cellophane and inserts',
+        'Old books',
+        'Cardboard boxes (from furniture, TV, toys)',
+        'Wrapping paper and other blank paper',
+        'Paper bags (flour, buckwheat, rice)',
+      ],
+      notAllow: [
+        'Paper contaminated with food and grease residues',
+        'Paper with staples, staples, tape, adhesive and plastic inserts, springs',
+        'Thermal paper (faxes, checks)',
+        'Laminated paper products, photo paper',
+        'Wallpaper',
+        'Matchboxes',
+        'Food packaging supplemented with a layer of plastic or foil',
+      ]
     },
     {
       title: 'plastic',
       icon: '../../assets/icons/plastic.svg',
-      info: this.getTestText(),
-      class: 'plastic'
+      class: 'plastic',
+      allow: [
+        'Plastic: PET, HDPE, LDPE, PE, PP (digital code: 1, 2, 4, 5)',
+        'Boxes (yogurt, salads, kebabs)',
+        'Bottles (oil, ketchup, mayonnaise)',
+        'Canisters from under the water',
+        'Polyethylene bags (bread, milk, cereals)',
+        'Plastic bags',
+        'Packing tape',
+        'Styrofoam',
+        'Packaging for cosmetics (shampoo, washing powder)',
+      ],
+      notAllow: [
+        'Packaging and bags contaminated with food',
+        'Polystyrene packaging (PS, digital code - 6)',
+        'Combined materials (plastic + metal, paper or other types of plastic: C / PAP, C / LDPE, C / ALU, digital code from 80 to 94)',
+        'Disposable tableware',
+        'Stationery',
+        'Tubes for toothpaste and creams (the presence of an aluminum layer inside the tube)',
+        'White jars of sour cream and yogurt',
+        'Candy wrappers',
+        'CD discs',
+        'If the item contains not only plastic (video cassettes, shaving machines), you can separate the materials yourself',
+        'In case of difficulties with the type of plastic - it is better to throw the unknown plastic into the plastic container',
+      ]
     },
     {
       title: 'glass',
       icon: '../../assets/icons/glass.svg',
-      info: this.getTestText(),
-      class: 'glass'
+      class: 'glass',
+      allow: [
+        'Jars and bottles (alcohol, syrup, oil) ',
+        'All glass containers are recycled',
+      ],
+      notAllow: [
+        'Bulbs ',
+        'Automotive glass ',
+        'Heat-resistant, wired glass ',
+        'Window glass (goes to construction waste) ',
+        'Mirrors ',
+        'Screens of monitors and TVs ',
+        'Colored glass and crystal ',
+        'Faience earthenware',
+      ]
     },
     {
       title: 'metal',
       icon: '../../assets/icons/metal.svg',
-      info: this.getTestText(),
-      class: 'metal'
+      class: 'metal',
+      allow: [
+        'Metal lids and plugs ',
+        'Tin cans and boxes (sprats, cat food) ',
+        'All types of metal',
+      ],
+      notAllow: [
+        'Household appliances (there are special collection points for household appliances)',
+      ]
     },
     {
       title: 'Hazardous',
       icon: '../../assets/icons/hazardousWaste.svg',
-      info: this.getTestText(),
-      class: 'hazardous'
+      class: 'hazardous',
+      allow: [
+        'Batteries',
+        'Fluorescent lamps',
+        'Mercury-containing thermometers',
+        'Used car oil',
+        'Garden chemicals',
+        'Expired medications',
+        'Accumulator',
+        'Car tires',
+        'Electrical and electronic equipments',
+      ],
+      notAllow: [
+        'All hazardous waste must be disposed of at designated collection points',
+      ]
     },
     {
       title: 'Light Bulb',
       icon: '../../assets/icons/lightBulb.svg',
-      info: this.getTestText(),
-      class: 'light'
+      class: 'light',
+      allow: [
+        'Fluorescent lamps (contain mercury vapor and inert gases)',
+        'Halogen bulbs (bulbs are very hot and may cause a fire)',
+        'LED lamps (have the best characteristics in terms of energy saving, operation and disposal)',
+        'Incandescent lamps (safe to use)',
+      ],
+      notAllow: ['You can rent any lamps']
     },
     {
       title: 'things',
       icon: '../../assets/icons/things.svg',
-      info: this.getTestText(),
-      class: 'things'
+      class: 'things',
+      allow: [
+        'Items for the poor are handed over to special collection points',
+        'Books',
+        'Furniture for recycling',
+        'Аppliances',
+      ],
+      notAllow: ['Old clothes and shoes']
     },
     {
       title: 'battery',
       icon: '../../assets/icons/battery.svg',
-      info: this.getTestText(),
-      class: 'battery'
+      class: 'battery',
+      allow: [
+        'Saline',
+        'Alkaline',
+        'Mercury',
+        'Silver',
+        'Lithium',
+        'Nickel-cadmium',
+      ],
+      notAllow: ['Any batteries are recyclable', 'Buy rechargeable batteries!']
     },
   ];
-
-  private getTestText(): string {
-    return `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-     laborum.`;
-  }
 
   public getWasteItems(): Array<IWasteItem> {
     return this.wasteItems;

@@ -38,6 +38,9 @@ import { PwaButtonComponent } from './components/main-page/pwa-button/pwa-button
 import { InfoComponent } from './components/info-screen/info/info.component';
 import { FooterComponent } from './components/info-screen/footer/footer.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MapFilterComponent } from './components/map-container/map-filter/map-filter.component';
+import { SoundService } from './services/sound.service';
+
 
 @NgModule({
   declarations: [
@@ -58,9 +61,9 @@ import { MatMenuModule } from '@angular/material/menu';
     InfoComponent,
     FooterComponent,
     MapComponent,
+    MapFilterComponent,
     NewObjectFormComponent,
     NewObjectButtonComponent,
-    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,12 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     MatButtonModule
   ],
-  providers: [FirebaseService, WasteService, AuthenticationService],
+  providers: [
+    FirebaseService,
+    WasteService,
+    AuthenticationService,
+    SoundService,
+  ],
   entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],
 })
