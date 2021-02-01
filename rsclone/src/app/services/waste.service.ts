@@ -9,41 +9,49 @@ export class WasteService {
       title: 'paper',
       icon: '../../assets/icons/paper.svg',
       info: this.getTestText(),
+      class: 'paper'
     },
     {
       title: 'plastic',
       icon: '../../assets/icons/plastic.svg',
       info: this.getTestText(),
+      class: 'plastic'
     },
     {
       title: 'glass',
       icon: '../../assets/icons/glass.svg',
       info: this.getTestText(),
+      class: 'glass'
     },
     {
       title: 'metal',
       icon: '../../assets/icons/metal.svg',
       info: this.getTestText(),
+      class: 'metal'
     },
     {
       title: 'Hazardous',
       icon: '../../assets/icons/hazardousWaste.svg',
       info: this.getTestText(),
+      class: 'hazardous'
     },
     {
       title: 'Light Bulb',
       icon: '../../assets/icons/lightBulb.svg',
       info: this.getTestText(),
+      class: 'light'
     },
     {
       title: 'things',
       icon: '../../assets/icons/things.svg',
       info: this.getTestText(),
+      class: 'things'
     },
     {
       title: 'battery',
       icon: '../../assets/icons/battery.svg',
       info: this.getTestText(),
+      class: 'battery'
     },
   ];
 
