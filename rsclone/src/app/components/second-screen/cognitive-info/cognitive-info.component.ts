@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlSound } from 'src/app/models/urlSound.model';
+import { IWasteItem } from 'src/app/models/wasteItem.model';
 import { SoundService } from 'src/app/services/sound.service';
 import { WasteService } from '../../../services/waste.service';
 
@@ -14,15 +15,15 @@ export class CognitiveInfoComponent implements OnInit {
     private soundService: SoundService
   ) {}
 
-  wasteItems = this.wasteService.wasteItems;
+  wasteItems: IWasteItem[] = this.wasteService.wasteItems;
 
   soundClick(): void {
     this.soundService.playSound(UrlSound.Primary);
   }
 
   ngOnInit(): void {
-    this.wasteService.wasteItems.subscribe((e) => {
-      this.wasteItems = e;
+    this.wasteService.waitChanges.subscribe(() => {
+      this.wasteItems = this.wasteService.wasteItems;
     });
   }
 }

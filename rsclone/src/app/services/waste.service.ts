@@ -6,7 +6,8 @@ import { Observable, Subject } from 'rxjs';
 @Injectable()
 export class WasteService {
   titlePaper = 'pepe';
-  private wasteItems$: Subject<IWasteItem[]> = new Subject();
+  private waitChanges$: Subject<void> = new Subject();
+  wasteItems: IWasteItem[];
 
   constructor(private translate: TranslateService) {
     this.translate
@@ -19,7 +20,7 @@ export class WasteService {
   }
 
   updateDisplay(): void {
-    this.wasteItems$.next([
+    this.wasteItems = [
       {
         title: this.titlePaper,
         icon: '../../assets/icons/paper.svg',
@@ -157,14 +158,15 @@ export class WasteService {
           'Buy rechargeable batteries!',
         ],
       },
-    ]);
+    ];
+    this.waitChanges$.next();
   }
 
-  get wasteItems(): Observable<IWasteItem[]> {
-    return this.wasteItems$.asObservable();
+  get waitChanges(): Observable<void> {
+    return this.waitChanges$.asObservable();
   }
 
-  /* public getCurrentWaste(title: string): IWasteItem {
+  public getCurrentWaste(title: string): IWasteItem {
     return this.wasteItems.find((el: IWasteItem) => el.title === title);
-  } */
+  }
 }

@@ -21,7 +21,7 @@ export class WasteInfoComponent implements OnInit {
 
   ngOnInit(): void {
     const itemTitle = this.activatedRoute.snapshot.paramMap.get('title');
-    /* this.waste = this.wasteService.getCurrentWaste(itemTitle); */
+    this.waste = this.wasteService.getCurrentWaste(itemTitle);
   }
 
   soundClick(): void {
