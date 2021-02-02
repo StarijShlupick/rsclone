@@ -65,7 +65,16 @@
     "NEW-OBJECT-BUTTON": "Дадаць аб'ект",
     "NEW-OBJECT-FORM": {
       "TITLE": "Дадаць аб'ект у секцыю \"Другасныя рэсурсы\"",
-      "ADD-BUTTON": "дадаць"
+      "ADD-BUTTON": "дадаць",
+      "NAME": "Назва",
+      "TYPE": "Тып",
+      "LATITUDE": "Шырата",
+      "LONGTITUDE": "Даўгата",
+      "ADDRESS": "Адрас",
+      "PHONE": "Тэлефон",
+      "SCHEDULE": "Графік",
+      "INFORMATION": "Інфармацыя",
+      "EMAIL": "Электронная пошта"
     }
   },
   "INFO-SCREEN": {

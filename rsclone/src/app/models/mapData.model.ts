@@ -254,5 +254,3 @@ export const wasteTypes = [
     isActive: true,
   },
 ]
-
-

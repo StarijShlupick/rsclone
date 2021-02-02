@@ -65,7 +65,16 @@
     "NEW-OBJECT-BUTTON": "Добавить объект",
     "NEW-OBJECT-FORM": {
       "TITLE": "Добавить объект в секцию \"Вторичные ресурсы\"",
-      "ADD-BUTTON": "добавить"
+      "ADD-BUTTON": "добавить",
+      "NAME": "Название",
+      "TYPE": "Тип",
+      "LATITUDE": "Широта",
+      "LONGTITUDE": "Долгота",
+      "ADDRESS": "Адрес",
+      "PHONE": "Телефон",
+      "SCHEDULE": "График",
+      "INFORMATION": "Информация",
+      "EMAIL": "Электронная почта"
     }
   },
   "INFO-SCREEN": {

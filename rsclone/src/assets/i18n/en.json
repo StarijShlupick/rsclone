@@ -65,7 +65,16 @@
     "NEW-OBJECT-BUTTON": "ADD NEW OBJECT",
     "NEW-OBJECT-FORM": {
       "TITLE": "Add an object in the \"Secondary resources\" section",
-      "ADD-BUTTON": "ADD"
+      "ADD-BUTTON": "ADD",
+      "NAME": "Name",
+      "TYPE": "Type",
+      "LATITUDE": "Latitude",
+      "LONGTITUDE": "Longitude",
+      "ADDRESS": "Address",
+      "PHONE": "Phone",
+      "SCHEDULE": "Schedule",
+      "INFORMATION": "Information",
+      "EMAIL": "Email"
     }
   },
   "INFO-SCREEN": {
