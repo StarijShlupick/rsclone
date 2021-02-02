@@ -6,8 +6,8 @@
   <mat-form-field appearance="fill">
     <mat-label>{{ 'MAP-CONTAINER.MAP.CITY' | translate }}</mat-label>
     <mat-select [(ngModel)]="selectedCity" name="city">
-      <mat-option *ngFor="let city of cities" [value]="city.value" (click)="cityToJson(city.viewValue)">
-        {{city.viewValue}}
+      <mat-option *ngFor="let city of cities" [value]="city.value" (click)="cityToJson(city.moveToValue)">
+        {{city.viewValue | translate}}
       </mat-option>
     </mat-select>
   </mat-form-field>

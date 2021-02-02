@@ -26,12 +26,12 @@ export class MapComponent implements OnInit {
   geoJson: ICollectionsGeoJSON;
   selectedCity: string;
   cities: ICities[] = [
-    { value: 'city-1', viewValue: 'Minsk' },
-    { value: 'city-2', viewValue: 'Vitebsk' },
-    { value: 'city-3', viewValue: 'Grodno' },
-    { value: 'city-4', viewValue: 'Mogilev' },
-    { value: 'city-5', viewValue: 'Brest' },
-    { value: 'city-6', viewValue: 'Gomel' },
+    { value: 'city-1', viewValue: 'MAP-CONTAINER.MAP.1', moveToValue: 'Minsk' },
+    { value: 'city-2', viewValue: 'MAP-CONTAINER.MAP.2', moveToValue: 'Vitebsk' },
+    { value: 'city-3', viewValue: 'MAP-CONTAINER.MAP.3', moveToValue: 'Grodno' },
+    { value: 'city-4', viewValue: 'MAP-CONTAINER.MAP.4', moveToValue: 'Mogilev' },
+    { value: 'city-5', viewValue: 'MAP-CONTAINER.MAP.5', moveToValue: 'Brest' },
+    { value: 'city-6', viewValue: 'MAP-CONTAINER.MAP.6', moveToValue: 'Gomel' },
   ];
 
   filterStatus: boolean = false;

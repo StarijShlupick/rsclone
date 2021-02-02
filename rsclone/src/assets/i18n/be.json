@@ -56,11 +56,30 @@
   },
   "MAP-CONTAINER": {
     "MAP": {
-      "CITY": "Абраны горад"
+      "CITY": "Абраны горад",
+      "1": "Мінск",
+      "2": "Віцебск",
+      "3": "Гродна",
+      "4": "Магілёў",
+      "5": "Брэст",
+      "6": "Гомель"
     },
     "MAP-FILTER": {
       "PANEL": "Абярыце неабходны матэрыял:",
-      "FIGCAPTION": "Усе"
+      "FIGCAPTION": "Усе",
+      "BATTERIES": "Батарэйкі",
+      "BOOKS": "Кнігі",
+      "CLOTH": "Тканіна",
+      "ELECTRONIC-WASTE": "Электронныя адходы",
+      "GLASS": "Шкло",
+      "HOUSEHOLD-ITEMS": "Хатняя начынне",
+      "LAMPS": "Лямпы",
+      "METAL": "Метал",
+      "OILS": "Маслы",
+      "PAPER": "Макулатура",
+      "PLASTIC": "Пластык",
+      "TIRES": "Шыны",
+      "WHOLE-CLOTHES": "Адзенне"
     },
     "NEW-OBJECT-BUTTON": "Дадаць аб'ект",
     "NEW-OBJECT-FORM": {

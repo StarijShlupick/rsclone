@@ -66,7 +66,20 @@
     },
     "MAP-FILTER": {
       "PANEL": "Chose the required material:",
-      "FIGCAPTION": "All"
+      "FIGCAPTION": "All",
+      "BATTERIES": "Batteries",
+      "BOOKS": "Books",
+      "CLOTH": "Сloth",
+      "ELECTRONIC-WASTE": "Electronic Waste",
+      "GLASS": "Glass",
+      "HOUSEHOLD-ITEMS": "Household Items",
+      "LAMPS": "Lamps",
+      "METAL": "Metal",
+      "OILS": "Oils",
+      "PAPER": "Paper",
+      "PLASTIC": "Plastic",
+      "TIRES": "Tires",
+      "WHOLE-CLOTHES": "Whole Clothes"
     },
     "NEW-OBJECT-BUTTON": "ADD NEW OBJECT",
     "NEW-OBJECT-FORM": {
