@@ -6,6 +6,7 @@ import { CitiesGeoJson, IGeoJsonForCity, IGeoJson, ICollectionsGeoJSON, ICities,
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { NgForm } from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-map',
@@ -38,7 +39,7 @@ export class MapComponent implements OnInit {
   isSelectAll: boolean = true;
   wasteTypes: IWasteTypes[] = wasteTypes;
 
-  constructor(private FirebaseService: FirebaseService) { }
+  constructor(private FirebaseService: FirebaseService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.FirebaseService.getData().subscribe(items => {
@@ -170,16 +171,22 @@ export class MapComponent implements OnInit {
 
   createPopupContent(types: string[]): string {
     return types.map((item: string) => {
-      return `<span class="popup-waste__item ${item}" tooltip=${this.defineToolpit(item)}></span>`
-    }).join('')
+      return `<span class="popup-waste__item ${item}" tooltip=${this.defineToolpit(item)}></span>`;
+    }).join('');
   }
 
   defineToolpit(type: string): string {
-    return this.wasteTypes.map((item) => {
+    let result = '';
+    const keyValue = this.wasteTypes.map((item) => {
       if (item.type === type) {
-        return item.title_eng
+        return item.title_eng;
       }
     }).join('');
+    this.translate.stream(keyValue).subscribe(value => {
+      result = value;
+    });
+    console.log(result);
+    return result;
   }
 
   cityToJson(city: string): void {
