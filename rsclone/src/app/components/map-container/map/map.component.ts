@@ -185,7 +185,6 @@ export class MapComponent implements OnInit {
     this.translate.stream(keyValue).subscribe(value => {
       result = value;
     });
-    console.log(result);
     return result;
   }
 
