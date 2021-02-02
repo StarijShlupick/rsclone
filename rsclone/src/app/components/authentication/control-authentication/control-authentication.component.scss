@@ -1,27 +1,33 @@
-$color-primary: #000000;
-$color-secondary: #414141;
-
 .auth-controls {
   display: flex;
-  padding: 5rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 
-  &__separator {
-    border-right: 1px solid $color-primary;
-    margin: 0 1rem;
+  &__user-info {
+    font-size: 2rem;
+    box-shadow: 0 2px 0 0 var(--text-color);
+    padding-bottom: 5px;
+    margin-bottom: 2px;
   }
 
   &__button {
     outline: none;
     border: none;
     background: none;
-    color: $color-secondary;
+    padding: 0;
+    color: var(--text-color);
     cursor: pointer;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 900;
+    transition: all .3s;
 
     &:hover {
-      color: $color-primary;
+      opacity: 80%;
     }
     &:active {
-      color: $color-secondary;
+      opacity: 90%;
     }
   }
 }
