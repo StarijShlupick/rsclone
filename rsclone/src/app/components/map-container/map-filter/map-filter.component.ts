@@ -7,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class MapFilterComponent implements OnInit {
-  @Input() isAllActive
-  @Input() selectAll
-  @Input() wasteTypes
-  @Input() toggleActiveLayer
-  @Input() showFilter
-  @Input() filterStatus
+  @Input() isAllActive;
+  @Input() selectAll;
+  @Input() wasteTypes;
+  @Input() toggleActiveLayer;
+  @Input() showFilter;
+  @Input() filterStatus;
 
   constructor() { }
 

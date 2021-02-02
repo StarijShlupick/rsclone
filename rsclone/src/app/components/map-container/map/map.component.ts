@@ -6,6 +6,7 @@ import { CitiesGeoJson, IGeoJsonForCity, IGeoJson, ICollectionsGeoJSON, ICities,
 import * as mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { NgForm } from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-map',
@@ -26,19 +27,19 @@ export class MapComponent implements OnInit {
   geoJson: ICollectionsGeoJSON;
   selectedCity: string;
   cities: ICities[] = [
-    { value: 'city-1', viewValue: 'Minsk' },
-    { value: 'city-2', viewValue: 'Vitebsk' },
-    { value: 'city-3', viewValue: 'Grodno' },
-    { value: 'city-4', viewValue: 'Mogilev' },
-    { value: 'city-5', viewValue: 'Brest' },
-    { value: 'city-6', viewValue: 'Gomel' },
+    { value: 'city-1', viewValue: 'MAP-CONTAINER.MAP.1', moveToValue: 'Minsk' },
+    { value: 'city-2', viewValue: 'MAP-CONTAINER.MAP.2', moveToValue: 'Vitebsk' },
+    { value: 'city-3', viewValue: 'MAP-CONTAINER.MAP.3', moveToValue: 'Grodno' },
+    { value: 'city-4', viewValue: 'MAP-CONTAINER.MAP.4', moveToValue: 'Mogilev' },
+    { value: 'city-5', viewValue: 'MAP-CONTAINER.MAP.5', moveToValue: 'Brest' },
+    { value: 'city-6', viewValue: 'MAP-CONTAINER.MAP.6', moveToValue: 'Gomel' },
   ];
 
   filterStatus: boolean = false;
   isSelectAll: boolean = true;
   wasteTypes: IWasteTypes[] = wasteTypes;
 
-  constructor(private FirebaseService: FirebaseService) { }
+  constructor(private FirebaseService: FirebaseService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.FirebaseService.getData().subscribe(items => {
@@ -170,16 +171,22 @@ export class MapComponent implements OnInit {
 
   createPopupContent(types: string[]): string {
     return types.map((item: string) => {
-      return `<span class="popup-waste__item ${item}" tooltip=${this.defineToolpit(item)}></span>`
-    }).join('')
+      return `<span class="popup-waste__item ${item}" tooltip=${this.defineToolpit(item)}></span>`;
+    }).join('');
   }
 
   defineToolpit(type: string): string {
-    return this.wasteTypes.map((item) => {
+    let result = '';
+    const keyValue = this.wasteTypes.map((item) => {
       if (item.type === type) {
-        return item.title_eng
+        return item.title_eng;
       }
     }).join('');
+    this.translate.stream(keyValue).subscribe(value => {
+      result = value;
+    });
+    console.log(result);
+    return result;
   }
 
   cityToJson(city: string): void {

@@ -4,6 +4,6 @@ export const FormState = {
 };
 
 export const enum TitlesForForm {
-  Login = 'Login',
-  SignUp = 'Sign Up',
+  Login = 'AUTHENTICATION.FORM.LOG-IN',
+  SignUp = 'AUTHENTICATION.FORM.SIGN-UP',
 }
