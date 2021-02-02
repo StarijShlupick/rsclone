@@ -93,11 +93,13 @@
       "LOGOUT": "Выйти"
     },
     "FORM": {
-      "LOGIN": "Логин",
+      "LOG-IN": "Войти",
       "SIGN-UP": "Регистрация",
       "CHECK-EMAIL": "Проверьте email",
       "CHECK-PASSWORD": "Проверьте пароль (минимум 8 символов)",
-      "SUCCESS": "Здравствуйте, вы вошли используя email"
+      "SUCCESS": "Здравствуйте, вы вошли используя email",
+      "PASSWORD": "Ваш Пароль",
+      "EMAIL": "Ваш Email"
     }
   },
   "BURGER-MENU": {

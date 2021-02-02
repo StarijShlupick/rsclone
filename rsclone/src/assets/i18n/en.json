@@ -56,7 +56,13 @@
   },
   "MAP-CONTAINER": {
     "MAP": {
-      "CITY": "Selected City"
+      "CITY": "Selected City",
+      "1": "Minsk",
+      "2": "Vitebsk",
+      "3": "Grodno",
+      "4": "Mogilev",
+      "5": "Brest",
+      "6": "Gomel"
     },
     "MAP-FILTER": {
       "PANEL": "Chose the required material:",
@@ -93,11 +99,13 @@
       "LOGOUT": "Logout"
     },
     "FORM": {
-      "LOGIN": "Login",
+      "LOG-IN": "Login",
       "SIGN-UP": "Sign Up",
       "CHECK-EMAIL": "Check email",
       "CHECK-PASSWORD": "Check password (min 8 char)",
-      "SUCCESS": "Hello, you entered with email"
+      "SUCCESS": "Hello, you entered with email",
+      "PASSWORD": "Your Password",
+      "EMAIL": "Your Email"
     }
   },
   "BURGER-MENU": {

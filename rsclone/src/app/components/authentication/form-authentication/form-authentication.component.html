@@ -8,7 +8,7 @@
         [checked]="isTabLogin"
         (change)="onChangeTab()"
       />
-      <label for="tab-login">{{ 'AUTHENTICATION.FORM.LOGIN' | translate }}</label>
+      <label for="tab-login">{{ 'AUTHENTICATION.FORM.LOG-IN' | translate }}</label>
       <input
         type="radio"
         name="tabs-group"
@@ -20,14 +20,14 @@
     </div>
     <div class="form">
       <img class="form__icon" src="../../assets/icons/face.svg" alt="face" />
-      <h2 class="form__title">{{ currentTitleForElementsForm }}</h2>
+      <h2 class="form__title">{{ currentTitleForElementsForm | translate }}</h2>
       <form [formGroup]="authForm">
         <input
           class="form__input"
           type="text"
           id="email"
           formControlName="email"
-          placeholder="Email"
+          placeholder="{{ 'AUTHENTICATION.FORM.EMAIL' | translate }}"
           autocomplete="off"
           (keydown.enter)="onSubmit(email.value, password.value)"
         />
@@ -40,7 +40,7 @@
           type="text"
           id="password"
           formControlName="password"
-          placeholder="Password"
+          placeholder="{{ 'AUTHENTICATION.FORM.PASSWORD' | translate }}"
           autocomplete="off"
           (keydown.enter)="onSubmit(email.value, password.value)"
         />
@@ -64,7 +64,7 @@
             class="form__button-main"
             (click)="onSubmit(email.value, password.value)"
           >
-            {{ currentTitleForElementsForm }}
+            {{ currentTitleForElementsForm | translate }}
           </button>
         </div>
       </form>
