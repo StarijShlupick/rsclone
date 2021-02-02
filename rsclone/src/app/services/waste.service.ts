@@ -8,6 +8,7 @@ export class WasteService {
     {
       title: 'paper',
       icon: '../../assets/icons/paper.svg',
+      class: 'paper',
       allow: [
         'Newspapers, magazines',
         'Catalogs, promotional materials',
@@ -26,11 +27,12 @@ export class WasteService {
         'Wallpaper',
         'Matchboxes',
         'Food packaging supplemented with a layer of plastic or foil',
-      ],
+      ]
     },
     {
       title: 'plastic',
       icon: '../../assets/icons/plastic.svg',
+      class: 'plastic',
       allow: [
         'Plastic: PET, HDPE, LDPE, PE, PP (digital code: 1, 2, 4, 5)',
         'Boxes (yogurt, salads, kebabs)',
@@ -54,11 +56,12 @@ export class WasteService {
         'CD discs',
         'If the item contains not only plastic (video cassettes, shaving machines), you can separate the materials yourself',
         'In case of difficulties with the type of plastic - it is better to throw the unknown plastic into the plastic container',
-      ],
+      ]
     },
     {
       title: 'glass',
       icon: '../../assets/icons/glass.svg',
+      class: 'glass',
       allow: [
         'Jars and bottles (alcohol, syrup, oil) ',
         'All glass containers are recycled',
@@ -72,11 +75,12 @@ export class WasteService {
         'Screens of monitors and TVs ',
         'Colored glass and crystal ',
         'Faience earthenware',
-      ],
+      ]
     },
     {
       title: 'metal',
       icon: '../../assets/icons/metal.svg',
+      class: 'metal',
       allow: [
         'Metal lids and plugs ',
         'Tin cans and boxes (sprats, cat food) ',
@@ -84,11 +88,12 @@ export class WasteService {
       ],
       notAllow: [
         'Household appliances (there are special collection points for household appliances)',
-      ],
+      ]
     },
     {
       title: 'Hazardous',
       icon: '../../assets/icons/hazardousWaste.svg',
+      class: 'hazardous',
       allow: [
         'Batteries',
         'Fluorescent lamps',
@@ -102,33 +107,36 @@ export class WasteService {
       ],
       notAllow: [
         'All hazardous waste must be disposed of at designated collection points',
-      ],
+      ]
     },
     {
       title: 'Light Bulb',
       icon: '../../assets/icons/lightBulb.svg',
+      class: 'light',
       allow: [
         'Fluorescent lamps (contain mercury vapor and inert gases)',
         'Halogen bulbs (bulbs are very hot and may cause a fire)',
         'LED lamps (have the best characteristics in terms of energy saving, operation and disposal)',
         'Incandescent lamps (safe to use)',
       ],
-      notAllow: ['You can rent any lamps'],
+      notAllow: ['You can rent any lamps']
     },
     {
       title: 'things',
       icon: '../../assets/icons/things.svg',
+      class: 'things',
       allow: [
         'Items for the poor are handed over to special collection points',
         'Books',
         'Furniture for recycling',
         'Аppliances',
       ],
-      notAllow: ['Old clothes and shoes'],
+      notAllow: ['Old clothes and shoes']
     },
     {
       title: 'battery',
       icon: '../../assets/icons/battery.svg',
+      class: 'battery',
       allow: [
         'Saline',
         'Alkaline',
@@ -137,7 +145,7 @@ export class WasteService {
         'Lithium',
         'Nickel-cadmium',
       ],
-      notAllow: ['Any batteries are recyclable', 'Buy rechargeable batteries!'],
+      notAllow: ['Any batteries are recyclable', 'Buy rechargeable batteries!']
     },
   ];
 
