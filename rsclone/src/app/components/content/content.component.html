@@ -1,5 +1,5 @@
-<app-start-screen></app-start-screen>
-<router-outlet></router-outlet>
+<app-start-screen id="start-screen"></app-start-screen>
+<router-outlet id="second-screen"></router-outlet>
 <app-form-authentication
   [isShowAuthenticationForm]="isShowAuthenticationForm"
   (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
@@ -12,8 +12,9 @@
   (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
 ></app-control-authentication>
 <app-map
+  id="map-screen"
   (addNewObject)="firebaseService.setData($event)"
   [userEmail]="userEmail"
 ></app-map>
 <app-menu-button></app-menu-button>
-<app-info></app-info>
+<app-info id="info-screen"></app-info>
