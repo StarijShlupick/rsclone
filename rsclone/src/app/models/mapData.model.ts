@@ -32,9 +32,15 @@ interface IGeometry {
 
 interface IPropertiesGeoJSON {
   city: string;
-  address: string;
-  title: string;
-  workingHours: string;
+  addressRu: string;
+  addressEn: string;
+  addressBy: string;
+  titleRu: string;
+  titleEn: string;
+  titleBy: string;
+  workingHoursRu: string;
+  workingHoursEn: string;
+  workingHoursBy: string;
   phone: string;
   iconType: string;
   type: ITypeGeoJson;

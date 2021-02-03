@@ -4,9 +4,9 @@ import { environment } from '../../../../environments/environment';
 import { IWasteData } from '../../../models/wasteData.model';
 import { CitiesGeoJson, IGeoJsonForCity, IGeoJson, ICollectionsGeoJSON, ICities, wasteTypes, IWasteTypes } from '../../../models/mapData.model';
 import * as mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { NgForm } from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-map',
@@ -20,6 +20,7 @@ export class MapComponent implements OnInit {
   marker: any;
   @Input() userEmail: string;
   @Output() addNewObject: EventEmitter<any> = new EventEmitter();
+  language: string = 'en';
 
   wasteData: IWasteData[];
   map: mapboxgl.Map;
@@ -39,9 +40,16 @@ export class MapComponent implements OnInit {
   isSelectAll: boolean = true;
   wasteTypes: IWasteTypes[] = wasteTypes;
 
-  constructor(private FirebaseService: FirebaseService, private translate: TranslateService) { }
+  constructor(private location: Location, private FirebaseService: FirebaseService, private translate: TranslateService) {
+   }
 
   ngOnInit(): void {
+
+    this.location.onUrlChange(el => {
+      this.language = window.location.hash ? window.location.hash.slice(1) : 'en';
+        this.addMarkers( this.language);
+    });
+
     this.FirebaseService.getData().subscribe(items => {
       this.geoJson = this.createGeoJson(items);
       (mapboxgl as any).accessToken = environment.mapboxKey;
@@ -89,9 +97,15 @@ export class MapComponent implements OnInit {
         },
         'properties': {
           'city': data[key].city,
-          'address': data[key].address,
-          'title': data[key].title,
-          'workingHours': data[key].workingHours,
+          'addressRu': data[key].addressRu,
+          'addressEn': data[key].addressEn,
+          'addressBy': data[key].addressBy,
+          'titleRu': data[key].titleRu,
+          'titleEn': data[key].titleEn,
+          'titleBy': data[key].titleBy,
+          'workingHoursRu': data[key].workingHoursRu,
+          'workingHoursEn': data[key].workingHoursEn,
+          'workingHoursBy': data[key].workingHoursBy,
           'phone': data[key].phone,
           'iconType': data[key].iconType,
           'type': {
@@ -122,14 +136,14 @@ export class MapComponent implements OnInit {
         'type': 'geojson',
         'data': this.geoJson
       });
-      this.addMarkers();
+      this.addMarkers(this.language);
       this.map.addControl(new mapboxgl.NavigationControl({
         showCompass: false
       }), 'bottom-right');
     });
   }
 
-  addMarkers(): void {
+  addMarkers(lg: string): void {
     this.geoJson['features'].forEach((marker) => {
       const availableTypes: string[] = Object.keys(marker.properties.type).filter((key) => marker.properties.type[key]);
       const mapMarker: HTMLDivElement = document.createElement('div');
@@ -148,9 +162,9 @@ export class MapComponent implements OnInit {
       });
 
       const mainPopupInfo: string = `
-      <h3 class='popup-title'>${marker.properties.title}</h3>
-      ${marker.properties.address ? `<span class='popup-main-info popup-address'>${marker.properties.address}</span>` : ''}
-      ${marker.properties.workingHours ? `<span class='popup-main-info popup-hours'>${marker.properties.workingHours}</span>` : ''}
+      <h3 class='popup-title'>${lg === "en" ? marker.properties.titleEn: lg === "ru" ?  marker.properties.titleRu :  marker.properties.titleBy}</h3>
+      ${marker.properties.addressEn ? `<span class='popup-main-info popup-address'>${lg === "en" ? marker.properties.addressEn : lg === "ru" ? marker.properties.addressRu : marker.properties.addressBy}</span>` : ''}
+      ${marker.properties.workingHoursEn ? `<span class='popup-main-info popup-hours'>${lg === "en" ? marker.properties.workingHoursEn : lg === "ru" ? marker.properties.workingHoursRu : marker.properties.workingHoursBy}</span>` : ''}
       ${marker.properties.phone ? `<span class='popup-main-info popup-phone'>${marker.properties.phone}</span>` : ''}
       <div class='popup-waste'>${this.createPopupContent(availableTypes)}</div>`;
       const popup = new mapboxgl.Popup({
@@ -163,7 +177,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  getIconClasses(types: string[]): string {
+   getIconClasses(types: string[]): string {
     return types.map((type) => {
       return `l-${type}`;
     }).join(' ');

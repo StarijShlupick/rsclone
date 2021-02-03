@@ -1,5 +1,7 @@
 export interface IWasteData {
-  address: string;
+  addressRu: string;
+  addressEn: string;
+  addressBy: string;
   batteries: boolean;
   electronicWaste: boolean;
   glass: boolean;
@@ -9,9 +11,13 @@ export interface IWasteData {
   phone: string;
   plastic: boolean;
   tires: boolean;
-  title: string;
+  titleRu: string;
+  titleEn: string;
+  titleBy: string;
   paper: boolean;
-  workingHours: string;
+  workingHoursRu: string;
+  workingHoursEn: string;
+  workingHoursBy: string;
   cloth: boolean;
   lamps: boolean;
   oils: boolean;
