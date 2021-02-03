@@ -12,9 +12,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { FormState, TitlesForForm } from 'src/app/models/formControl.model';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import {Subscription} from 'rxjs';
+import {FormState, TitlesForForm} from 'src/app/models/formControl.model';
+import {AuthenticationService} from 'src/app/services/authentication.service';
+
 @Component({
   selector: 'app-form-authentication',
   templateUrl: './form-authentication.component.html',
@@ -34,7 +35,8 @@ export class FormAuthenticationComponent implements OnInit, OnDestroy {
   constructor(
     public fb: FormBuilder,
     public authenticationService: AuthenticationService
-  ) { }
+  ) {
+  }
 
   ngOnDestroy(): void {
     this.subscribtions.unsubscribe();

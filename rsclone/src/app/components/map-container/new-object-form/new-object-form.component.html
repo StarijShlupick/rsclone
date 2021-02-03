@@ -1,13 +1,13 @@
 <form (ngSubmit)="addNewObject.emit(f)" #f="ngForm">
   <span class="closeButton" (click)="onCloseForm()"></span>
-  <h3 class="title">Add an object in the "Secondary resources" section</h3>
+  <h3 class="title">{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.TITLE' | translate }}</h3>
   <div class="inputContainer">
     <input
       type="text"
       id="name"
       class="form-input"
       name="name"
-      placeholder="Name"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.NAME' | translate }}"
       ngModel
       required
     />
@@ -18,7 +18,7 @@
       id="type"
       class="form-input"
       name="type"
-      placeholder="Type"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.TYPE' | translate }}"
       ngModel
       required
     />
@@ -29,7 +29,7 @@
       id="x"
       class="form-input"
       name="x"
-      placeholder="Latitude"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.LATITUDE' | translate }}"
       ngModel
       required
     />
@@ -38,7 +38,7 @@
       id="y"
       class="form-input"
       name="y"
-      placeholder="Longitude"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.LONGTITUDE' | translate }}"
       ngModel
       required
     />
@@ -49,7 +49,7 @@
       id="address"
       class="form-input"
       name="address"
-      placeholder="Address"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.ADDRESS' | translate }}"
       ngModel
       required
     />
@@ -60,7 +60,7 @@
       id="phone"
       class="form-input"
       name="phone"
-      placeholder="Phone"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.PHONE' | translate }}"
       ngModel
     />
   </div>
@@ -70,7 +70,7 @@
       id="schedule"
       class="form-input"
       name="schedule"
-      placeholder="Schedule"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.SCHEDULE' | translate }}"
       ngModel
     />
   </div>
@@ -80,7 +80,7 @@
       id="information"
       class="form-input"
       name="information"
-      placeholder="Information"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.INFORMATION' | translate }}"
       ngModel
       required
     />
@@ -91,11 +91,11 @@
       id="email"
       class="form-input"
       name="email"
-      placeholder="Email"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.EMAIL' | translate }}"
       ngModel
       required
       email
     />
   </div>
-  <button class="addButton" type="submit" [disabled]="!f.valid">ADD</button>
+  <button class="addButton" type="submit" [disabled]="!f.valid">{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.ADD-BUTTON' | translate }}</button>
 </form>

@@ -4,27 +4,27 @@
     <span class="material-icons">
       format_list_bulleted
     </span>
-      <span class="developers__span">Developers</span>
+      <span class="developers__span">{{ 'INFO-SCREEN.FOOTER.DEVELOPERS__SPAN' | translate }}</span>
     </button>
     <mat-menu class="developers__menu" #aboveMenu="matMenu" yPosition="above">
       <a class="footer__link" href="https://github.com/Polkhoovskaya" target="_blank">
         <button mat-menu-item>
-          Polkh Volha
+          {{ 'DEVELOPERS.VOLHA' | translate }}
         </button>
       </a>
       <a class="footer__link" href="https://github.com/bezrukviktor/" target="_blank">
         <button mat-menu-item>
-          Bezruk Viktor
+          {{ 'DEVELOPERS.VIKTOR' | translate }}
         </button>
       </a>
       <a class="footer__link" href="https://github.com/maxim-tihomirov" target="_blank">
         <button mat-menu-item>
-          Maxim Tihomirov
+          {{ 'DEVELOPERS.MAXIM' | translate }}
         </button>
       </a>
       <a class="footer__link" href="https://github.com/StarijShlupick" target="_blank">
         <button mat-menu-item>
-          Maksim Burakov
+          {{ 'DEVELOPERS.MAKSIM' | translate }}
         </button>
       </a>
     </mat-menu>
@@ -35,7 +35,7 @@
       </a>
     </div>
     <div class="footer__item year">
-      <p class="footer__info">2021 © Green Map - rsclone</p>
+      <p class="footer__info">{{ 'INFO-SCREEN.FOOTER.INFO' | translate }}</p>
     </div>
   </div>
 </footer>
