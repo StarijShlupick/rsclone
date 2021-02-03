@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { BlockId } from 'src/app/models/blockId.model';
 
 @Component({
   selector: 'app-burger-menu',
