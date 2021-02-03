@@ -1,17 +1,6 @@
 <app-start-screen id="start-screen"></app-start-screen>
 <app-menu-button></app-menu-button>
 <router-outlet id="second-screen"></router-outlet>
-<app-form-authentication
-  [isShowAuthenticationForm]="isShowAuthenticationForm"
-  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
-  [isLogged]="isLogged"
-  [userEmail]="userEmail"
-></app-form-authentication>
-<app-control-authentication
-  [isLogged]="isLogged"
-  [userEmail]="userEmail"
-  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
-></app-control-authentication>
 <app-map
   id="map-screen"
   (addNewObject)="firebaseService.setData($event)"
