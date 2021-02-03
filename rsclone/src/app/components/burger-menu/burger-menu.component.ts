@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {FirebaseService} from '../../services/firebase.service';
 import {AuthenticationService} from '../../services/authentication.service';
 
+
 @Component({
   selector: 'app-burger-menu',
   templateUrl: './burger-menu.component.html',
@@ -12,20 +13,20 @@ import {AuthenticationService} from '../../services/authentication.service';
     trigger('menu', [
       transition('void => *', [
         style({
-          left: '-400px'
+          left: '-400px',
         }),
-        animate('250ms ease-out')
-      ])
+        animate('250ms ease-out'),
+      ]),
     ]),
     trigger('backdrop', [
       transition('void => *', [
         style({
-          opacity: '0'
+          opacity: '0',
         }),
-        animate('250ms ease-out')
-      ])
-    ])
-  ]
+        animate('250ms ease-out'),
+      ]),
+    ]),
+  ],
 })
 export class BurgerMenuComponent implements OnInit, OnDestroy {
   isShowAuthenticationForm = false;
@@ -66,5 +67,8 @@ export class BurgerMenuComponent implements OnInit, OnDestroy {
 
   onOpenAndCloseAuthenticationForm(isOpen: boolean): void {
     this.isShowAuthenticationForm = isOpen;
+
+  toScroll(idElement: string) {
+    document.getElementById(idElement).scrollIntoView({ behavior: 'smooth' });
   }
 }

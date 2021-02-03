@@ -13,4 +13,8 @@ export class LanguageSwitcherComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChangeLanguage(ln: string):void {
+    this.translate.use(ln);
+    window.location.hash = ln;
+  }
 }
