@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~normalize.css";
+:root {
+  --primary-accent-color: #94c83d;
+  --secondary-accent-color: #5e9641;
+  --primary-background-color: #e0e0e0;
+  --secondary-background-color: #EEEEEE;
+  --body-background-color: #ffffff;
+  --text-color: #000000;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+  background-color: var(--body-background-color);
+  transition: color 1s;
+  transition: background-color 1s;
+}
+
+.global-container {
+  max-width: 1880px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  html{
+    font-size: 8px;
+  }
+  .global-container{
+    padding: 0 10px;
+  }
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('assets/fonts/icomoon.eot?xezrlw');
+  src:  url('assets/fonts/icomoon.eot?xezrlw#iefix') format('embedded-opentype'),
+    url('assets/fonts/icomoon.ttf?xezrlw') format('truetype'),
+    url('assets/fonts/icomoon.woff?xezrlw') format('woff'),
+    url('assets/fonts/icomoon.svg?xezrlw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-battery:before {
+  content: "\62";
+}
+.icon-burger-menu-button .path1:before {
+  content: "\e901";
+  color: rgb(148, 200, 61);
+}
+.icon-burger-menu-button .path2:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-burger-menu-button .path3:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-burger-menu-button .path4:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-burger-menu-button .path5:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-close:before {
+  content: "\63";
+}
+.icon-face:before {
+  content: "\66";
+}
+.icon-glass:before {
+  content: "\67";
+}
+.icon-hazardousWaste:before {
+  content: "\68";
+}
+.icon-lightBulb:before {
+  content: "\6c";
+}
+.icon-login-logo:before {
+  content: "\e90b";
+}
+.icon-logo .path1:before {
+  content: "\e90c";
+  color: rgb(94, 150, 65);
+}
+.icon-logo .path2:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(148, 200, 61);
+}
+.icon-logo .path3:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(148, 200, 61);
+}
+.icon-logo .path4:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(94, 150, 65);
+}
+.icon-logo .path5:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(148, 200, 61);
+}
+.icon-logo .path6:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(94, 150, 65);
+}
+.icon-metal:before {
+  content: "\6d";
+}
+.icon-paper:before {
+  content: "\70";
+}
+.icon-plastic:before {
+  content: "\e914";
+}
+.icon-things:before {
+  content: "\74";
+}

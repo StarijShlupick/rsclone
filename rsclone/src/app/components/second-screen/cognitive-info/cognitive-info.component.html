@@ -1,0 +1,13 @@
+<div class="cognitive">
+  <div
+    class="cognitive__item"
+    *ngFor="let item of wasteItems"
+    [routerLink]="['', item.title]"
+    (click)="soundClick()"
+  >
+    <div class="cognitive__img-box">
+      <span class="icon-write {{item.class}}"></span>
+    </div>
+    <h3 class="cognitive__item-name">{{ item.title }}</h3>
+  </div>
+</div>

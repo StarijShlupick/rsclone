@@ -1,0 +1,76 @@
+.header {
+  background: var(--primary-background-color);
+  transition: background 1s;
+  .global-container {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  #logo-leaf {
+    transform-origin: bottom;
+    transform-box: fill-box;
+    #Vector_5{
+      fill: var(--primary-accent-color);
+      transition: fill 1s;
+    }
+    #Vector_6{
+      fill: var(--secondary-accent-color);
+      transition: fill 1s;
+    }
+  }
+  #logo-base{
+    #Vector, #Vector_4{
+    fill: var(--secondary-accent-color);
+    transition: fill 1s;
+  }
+  #Vector_2, #Vector_3 {
+    fill: var(--primary-accent-color);
+    transition: fill 1s;
+  }
+  }
+  &:hover #logo-leaf {
+    animation: logo 1.5s linear infinite;
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: skew(5deg, 2deg);
+  }
+  25% {
+    transform: skew(-5deg, -4deg);
+  }
+  50% {
+    transform: skew(5deg, 3deg);
+  }
+  75% {
+    transform: skew(-5deg, -2deg);
+  }
+  100% {
+    transform: skew(5deg, 2deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .header{
+    .global-container{
+      height: 60px;
+    }
+  }
+  .logo{
+    width: 50px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,19 @@
+<button class="layers" type="button" (click)="showFilter()">
+  <span class="layers-icon"></span>
+</button>
+<div class="filter-panel" [ngClass]="filterStatus ? 'filter-panel--active' : '' ">
+  <div class="filter-panel__title">{{ 'MAP-CONTAINER.MAP-FILTER.PANEL' | translate }}</div>
+  <div class="filter-panel__list">
+    <figure class="filter-panel__item">
+      <div class="filter-panel__image varied" [ngClass]="isAllActive() ? 'filter-panel__image--active' : '' "
+        (click)="selectAll()"></div>
+      <figcaption>{{ 'MAP-CONTAINER.MAP-FILTER.FIGCAPTION' | translate }}</figcaption>
+    </figure>
+
+    <figure *ngFor="let type of wasteTypes" class="filter-panel__item">
+      <div [class]="type.type + ' filter-panel__image' " [attr.data-id]="type.id" [attr.data-type]="'l-'+type.type"
+        [ngClass]="type.isActive ? 'filter-panel__image--active' : '' " (click)="toggleActiveLayer($event)"></div>
+      <figcaption>{{type.title_eng | translate}}</figcaption>
+    </figure>
+  </div>
+</div>
