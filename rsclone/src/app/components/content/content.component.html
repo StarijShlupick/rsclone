@@ -1,16 +1,5 @@
 <app-start-screen></app-start-screen>
 <router-outlet></router-outlet>
-<app-form-authentication
-  [isShowAuthenticationForm]="isShowAuthenticationForm"
-  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
-  [isLogged]="isLogged"
-  [userEmail]="userEmail"
-></app-form-authentication>
-<app-control-authentication
-  [isLogged]="isLogged"
-  [userEmail]="userEmail"
-  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
-></app-control-authentication>
 <app-map
   (addNewObject)="firebaseService.setData($event)"
   [userEmail]="userEmail"
