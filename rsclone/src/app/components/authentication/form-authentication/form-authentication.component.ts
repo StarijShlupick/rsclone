@@ -15,11 +15,35 @@ import {
 import {Subscription} from 'rxjs';
 import {FormState, TitlesForForm} from 'src/app/models/formControl.model';
 import {AuthenticationService} from 'src/app/services/authentication.service';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-form-authentication',
   templateUrl: './form-authentication.component.html',
   styleUrls: ['./form-authentication.component.scss'],
+  animations: [
+    trigger('form', [
+      transition('void => *', [
+        style({
+          top: '0px',
+          opacity: '0'
+        }),
+        style({
+          top: '-50px',
+          opacity: '1'
+        }),
+        animate('250ms ease-out')
+      ])
+    ]),
+    trigger('backdrop', [
+      transition('void => *', [
+        style({
+          opacity: '0'
+        }),
+        animate('250ms ease-out')
+      ])
+    ])
+  ]
 })
 export class FormAuthenticationComponent implements OnInit, OnDestroy {
   authForm: FormGroup;
