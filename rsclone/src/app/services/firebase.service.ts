@@ -12,13 +12,15 @@ export class FirebaseService {
   constructor(public db: AngularFirestore) { }
 
   getData(): Observable<IWasteData[]> {
-    return this.db.collection<IWasteData>('/Waste').valueChanges();
+    return this.db.collection<IWasteData>('/WasteFull').valueChanges();
   }
 
   addDataToObject(data: IWasteData[]): IWasteData[] {
     return data.map(el => {
       return {
-        address: el.address,
+        addressRu: el.addressRu,
+        addressEn: el.addressEn,
+        addressBy: el.addressBy,
         batteries: el.batteries,
         electronicWaste: el.electronicWaste,
         glass: el.glass,
@@ -28,9 +30,13 @@ export class FirebaseService {
         phone: el.phone,
         plastic: el.plastic,
         tires: el.tires,
-        title: el.title,
+        titleRu: el.titleRu,
+        titleEn: el.titleEn,
+        titleBy: el.titleBy,
         paper: el.paper,
-        workingHours: el.workingHours,
+        workingHoursRu: el.workingHoursRu,
+        workingHoursEn: el.workingHoursEn,
+        workingHoursBy: el.workingHoursBy,
         cloth: el.cloth,
         lamps: el.lamps,
         oils: el.oils,
