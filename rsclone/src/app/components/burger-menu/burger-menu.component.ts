@@ -27,7 +27,8 @@ import { BlockId } from 'src/app/models/blockId.model';
 })
 export class BurgerMenuComponent {
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
-  goToStart(idElement: string) {
+
+  toScroll(idElement: string) {
     document.getElementById(idElement).scrollIntoView({ behavior: 'smooth' });
   }
 }
