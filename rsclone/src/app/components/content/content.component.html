@@ -1,8 +1,8 @@
 <app-start-screen></app-start-screen>
+<app-menu-button></app-menu-button>
 <router-outlet></router-outlet>
 <app-map
   (addNewObject)="firebaseService.setData($event)"
   [userEmail]="userEmail"
 ></app-map>
-<app-menu-button></app-menu-button>
 <app-info></app-info>

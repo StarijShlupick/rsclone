@@ -231,13 +231,6 @@
   }
 }
 
-@media screen and (max-width: 720px),
-screen and (max-height: 920px) {
-  .start-screen__logo {
-    display: none;
-  }
-}
-
 @media screen and (max-height: 920px) {
   .start-screen__logo {
     max-width: 1100px;
@@ -245,11 +238,16 @@ screen and (max-height: 920px) {
 }
 @media screen and (max-height: 820px) {
   .start-screen__logo {
-    max-width: 1000px;
+    max-width: 900px;
   }
 }
 @media screen and (max-height: 720px) {
   .start-screen__logo {
-    max-width: 850px;
+    max-width: 750px;
+  }
+}
+@media screen and (max-height: 680px) {
+  .start-screen__logo {
+    max-width: 550px;
   }
 }
