@@ -42,7 +42,7 @@ ul {
     right: 5px;
     user-select: none;
     cursor: pointer;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &:hover {
       transform: scale(1.1);
@@ -91,15 +91,16 @@ ul {
 }
 .burger-menu__nav {
   padding: 20px 0;
-  .container{
+  .container {
     font-size: 2.5rem;
     .nav__li + .nav__li {
       margin-top: 30px;
     }
-    .nav__link{
+    .nav__link {
       color: var(--text-color);
-      transition: all .3s;
-      &:hover{
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
         opacity: 60%;
       }
     }
@@ -132,12 +133,12 @@ ul {
   border-radius: 10px;
   border: 2px solid var(--text-color);
   cursor: pointer;
-  transition: all .3s;
+  transition: all 0.3s;
 
   i {
     display: block;
     font-size: 2.5rem;
-    transition: all .2s;
+    transition: all 0.2s;
   }
 
   &:hover {
@@ -192,12 +193,14 @@ ul {
   }
 
   #logo-base {
-    #Vector, #Vector_4 {
+    #Vector,
+    #Vector_4 {
       fill: var(--secondary-accent-color);
       transition: fill 1s;
     }
 
-    #Vector_2, #Vector_3 {
+    #Vector_2,
+    #Vector_3 {
       fill: var(--primary-accent-color);
       transition: fill 1s;
     }
