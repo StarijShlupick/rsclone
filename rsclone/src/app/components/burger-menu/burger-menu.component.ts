@@ -67,7 +67,7 @@ export class BurgerMenuComponent implements OnInit, OnDestroy {
 
   onOpenAndCloseAuthenticationForm(isOpen: boolean): void {
     this.isShowAuthenticationForm = isOpen;
-
+  }
   toScroll(idElement: string) {
     document.getElementById(idElement).scrollIntoView({ behavior: 'smooth' });
   }
