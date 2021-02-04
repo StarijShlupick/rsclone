@@ -4,6 +4,7 @@ $text-color: var(--text-color);
 $color-secondary-bg: rgb(206, 206, 206, 0.6);
 
 .waste-info {
+  position: relative;
   padding: 2rem;
   width: 80vw;
   height: 100vh;
@@ -99,6 +100,22 @@ $color-secondary-bg: rgb(206, 206, 206, 0.6);
     }
   }
 }
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+  margin: 0 auto 10px auto;
+  .material-icons {
+    display: block;
+    font-size: 3.5rem;
+    color: var(--text-color);
+    animation: start-screen-content 0.7s infinite alternate;
+    transition: color 1s;
+    cursor: pointer;
+  }
+}
 
 @media (max-width: 550px){
   .waste-info{
@@ -108,10 +125,11 @@ $color-secondary-bg: rgb(206, 206, 206, 0.6);
     &__wrapper{
       overflow: hidden;
       height: 100%;
-      padding: 2rem 0;
+      padding: 2rem 0 3rem 0;
     }
     &__col{
       padding: 1rem;
+      overflow: hidden;
     }
     .details__list{
       .details__list-item {

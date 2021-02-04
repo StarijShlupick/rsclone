@@ -3,6 +3,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
 import {Subscription} from 'rxjs';
 import {FirebaseService} from '../../services/firebase.service';
 import {AuthenticationService} from '../../services/authentication.service';
+import {ScrollService} from '../../services/scroll.service';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class BurgerMenuComponent implements OnInit, OnDestroy {
 
   constructor(
     public firebaseService: FirebaseService,
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    public scrollService: ScrollService
   ) {
   }
 
@@ -67,8 +69,5 @@ export class BurgerMenuComponent implements OnInit, OnDestroy {
 
   onOpenAndCloseAuthenticationForm(isOpen: boolean): void {
     this.isShowAuthenticationForm = isOpen;
-  }
-  toScroll(idElement: string) {
-    document.getElementById(idElement).scrollIntoView({ behavior: 'smooth' });
   }
 }

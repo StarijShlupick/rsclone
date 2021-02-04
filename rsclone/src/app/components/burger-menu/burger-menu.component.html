@@ -85,22 +85,22 @@
       <div class="container">
         <ul class="nav__ul">
           <li class="nav__li">
-            <p class="nav__link" (click)="toScroll('start-screen')">
+            <p class="nav__link" (click)="this.scrollService.toScroll('start-screen')">
               {{ "BURGER-MENU.NAVIGATION.START-SCREEN" | translate }}
             </p>
           </li>
           <li class="nav__li">
-            <p class="nav__link" (click)="toScroll('second-screen')">
+            <p class="nav__link" (click)="this.scrollService.toScroll('second-screen')">
               {{ "BURGER-MENU.NAVIGATION.EDUCATIONAL-INFO" | translate }}
             </p>
           </li>
           <li class="nav__li">
-            <p class="nav__link" (click)="toScroll('map-screen')">
+            <p class="nav__link" (click)="this.scrollService.toScroll('map-screen')">
               {{ "BURGER-MENU.NAVIGATION.MAP" | translate }}
             </p>
           </li>
           <li class="nav__li">
-            <p class="nav__link" (click)="toScroll('info-screen')">
+            <p class="nav__link" (click)="this.scrollService.toScroll('info-screen')">
               {{ "BURGER-MENU.NAVIGATION.INFO-PAGE" | translate }}
             </p>
           </li>

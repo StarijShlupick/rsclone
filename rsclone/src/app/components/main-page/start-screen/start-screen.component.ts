@@ -3,6 +3,7 @@ import {IWasteData} from '../../../models/wasteData.model';
 import {Subscription} from 'rxjs';
 import {FirebaseService} from '../../../services/firebase.service';
 import {AuthenticationService} from '../../../services/authentication.service';
+import {ScrollService} from '../../../services/scroll.service';
 
 @Component({
   selector: 'app-start-screen',
@@ -18,7 +19,8 @@ export class StartScreenComponent implements OnInit, OnDestroy {
 
   constructor(
     public firebaseService: FirebaseService,
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    public scrollService: ScrollService
   ) {}
 
   ngOnDestroy(): void {

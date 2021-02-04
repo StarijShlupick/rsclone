@@ -17,9 +17,9 @@ export class ContentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.firebaseService.getData().subscribe((data) => {
-    //   this.wasteData = this.firebaseService.addDataToObject(data);
-    // });
+    this.firebaseService.getData().subscribe((data) => {
+      this.wasteData = this.firebaseService.addDataToObject(data);
+    });
   }
   toggleMenuButton(): void{
     this.menuButton = !this.menuButton;
