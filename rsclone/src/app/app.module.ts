@@ -44,6 +44,7 @@ import { LanguageSwitcherComponent } from './components/language-switcher/langua
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {ScrollService} from './services/scroll.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -106,7 +107,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     WasteService,
     AuthenticationService,
     SoundService,
-    TranslateService
+    TranslateService,
+    ScrollService
   ],
   entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],

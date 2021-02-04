@@ -2,11 +2,22 @@ import { Input, Output, ViewChild } from '@angular/core';
 import { Component, OnChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-new-object-form',
   templateUrl: './new-object-form.component.html',
-  styleUrls: ['./new-object-form.component.scss']
+  styleUrls: ['./new-object-form.component.scss'],
+  animations: [
+    trigger('new-object-form', [
+      transition('void => *', [
+        style({
+          right: '-360px'
+        }),
+        animate('250ms ease-out')
+      ])
+    ])
+  ]
 })
 export class NewObjectFormComponent implements OnChanges {
 

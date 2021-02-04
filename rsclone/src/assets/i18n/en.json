@@ -102,7 +102,7 @@
       "INFO": "2021 © Green Map - rsclone"
     },
     "INFO": {
-      "INFO__HEADER": "Why it is Important?",
+      "INFO__HEADER": "Why is it Important?",
       "INFO__TEXT": "The three golden rules of sustainability we were taught as kids are reduce, reuse, and recycle. But for some reason, “recycle” was the one most highlighted. As we learn more and more about going green, it’s becoming more and more clear that recycling is actually the least important of those three totems. Sure, recycling is important, but if we reduced what we were using and reused what we were using in place of single-use options, there would be significantly less stuff in the world to recycle. And less stuff is key to — not to get too hyperbolic here but — saving the planet."
     }
   },
@@ -134,5 +134,6 @@
     "VIKTOR": "Viktor Bezruk",
     "MAXIM": "Maxim Tihomirov",
     "MAKSIM": "Maksim Burakov"
-  }
+  },
+  "MENU": "menu"
 }

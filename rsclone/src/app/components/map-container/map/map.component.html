@@ -33,4 +33,9 @@
     (addNewObject)="onAddObject($event)"
     *ngIf="formOpend"
   ></app-new-object-form>
+  <div class="scroll-down">
+    <i class="material-icons" (click)="this.scrollService.toScroll('info-screen')">
+      expand_more
+    </i>
+  </div>
 </div>
