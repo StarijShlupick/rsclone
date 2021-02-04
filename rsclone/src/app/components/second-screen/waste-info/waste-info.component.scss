@@ -99,3 +99,24 @@ $color-secondary-bg: rgb(206, 206, 206, 0.6);
     }
   }
 }
+
+@media (max-width: 550px){
+  .waste-info{
+    width: 100vw;
+  }
+  .details{
+    &__wrapper{
+      overflow: hidden;
+      height: 100%;
+      padding: 2rem 0;
+    }
+    &__col{
+      padding: 1rem;
+    }
+    .details__list{
+      .details__list-item {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}

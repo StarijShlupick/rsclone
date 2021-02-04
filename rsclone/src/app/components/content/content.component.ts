@@ -10,14 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class ContentComponent implements OnInit {
   wasteData: IWasteData[];
   userEmail: string;
+  menuButton = true;
 
   constructor(
     public firebaseService: FirebaseService
   ) {}
 
   ngOnInit(): void {
-    this.firebaseService.getData().subscribe((data) => {
-      this.wasteData = this.firebaseService.addDataToObject(data);
-    });
+    // this.firebaseService.getData().subscribe((data) => {
+    //   this.wasteData = this.firebaseService.addDataToObject(data);
+    // });
+  }
+  toggleMenuButton(): void{
+    this.menuButton = !this.menuButton;
   }
 }
