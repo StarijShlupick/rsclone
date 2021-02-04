@@ -47,7 +47,7 @@ export class MapComponent implements OnInit {
 
     this.location.onUrlChange(el => {
       this.language = window.location.hash ? window.location.hash.slice(1) : 'en';
-        this.addMarkers( this.language);
+        // this.addMarkers( this.language);
     });
 
     this.FirebaseService.getData().subscribe(items => {
