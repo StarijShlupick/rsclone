@@ -7,6 +7,7 @@ import * as mapboxgl from 'mapbox-gl';
 import { NgForm } from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {Location} from '@angular/common';
+import {ScrollService} from '../../../services/scroll.service';
 
 @Component({
   selector: 'app-map',
@@ -40,14 +41,14 @@ export class MapComponent implements OnInit {
   isSelectAll: boolean = true;
   wasteTypes: IWasteTypes[] = wasteTypes;
 
-  constructor(private location: Location, private FirebaseService: FirebaseService, private translate: TranslateService) {
+  constructor(private location: Location, private FirebaseService: FirebaseService, private translate: TranslateService, public scrollService: ScrollService) {
    }
 
   ngOnInit(): void {
 
     this.location.onUrlChange(el => {
       this.language = window.location.hash ? window.location.hash.slice(1) : 'en';
-        this.addMarkers( this.language);
+        // this.addMarkers( this.language);
     });
 
     this.FirebaseService.getData().subscribe(items => {

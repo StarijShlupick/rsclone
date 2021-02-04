@@ -1,4 +1,5 @@
 .cognitive {
+  position: relative;
   padding: 2rem 0;
   width: 80vw;
   height: 100vh;
@@ -67,9 +68,26 @@
 
   &__item-name {
     margin-top: 1rem;
+    margin-bottom: 0;
     font-size: 2.8rem;
     text-transform: uppercase;
     text-align: center;
+  }
+}
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+  margin: 0 auto 10px auto;
+  .material-icons {
+    display: block;
+    font-size: 3.5rem;
+    color: var(--text-color);
+    animation: start-screen-content 0.7s infinite alternate;
+    transition: color 1s;
+    cursor: pointer;
   }
 }
 
@@ -99,5 +117,59 @@
 @media screen and (max-width: 420px) {
   .cognitive {
     width: 90vw;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .cognitive {
+    width: 90vw;
+    justify-content: center;
+    &__item-name {
+      font-size: 1.6rem;
+      margin-top: 0;
+    }
+    &__img-box {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) and (max-height: 730px) {
+  .cognitive {
+    &__item {
+      width: 10rem;
+    }
+  }
+}
+
+@media screen and (max-height: 730px) {
+  .cognitive {
+    &__item-name {
+      font-size: 2rem;
+    }
+    &__item {
+      margin: 5px;
+    }
+    &__img-box {
+      width: 12rem;
+      height: 12rem;
+    }
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .cognitive {
+    &__item-name {
+      font-size: 2rem;
+    }
+    &__item {
+      width: 12rem;
+    }
+    &__img-box {
+      width: 12rem;
+      height: 12rem;
+    }
   }
 }

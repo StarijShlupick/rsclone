@@ -3,7 +3,7 @@
   <div class="global-container">
     <div class="start-screen__container">
       <div class="start-screen__logo">
-        <svg width="930" height="550" viewBox="0 0 930 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 930 550" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="green-map-start-screen">
             <g id="background">
               <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="24" y="3" width="890" height="546">
@@ -138,13 +138,26 @@
           {{ 'MAIN-PAGE.START-SCREEN.CONTENT__TEXT' | translate }}
         </p>
       </div>
-      <app-pwa-button></app-pwa-button>
-      <app-theme-switcher></app-theme-switcher>
+      <div class="start-screen__components">
+        <app-control-authentication
+          [isLogged]="isLogged"
+          [userEmail]="userEmail"
+          (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
+        ></app-control-authentication>
+        <app-theme-switcher></app-theme-switcher>
+      </div>
     </div>
   </div>
   <div class="scroll-down">
-    <i class="material-icons">
+    <i class="material-icons" (click)="this.scrollService.toScroll('second-screen')">
       expand_more
     </i>
   </div>
 </section>
+
+<app-form-authentication
+  [isShowAuthenticationForm]="isShowAuthenticationForm"
+  (onOpenAndCloseAuthenticationForm)="onOpenAndCloseAuthenticationForm($event)"
+  [isLogged]="isLogged"
+  [userEmail]="userEmail"
+></app-form-authentication>
