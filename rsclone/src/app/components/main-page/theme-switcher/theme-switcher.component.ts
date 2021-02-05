@@ -26,5 +26,7 @@ export class ThemeSwitcherComponent implements OnInit {
     } else if (theme === 'dark') {
       this.themeService.setTheme(EThemeModes.Dark);
     }
+    const url = window.location.protocol + "//" + window.location.host + window.location.pathname + '?theme=' + theme + window.location.hash;    
+    window.history.pushState(null, null, url);
   }
 }
