@@ -12,7 +12,6 @@
 <router-outlet id="second-screen"></router-outlet>
 <app-map
   id="map-screen"
-  (addNewObject)="firebaseService.setData($event)"
-  [userEmail]="userEmail"
+  (addNewObject)="firebaseService.setData($event)"s
 ></app-map>
 <app-info id="info-screen"></app-info>

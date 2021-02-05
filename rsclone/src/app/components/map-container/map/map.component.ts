@@ -19,7 +19,6 @@ export class MapComponent implements OnInit {
   formOpend = false;
   coordinates: number[];
   marker: any;
-  @Input() userEmail: string;
   @Output() addNewObject: EventEmitter<any> = new EventEmitter();
   language: string = 'en';
 
