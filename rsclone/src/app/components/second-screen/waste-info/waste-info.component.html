@@ -1,4 +1,4 @@
-<div class="waste-info">
+<div class="waste-info" (swipe)="this.scrollService.onSwipe($event)">
   <button
     class="waste-info__button-back"
     [routerLink]="''"

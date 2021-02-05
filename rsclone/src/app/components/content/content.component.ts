@@ -1,8 +1,9 @@
 import { IWasteData } from './../../models/wasteData.model';
 import { FirebaseService } from './../../services/firebase.service';
 import {Component, Inject, OnInit} from '@angular/core';
-import {EScrollDirection, ScrollService} from '../../services/scroll.service';
+import { ScrollService} from '../../services/scroll.service';
 import {DOCUMENT} from '@angular/common';
+
 
 @Component({
   selector: 'app-content',
@@ -18,7 +19,7 @@ export class ContentComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     public firebaseService: FirebaseService,
-    public scrollService: ScrollService
+    public scrollService: ScrollService,
   ) {
     this.document.addEventListener('wheel', this.onContentScrolled.bind(this), { passive: false });
   }
@@ -41,9 +42,9 @@ export class ContentComponent implements OnInit {
       delta = -1 * e.deltaY;
     }
     if (delta < 0){
-      this.scrollService.wheelScroll('up');
-    }else if (delta > 0){
       this.scrollService.wheelScroll('down');
+    }else if (delta > 0){
+      this.scrollService.wheelScroll('up');
     }
   }
 

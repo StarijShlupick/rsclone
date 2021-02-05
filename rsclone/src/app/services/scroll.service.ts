@@ -1,10 +1,5 @@
 import {Injectable} from '@angular/core';
 
-export enum EScrollDirection {
-  Up = 'up',
-  Down = 'down'
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +9,7 @@ export class ScrollService {
   componentsList = [
     'start-screen',
     'second-screen',
-    // 'map-screen',
+    'map-screen',
     'info-screen'
   ];
 
@@ -27,7 +22,7 @@ export class ScrollService {
   }
 
   wheelScroll(direction): void {
-    if (direction === 'down')
+    if (direction === 'up')
     {
       this.activeComponent--;
     }
@@ -42,5 +37,12 @@ export class ScrollService {
     }
     this.selectedComponent = this.componentsList[this.activeComponent];
     this.toScroll(this.selectedComponent);
+  }
+  onSwipe(e): void {
+    if (Math.abs(e.deltaY) > 40) {
+      e.deltaY > 0 ? this.wheelScroll('up') : this.wheelScroll('down');
+    } else {
+      return;
+    }
   }
 }

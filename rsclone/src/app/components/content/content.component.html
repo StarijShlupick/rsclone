@@ -1,18 +1,17 @@
-<app-start-screen id="start-screen"></app-start-screen>
-<div class="menu-button" [class.menu-button--active]="!menuButton" (click)="toggleMenuButton()">
-  <div class="menu-button__wrapper">
-    <app-menu-button></app-menu-button>
-    <p class="menu-button__text">{{ 'MENU' | translate }}</p>
-    <i class="material-icons menu-button__arrow" [class.menu-button__arrow--active]="!menuButton">
-      navigate_next
-    </i>
+  <app-start-screen id="start-screen"></app-start-screen>
+  <div class="menu-button" [class.menu-button--active]="!menuButton" (click)="toggleMenuButton()">
+    <div class="menu-button__wrapper">
+      <app-menu-button></app-menu-button>
+      <p class="menu-button__text">{{ 'MENU' | translate }}</p>
+      <i class="material-icons menu-button__arrow" [class.menu-button__arrow--active]="!menuButton">
+        navigate_next
+      </i>
+    </div>
   </div>
-
-</div>
-<router-outlet id="second-screen"></router-outlet>
-<!--<app-map-->
-<!--  id="map-screen"-->
-<!--  (addNewObject)="firebaseService.setData($event)"-->
-<!--  [userEmail]="userEmail"-->
-<!--&gt;</app-map>-->
-<app-info id="info-screen"></app-info>
+  <router-outlet id="second-screen"></router-outlet>
+  <app-map
+    id="map-screen"
+    (addNewObject)="firebaseService.setData($event)"
+    [userEmail]="userEmail"
+  ></app-map>
+  <app-info id="info-screen"></app-info>
