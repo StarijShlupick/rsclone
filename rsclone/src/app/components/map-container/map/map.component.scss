@@ -18,7 +18,6 @@
   z-index: 3;
 }
 
-
 :host::ng-deep.mapboxgl-popup {
   min-width: 300px;
 }
@@ -197,7 +196,7 @@
   background-color: #ffffff;
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   outline: none;
 
@@ -221,15 +220,15 @@
   transform: translateX(-50%);
   width: 80%;
   height: 120px;
-  background-color: rgba($color: #ffffff, $alpha: .9);
+  background-color: rgba($color: #ffffff, $alpha: 0.9);
   color: #000000;
   border-radius: 20px;
   z-index: 3;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   &--active {
     bottom: 40px;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
 
   &__title {
@@ -269,7 +268,7 @@
     height: 50px;
     margin-bottom: 10px;
     border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
     &--active {
@@ -300,7 +299,7 @@
 }
 
 @media (max-width: 500px) {
-  .filter-panel{
+  .filter-panel {
     &__title {
       display: none;
     }

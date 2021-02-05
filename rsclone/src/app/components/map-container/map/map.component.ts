@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
 import { environment } from '../../../../environments/environment';
 import { IWasteData } from '../../../models/wasteData.model';
@@ -47,7 +47,15 @@ export class MapComponent implements OnInit {
 
     this.location.onUrlChange(el => {
       this.language = window.location.hash ? window.location.hash.slice(1) : 'en';
-        // this.addMarkers( this.language);
+
+      const allMarkers: Element[] = Array.from(document.getElementsByClassName('marker'));
+      const markers: Element[] = Array.from(document.getElementsByClassName(this.language + 'marker'));
+      allMarkers.forEach((marker) => {
+        marker.classList.add('hide');
+      });
+      markers.forEach((marker) => {
+        marker.classList.remove('hide');
+      });
     });
 
     this.FirebaseService.getData().subscribe(items => {
@@ -136,44 +144,46 @@ export class MapComponent implements OnInit {
         'type': 'geojson',
         'data': this.geoJson
       });
-      this.addMarkers(this.language);
+      this.addMarkers();
       this.map.addControl(new mapboxgl.NavigationControl({
         showCompass: false
       }), 'bottom-right');
     });
   }
 
-  addMarkers(lg: string): void {
+  addMarkers(): void {
     this.geoJson['features'].forEach((marker) => {
-      const availableTypes: string[] = Object.keys(marker.properties.type).filter((key) => marker.properties.type[key]);
-      const mapMarker: HTMLDivElement = document.createElement('div');
-      mapMarker.className = `marker ${this.getIconClasses(availableTypes)}`;
-      mapMarker.style.backgroundImage = `url(./assets/waste/${marker.properties.iconType}.png)`;
-      mapMarker.style.width = '24px';
-      mapMarker.style.height = '24px';
-      mapMarker.style.backgroundSize = '24px 24px';
+      ['en', 'ru', 'be'].forEach(lng => {
+        const availableTypes: string[] = Object.keys(marker.properties.type).filter((key) => marker.properties.type[key]);
+        const mapMarker: HTMLDivElement = document.createElement('div');
+        mapMarker.className = `marker ${lng + "marker"} ${this.language === lng ? null : "hide"} ${this.getIconClasses(availableTypes)}`;
+        mapMarker.style.backgroundImage = `url(./assets/waste/${marker.properties.iconType}.png)`;
+        mapMarker.style.width = '24px';
+        mapMarker.style.height = '24px';
+        mapMarker.style.backgroundSize = '24px 24px';
 
-      mapMarker.addEventListener('mouseenter', () => {
-        mapMarker.style.cursor = 'pointer';
+        mapMarker.addEventListener('mouseenter', () => {
+          mapMarker.style.cursor = 'pointer';
+        });
+  
+        mapMarker.addEventListener('click', (e) => {
+          this.flyToPoint(marker.geometry.coordinates);
+        });
+  
+        const mainPopupInfo: string = `
+        <h3 class='popup-title'>${lng === "en" ? marker.properties.titleEn: lng === "ru" ?  marker.properties.titleRu :  marker.properties.titleBy}</h3>
+        ${marker.properties.addressEn ? `<span class='popup-main-info popup-address'>${lng === "en" ? marker.properties.addressEn : lng === "ru" ? marker.properties.addressRu : marker.properties.addressBy}</span>` : ''}
+        ${marker.properties.workingHoursEn ? `<span class='popup-main-info popup-hours'>${lng === "en" ? marker.properties.workingHoursEn : lng === "ru" ? marker.properties.workingHoursRu : marker.properties.workingHoursBy}</span>` : ''}
+        ${marker.properties.phone ? `<span class='popup-main-info popup-phone'>${marker.properties.phone}</span>` : ''}
+        <div class='popup-waste'>${this.createPopupContent(availableTypes)}</div>`;
+        const popup = new mapboxgl.Popup({
+          offset: 15,
+          className: 'map-popup'
+        })
+          .setHTML(mainPopupInfo);
+  
+       new mapboxgl.Marker(mapMarker).setLngLat(marker.geometry.coordinates).setPopup(popup).addTo(this.map);
       });
-
-      mapMarker.addEventListener('click', (e) => {
-        this.flyToPoint(marker.geometry.coordinates);
-      });
-
-      const mainPopupInfo: string = `
-      <h3 class='popup-title'>${lg === "en" ? marker.properties.titleEn: lg === "ru" ?  marker.properties.titleRu :  marker.properties.titleBy}</h3>
-      ${marker.properties.addressEn ? `<span class='popup-main-info popup-address'>${lg === "en" ? marker.properties.addressEn : lg === "ru" ? marker.properties.addressRu : marker.properties.addressBy}</span>` : ''}
-      ${marker.properties.workingHoursEn ? `<span class='popup-main-info popup-hours'>${lg === "en" ? marker.properties.workingHoursEn : lg === "ru" ? marker.properties.workingHoursRu : marker.properties.workingHoursBy}</span>` : ''}
-      ${marker.properties.phone ? `<span class='popup-main-info popup-phone'>${marker.properties.phone}</span>` : ''}
-      <div class='popup-waste'>${this.createPopupContent(availableTypes)}</div>`;
-      const popup = new mapboxgl.Popup({
-        offset: 15,
-        className: 'map-popup'
-      })
-        .setHTML(mainPopupInfo);
-
-      new mapboxgl.Marker(mapMarker).setLngLat(marker.geometry.coordinates).setPopup(popup).addTo(this.map);
     });
   }
 
