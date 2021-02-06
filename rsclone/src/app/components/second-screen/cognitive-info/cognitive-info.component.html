@@ -1,4 +1,4 @@
-<div class="cognitive">
+<div class="cognitive" (swipe)="this.scrollService.onSwipe($event)">
   <div
     class="cognitive__item"
     *ngFor="let item of wasteItems"

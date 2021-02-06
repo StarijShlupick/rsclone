@@ -1,5 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, HammerModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +51,11 @@ import {ScrollService} from './services/scroll.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    swipe: {direction: Hammer.DIRECTION_ALL},
+  };
 }
 
 @NgModule({
@@ -100,7 +108,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       },
       defaultLanguage: 'en'
-    })
+    }),
+    HammerModule
   ],
   providers: [
     FirebaseService,
@@ -108,7 +117,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthenticationService,
     SoundService,
     TranslateService,
-    ScrollService
+    ScrollService,
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }
   ],
   entryComponents: [BurgerMenuComponent],
   bootstrap: [AppComponent],
