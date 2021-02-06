@@ -1,3 +1,5 @@
+$arrow-color: #000000;
+
 .map-container {
   position: relative;
   overflow: hidden;
@@ -291,7 +293,7 @@
   .material-icons {
     display: block;
     font-size: 3.5rem;
-    color: var(--text-color);
+    color: $arrow-color;
     animation: start-screen-content 0.7s infinite alternate;
     transition: color 1s;
     cursor: pointer;
