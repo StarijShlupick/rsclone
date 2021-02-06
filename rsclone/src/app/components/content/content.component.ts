@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
   wasteData: IWasteData[];
-  userEmail: string;
   menuButton = true;
 
   constructor(
@@ -21,6 +20,7 @@ export class ContentComponent implements OnInit {
       this.wasteData = this.firebaseService.addDataToObject(data);
     });
   }
+
   toggleMenuButton(): void{
     this.menuButton = !this.menuButton;
   }
