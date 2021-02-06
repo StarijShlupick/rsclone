@@ -1,0 +1,11 @@
+$text-color: #000000;
+$body-color: #ffffff;
+.addObjectButton {
+  position: absolute;
+  top: 70px;
+  right: 2rem;
+  background-color: $body-color;
+  color: $text-color;
+  text-transform: uppercase;
+  z-index: 2;
+}

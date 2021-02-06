@@ -1,0 +1,140 @@
+$color-primary: var(--primary-accent-color);
+$color-secondary: #bb3107;
+$text-color: var(--text-color);
+$color-secondary-bg: rgb(206, 206, 206, 0.6);
+
+.waste-info {
+  position: relative;
+  padding: 2rem;
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+
+  &__button-back {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 3rem;
+    background: none;
+    color: var(--text-color);
+    transition: opacity .3s;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto;
+  }
+}
+
+.details {
+  display: flex;
+  width: 100%;
+  height: 90%;
+  align-items: center;
+
+  &__wrapper {
+    padding: 2rem 0;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    border: 1px solid $color-primary;
+  }
+
+  &__name,
+  &__name-cant {
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  &__name {
+    color: $color-primary;
+  }
+
+  &__name-cant {
+    color: $color-secondary;
+  }
+
+  &__col {
+    width: 50%;
+    padding: 2rem;
+  }
+
+  &__col:first-child {
+    border-right: 1px solid $color-secondary-bg;
+  }
+
+  &__list {
+    padding: 0;
+    list-style-type: none;
+  }
+  &__list-item::before,
+  &__list-item-cant::before {
+    content: "•";
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  &__list-item::before {
+    color: $color-primary;
+  }
+
+  &__list-item-cant::before {
+    color: $color-secondary;
+  }
+
+  &__list-item,
+  &__list-item-cant {
+    font-size: 1.6rem;
+    padding: 0.7rem 0;
+    font-weight: 500;
+    color: $text-color;
+    opacity: 0.8;
+    &:hover {
+      background-color: $color-secondary-bg;
+    }
+  }
+}
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+  margin: 0 auto 10px auto;
+  .material-icons {
+    display: block;
+    font-size: 3.5rem;
+    color: var(--text-color);
+    animation: start-screen-content 0.7s infinite alternate;
+    transition: color 1s;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 550px){
+  .waste-info{
+    width: 100vw;
+  }
+  .details{
+    &__wrapper{
+      overflow: hidden;
+      height: 100%;
+      padding: 2rem 0 3rem 0;
+    }
+    &__col{
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .details__list{
+      .details__list-item {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}

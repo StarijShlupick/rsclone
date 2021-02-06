@@ -1,0 +1,17 @@
+<div class="auth-controls">
+  <button
+    class="auth-controls__button"
+    *ngIf="!isLogged; else userInfo"
+    (click)="openAuthenticationForm()"
+  >
+    {{ 'AUTHENTICATION.CONTROL.LOGIN' | translate }}
+  </button>
+  <span class="auth-controls__separator" *ngIf="isLogged"></span>
+  <button class="auth-controls__button" *ngIf="isLogged" (click)="logout()">
+    {{ 'AUTHENTICATION.CONTROL.LOGOUT' | translate }}
+  </button>
+</div>
+
+<ng-template #userInfo>
+  <div class="auth-controls__user-info">{{ userEmail }}</div>
+</ng-template>

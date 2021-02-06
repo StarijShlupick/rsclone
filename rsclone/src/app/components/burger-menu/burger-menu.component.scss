@@ -1,0 +1,269 @@
+$backdrop-color: #000000;
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $backdrop-color;
+  opacity: 50%;
+  z-index: 9;
+}
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-width: 400px;
+  width: 100%;
+  background-color: var(--body-background-color);
+  z-index: 10;
+  transition: background-color 1s;
+
+  &__header {
+    padding: 30px 0;
+    background-color: var(--primary-background-color);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    transition: background-color 1s;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    i {
+      display: block;
+      font-size: 4rem;
+    }
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+}
+
+.burger-menu__body {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger-menu__login {
+  padding: 50px 0 0 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .login__logo {
+      display: block;
+      width: 75px;
+      height: 75px;
+      margin-right: 30px;
+      margin-bottom: 10px;
+    }
+
+    #Vector {
+      fill: var(--text-color);
+      transition: fill 1s;
+    }
+  }
+}
+
+.burger-menu__nav {
+  padding: 20px 0;
+
+  .container {
+    font-size: 2.5rem;
+
+    .nav__li + .nav__li {
+      margin-top: 30px;
+    }
+
+    .nav__link {
+      color: var(--text-color);
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        opacity: 60%;
+      }
+    }
+  }
+}
+
+.burger-menu__footer {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footer__bottom {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.developers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: inherit;
+  background: none;
+  outline: none;
+  padding: 5px 5px 5px 10px;
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s;
+
+  i {
+    display: block;
+    font-size: 2.5rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background: var(--primary-background-color);
+  }
+
+  &:hover i {
+    transform: rotate(-180deg);
+  }
+}
+
+.logo {
+  max-width: 80%;
+
+  svg {
+    width: 60px;
+    height: 60px;
+    display: block;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 3.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-left: 5px;
+
+    &--green {
+      color: var(--primary-accent-color);
+      margin-right: 5px;
+    }
+  }
+
+  #logo-leaf {
+    transform-origin: bottom;
+    transform-box: fill-box;
+
+    #Vector_5 {
+      fill: var(--primary-accent-color);
+      transition: fill 1s;
+    }
+
+    #Vector_6 {
+      fill: var(--secondary-accent-color);
+      transition: fill 1s;
+    }
+  }
+
+  #logo-base {
+    #Vector,
+    #Vector_4 {
+      fill: var(--secondary-accent-color);
+      transition: fill 1s;
+    }
+
+    #Vector_2,
+    #Vector_3 {
+      fill: var(--primary-accent-color);
+      transition: fill 1s;
+    }
+  }
+
+  &:hover #logo-leaf {
+    animation: logo 1.5s linear infinite;
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: skew(5deg, 2deg);
+  }
+  25% {
+    transform: skew(-5deg, -4deg);
+  }
+  50% {
+    transform: skew(5deg, 3deg);
+  }
+  75% {
+    transform: skew(-5deg, -2deg);
+  }
+  100% {
+    transform: skew(5deg, 2deg);
+  }
+}
+
+@media (max-width: 360px) {
+  .burger-menu {
+
+    &__header {
+      padding: 15px 0;
+    }
+  }
+  .burger-menu__login {
+    padding: 20px 0 0 0;
+  }
+  .burger-menu__body {
+    .burger-menu__nav {
+      padding: 0;
+
+      .container {
+        .nav__ul {
+          margin: 10px 0;
+          .nav__li {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+
+    .burger-menu__footer {
+      .container {
+        .footer__bottom {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}

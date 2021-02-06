@@ -1,0 +1,38 @@
+.menu-button {
+  cursor: pointer;
+
+  &__img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    transition: all .3s;
+  }
+
+  #Vector, #Vector_2, #Vector_3, #Vector_4 {
+    fill: var(--text-color);
+    transition: all 1s;
+  }
+
+  #menu--active {
+    opacity: 0%;
+    fill: var(--primary-accent-color);
+    transition: all .2s .1s;
+  }
+
+  &:hover .menu-button__img {
+    transform: rotate(-90deg);
+  }
+
+  &:hover #menu--active {
+    opacity: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .menu-button {
+    &__img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

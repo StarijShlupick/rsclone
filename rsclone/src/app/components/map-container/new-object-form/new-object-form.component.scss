@@ -1,0 +1,115 @@
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  max-width: 360px;
+  height: 100vh;
+
+  background: var(--body-background-color);
+  padding: 2.5rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-weight: 100;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #777;
+
+  z-index: 5;
+
+  .closeButton {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background-size: cover;
+    align-self: flex-start;
+    cursor: pointer;
+    mask: url(../../../../assets/icons/close.svg);
+    background: var(--text-color);
+  }
+
+  .closeButton:hover {
+    opacity: 0.4;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+    text-transform: uppercase;
+  }
+
+  .inputContainer {
+    border: medium none;
+    margin: 0 0 0.5rem;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+
+    input {
+      width: 100%;
+      border: 1px solid #ccc;
+      background: #fff;
+      margin: 0;
+      padding: 1.5rem;
+    }
+
+    input:hover {
+      -webkit-transition: border-color 0.3s ease-in-out;
+      -moz-transition: border-color 0.3s ease-in-out;
+      transition: border-color 0.3s ease-in-out;
+      border: 1px solid #aaa;
+    }
+
+    input:focus {
+      outline: 0;
+      border: 1px solid #aaa;
+    }
+  }
+
+  .locationInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .locationInput input:first-child {
+    margin-right: 1rem;
+  }
+
+  .addButton {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: var(--primary-accent-color);
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+    padding: 1.5rem;
+  }
+
+  .addButton:hover {
+    background: var(--secondary-accent-color);
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .addButton:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .addButton:disabled {
+    cursor: not-allowed;
+    background-color: hsla(203, 18%, 57%, 0.5);
+  }
+}

@@ -1,0 +1,309 @@
+$arrow-color: #000000;
+
+.map-container {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  margin: 50px auto;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.mat-form-field {
+  position: absolute;
+  top: 5px;
+  right: 2rem;
+  z-index: 3;
+}
+
+:host::ng-deep.mapboxgl-popup {
+  min-width: 300px;
+}
+
+:host::ng-deep.mat-form-field-flex {
+  background-color: rgba($color: #ffffff, $alpha: 0.9);
+}
+
+:host::ng-deep.mapboxgl-popup-close-button {
+  outline: none;
+  font-size: 30px;
+}
+
+:host::ng-deep .mapboxgl-popup-content {
+  display: flex;
+  flex-direction: column;
+
+  .popup-title {
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.1;
+  }
+
+  .popup-main-info {
+    position: relative;
+    padding: 5px 0 5px 30px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .popup-address {
+    &::before {
+      background: url(../../../../assets/icons/pin.svg) center center;
+      background-size: 24px 24px;
+    }
+  }
+
+  .popup-hours {
+    &::before {
+      background: url(../../../../assets/icons/clock.svg) center center;
+      background-size: 24px 24px;
+    }
+  }
+
+  .popup-phone {
+    &::before {
+      background: url(../../../../assets/icons/phone.svg) center center;
+      background-size: 24px 24px;
+    }
+  }
+
+  .popup-waste {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 2px dashed green;
+  }
+}
+
+:host::ng-deep .popup-waste__item {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+
+  &[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    font-size: 15px;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+  }
+
+  &[tooltip]:hover::after {
+    opacity: 1;
+  }
+}
+
+:host::ng-deep {
+  .batteries {
+    background: url(../../../../assets/waste/batteries.png) center center;
+    background-size: cover;
+  }
+
+  .books {
+    background: url(../../../../assets/waste/books.png) center center;
+    background-size: cover;
+  }
+
+  .cloth {
+    background: url(../../../../assets/waste/cloth.png) center center;
+    background-size: cover;
+  }
+
+  .electronicWaste {
+    background: url(../../../../assets/waste/electricWaste.png) center center;
+    background-size: cover;
+  }
+
+  .glass {
+    background: url(../../../../assets/waste/glass.png) center center;
+    background-size: cover;
+  }
+
+  .householdItems {
+    background: url(../../../../assets/waste/householdItems.png) center center;
+    background-size: cover;
+  }
+
+  .lamps {
+    background: url(../../../../assets/waste/lamps.png) center center;
+    background-size: cover;
+  }
+
+  .metal {
+    background: url(../../../../assets/waste/metal.png) center center;
+    background-size: cover;
+  }
+
+  .oils {
+    background: url(../../../../assets/waste/oils.png) center center;
+    background-size: cover;
+  }
+
+  .paper {
+    background: url(../../../../assets/waste/paper.png) center center;
+    background-size: cover;
+  }
+
+  .plastic {
+    background: url(../../../../assets/waste/plastic.png) center center;
+    background-size: cover;
+  }
+
+  .tires {
+    background: url(../../../../assets/waste/tires.png) center center;
+    background-size: cover;
+  }
+
+  .wholeClothes {
+    background: url(../../../../assets/waste/wholeClothes.png) center center;
+    background-size: cover;
+  }
+
+  .varied {
+    background: url(../../../../assets/waste/varied.png) center center;
+    background-size: cover;
+  }
+}
+
+.layers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 120px;
+  right: 2rem;
+  width: 29px;
+  height: 29px;
+  z-index: 3;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  outline: none;
+
+  &-icon {
+    display: block;
+    background-image: url(../../../../assets/icons/layers.svg);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.filter-panel {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 10px 15px;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 120px;
+  background-color: rgba($color: #ffffff, $alpha: 0.9);
+  color: #000000;
+  border-radius: 20px;
+  z-index: 3;
+  transition: 0.3s ease-in-out;
+
+  &--active {
+    bottom: 40px;
+    transition: 0.3s ease-in-out;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    line-height: 1.3;
+  }
+
+  &__item {
+    margin: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    figcaption {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &--active {
+      box-shadow: 0 0 0 2px rgba(18, 105, 0, 0.6);
+    }
+  }
+}
+
+:host::ng-deep .hide {
+  visibility: hidden;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+  margin: 0 auto 10px auto;
+  .material-icons {
+    display: block;
+    font-size: 3.5rem;
+    color: $arrow-color;
+    animation: start-screen-content 0.7s infinite alternate;
+    transition: color 1s;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 500px) {
+  .filter-panel {
+    &__title {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<div class="theme-switcher">
+  <h6 class="theme-switcher__header">{{ 'MAIN-PAGE.THEME-SWITCHER' | translate }}</h6>
+  <div class="theme-switcher__group">
+    <div class="theme-circle" [class.theme-circle--active]="this.themeService.active.name === 'light'" (click)="toggleTheme('light')"></div>
+    <div class="theme-circle" [class.theme-circle--active]="this.themeService.active.name === 'dark'" (click)="toggleTheme('dark')"></div>
+  </div>
+</div>

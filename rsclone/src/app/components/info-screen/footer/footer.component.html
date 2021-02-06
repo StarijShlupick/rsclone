@@ -1,0 +1,41 @@
+<footer class="footer">
+  <div class="global-container">
+    <button class="footer__item developers" mat-button [matMenuTriggerFor]="aboveMenu">
+    <span class="material-icons">
+      format_list_bulleted
+    </span>
+      <span class="developers__span">{{ 'INFO-SCREEN.FOOTER.DEVELOPERS__SPAN' | translate }}</span>
+    </button>
+    <mat-menu class="developers__menu" #aboveMenu="matMenu" yPosition="above">
+      <a class="footer__link" href="https://github.com/Polkhoovskaya" target="_blank">
+        <button mat-menu-item>
+          {{ 'DEVELOPERS.VOLHA' | translate }}
+        </button>
+      </a>
+      <a class="footer__link" href="https://github.com/bezrukviktor/" target="_blank">
+        <button mat-menu-item>
+          {{ 'DEVELOPERS.VIKTOR' | translate }}
+        </button>
+      </a>
+      <a class="footer__link" href="https://github.com/maxim-tihomirov" target="_blank">
+        <button mat-menu-item>
+          {{ 'DEVELOPERS.MAXIM' | translate }}
+        </button>
+      </a>
+      <a class="footer__link" href="https://github.com/StarijShlupick" target="_blank">
+        <button mat-menu-item>
+          {{ 'DEVELOPERS.MAKSIM' | translate }}
+        </button>
+      </a>
+    </mat-menu>
+    <div class="footer__item rsschool">
+      <a class="footer__link" href="https://rs.school/js/" target="_blank"><img class="info__img"
+                                                                                src="./assets/icons/rs-school.svg"
+                                                                                alt="rsschool">
+      </a>
+    </div>
+    <div class="footer__item year">
+      <p class="footer__info">{{ 'INFO-SCREEN.FOOTER.INFO' | translate }}</p>
+    </div>
+  </div>
+</footer>

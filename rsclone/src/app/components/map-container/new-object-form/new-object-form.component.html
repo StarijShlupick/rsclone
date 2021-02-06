@@ -1,0 +1,101 @@
+<form [@new-object-form] (ngSubmit)="addNewObject.emit(f)" #f="ngForm">
+  <span class="closeButton" (click)="onCloseForm()"></span>
+  <h3 class="title">{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.TITLE' | translate }}</h3>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="name"
+      class="form-input"
+      name="name"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.NAME' | translate }}"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="type"
+      class="form-input"
+      name="type"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.TYPE' | translate }}"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer locationInput">
+    <input
+      type="number"
+      id="x"
+      class="form-input"
+      name="x"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.LATITUDE' | translate }}"
+      ngModel
+      required
+    />
+    <input
+      type="number"
+      id="y"
+      class="form-input"
+      name="y"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.LONGTITUDE' | translate }}"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="address"
+      class="form-input"
+      name="address"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.ADDRESS' | translate }}"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="phone"
+      class="form-input"
+      name="phone"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.PHONE' | translate }}"
+      ngModel
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="schedule"
+      class="form-input"
+      name="schedule"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.SCHEDULE' | translate }}"
+      ngModel
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="text"
+      id="information"
+      class="form-input"
+      name="information"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.INFORMATION' | translate }}"
+      ngModel
+      required
+    />
+  </div>
+  <div class="inputContainer">
+    <input
+      type="email"
+      id="email"
+      class="form-input"
+      name="email"
+      placeholder="{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.EMAIL' | translate }}"
+      ngModel
+      required
+      email
+    />
+  </div>
+  <button class="addButton" type="submit" [disabled]="!f.valid">{{ 'MAP-CONTAINER.NEW-OBJECT-FORM.ADD-BUTTON' | translate }}</button>
+</form>

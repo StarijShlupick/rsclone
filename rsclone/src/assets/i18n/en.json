@@ -1,0 +1,139 @@
+{
+  "MAIN-PAGE": {
+    "START-SCREEN": {
+      "CONTENT__HEADER": "green map",
+      "CONTENT__TEXT": "Save NATURE - dispose of garbage correctly."
+    },
+    "THEME-SWITCHER": "choose a theme"
+  },
+  "SECOND_SCREEN": {
+    "WASTE-INFO": {
+      "CAN": "Can",
+      "CAN-NOT": "Can't"
+    },
+    "WASTE-ITEMS": {
+      "PAPER": {
+        "TITLE": "paper",
+        "ALLOW": "Newspapers, magazines; Catalogs, promotional materials; Notebooks; Envelopes without cellophane and inserts; Old books; Cardboard boxes (from furniture, TV, toys); Wrapping paper and other blank paper; Paper bags (flour, buckwheat, rice)",
+        "NOT-ALLOW": "Paper contaminated with food and grease residues; Paper with staples, staples, tape, adhesive and plastic inserts, springs; Thermal paper (faxes, checks); Laminated paper products, photo paper; Wallpaper; Matchboxes; Food packaging supplemented with a layer of plastic or foil"
+      },
+      "PLASTIC": {
+        "TITLE": "plastic",
+        "ALLOW": "Plastic: PET, HDPE, LDPE, PE, PP (digital code: 1, 2, 4, 5); Boxes (yogurt, salads, kebabs); Bottles (oil, ketchup, mayonnaise); Canisters from under the water; Polyethylene bags (bread, milk, cereals); Plastic bags; Packing tape; Styrofoam; Packaging for cosmetics (shampoo, washing powder)",
+        "NOT-ALLOW": "Packaging and bags contaminated with food; Polystyrene packaging (PS, digital code - 6); Combined materials (plastic + metal, paper or other types of plastic: C / PAP, C / LDPE, C / ALU, digital code from 80 to 94); Disposable tableware; Stationery; Tubes for toothpaste and creams (the presence of an aluminum layer inside the tube); White jars of sour cream and yogurt; Candy wrappers; CD discs; If the item contains not only plastic (video cassettes, shaving machines), you can separate the materials yourself; In case of difficulties with the type of plastic - it is better to throw the unknown plastic into the plastic container"
+      },
+      "GLASS": {
+        "TITLE": "glass",
+        "ALLOW": "Jars and bottles (alcohol, syrup, oil); All glass containers are recycled",
+        "NOT-ALLOW": "Bulbs; Automotive glass; Heat-resistant, wired glass; Window glass (goes to construction waste); Mirrors; Screens of monitors and TVs; Colored glass and crystal; Faience earthenware"
+      },
+      "METAL": {
+        "TITLE": "metal",
+        "ALLOW": "Metal lids and plugs; Tin cans and boxes (sprats, cat food); All types of metal",
+        "NOT-ALLOW": "Household appliances (there are special collection points for household appliances)"
+      },
+      "HAZARDOUS": {
+        "TITLE": "Hazardous",
+        "ALLOW": "Batteries; Fluorescent lamps; Mercury-containing thermometers; Used car oil; Garden chemicals; Expired medications; Accumulator; Car tires; Electrical and electronic equipments",
+        "NOT-ALLOW": "All hazardous waste must be disposed of at designated collection points"
+      },
+      "LIGHT-BULB": {
+        "TITLE": "Light Bulb",
+        "ALLOW": "Fluorescent lamps (contain mercury vapor and inert gases); Halogen bulbs (bulbs are very hot and may cause a fire); LED lamps (have the best characteristics in terms of energy saving, operation and disposal); Incandescent lamps (safe to use)",
+        "NOT-ALLOW": "You can rent any lamps"
+      },
+      "THINGS": {
+        "TITLE": "things",
+        "ALLOW": "Items for the poor are handed over to special collection points; Books; Furniture for recycling; Аppliances",
+        "NOT-ALLOW": "Old clothes and shoes"
+      },
+      "BATTERY": {
+        "TITLE": "battery",
+        "ALLOW": "Saline; Alkaline; Mercury; Silver; Lithium; Nickel-cadmium",
+        "NOT-ALLOW": "Any batteries are recyclable; Buy rechargeable batteries!"
+      }
+    }
+  },
+  "MAP-CONTAINER": {
+    "MAP": {
+      "CITY": "Selected City",
+      "1": "Minsk",
+      "2": "Vitebsk",
+      "3": "Grodno",
+      "4": "Mogilev",
+      "5": "Brest",
+      "6": "Gomel"
+    },
+    "MAP-FILTER": {
+      "PANEL": "Chose the required material:",
+      "FIGCAPTION": "All",
+      "BATTERIES": "Batteries",
+      "BOOKS": "Books",
+      "CLOTH": "Сloth",
+      "ELECTRONIC-WASTE": "Electronic Waste",
+      "GLASS": "Glass",
+      "HOUSEHOLD-ITEMS": "Household Items",
+      "LAMPS": "Lamps",
+      "METAL": "Metal",
+      "OILS": "Oils",
+      "PAPER": "Paper",
+      "PLASTIC": "Plastic",
+      "TIRES": "Tires",
+      "WHOLE-CLOTHES": "Whole Clothes"
+    },
+    "NEW-OBJECT-BUTTON": "ADD NEW OBJECT",
+    "NEW-OBJECT-FORM": {
+      "TITLE": "Add an object in the \"Secondary resources\" section",
+      "ADD-BUTTON": "ADD",
+      "NAME": "Name",
+      "TYPE": "Type",
+      "LATITUDE": "Latitude",
+      "LONGTITUDE": "Longitude",
+      "ADDRESS": "Address",
+      "PHONE": "Phone",
+      "SCHEDULE": "Schedule",
+      "INFORMATION": "Information",
+      "EMAIL": "Email"
+    }
+  },
+  "INFO-SCREEN": {
+    "FOOTER": {
+      "DEVELOPERS__SPAN": "Developers",
+      "INFO": "2021 © Green Map - rsclone"
+    },
+    "INFO": {
+      "INFO__HEADER": "Why is it Important?",
+      "INFO__TEXT": "The three golden rules of sustainability we were taught as kids are reduce, reuse, and recycle. But for some reason, “recycle” was the one most highlighted. As we learn more and more about going green, it’s becoming more and more clear that recycling is actually the least important of those three totems. Sure, recycling is important, but if we reduced what we were using and reused what we were using in place of single-use options, there would be significantly less stuff in the world to recycle. And less stuff is key to — not to get too hyperbolic here but — saving the planet."
+    }
+  },
+  "AUTHENTICATION": {
+    "CONTROL": {
+      "LOGIN": "Login",
+      "LOGOUT": "Logout"
+    },
+    "FORM": {
+      "LOG-IN": "Login",
+      "SIGN-UP": "Sign Up",
+      "CHECK-EMAIL": "Check email",
+      "CHECK-PASSWORD": "Check password (min 8 char)",
+      "SUCCESS": "Hello, you entered with email",
+      "PASSWORD": "Your Password",
+      "EMAIL": "Your Email"
+    }
+  },
+  "BURGER-MENU": {
+    "NAVIGATION": {
+      "START-SCREEN": "Start screen",
+      "EDUCATIONAL-INFO": "Educational info",
+      "MAP": "Map",
+      "INFO-PAGE": "Info page"
+    }
+  },
+  "DEVELOPERS": {
+    "VOLHA": "Volha Polkhoovskaya",
+    "VIKTOR": "Viktor Bezruk",
+    "MAXIM": "Maxim Tihomirov",
+    "MAKSIM": "Maksim Burakov"
+  },
+  "MENU": "menu"
+}
