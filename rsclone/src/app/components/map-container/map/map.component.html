@@ -1,4 +1,4 @@
-<mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle>
+<!-- <mat-slide-toggle (change)="switchLayer($event)">Slide me!</mat-slide-toggle> -->
 <div class="map-container">
   <app-map-filter
     [isAllActive]="isAllActive"
@@ -26,7 +26,6 @@
     *ngIf="!formOpend"
   ></app-new-object-button>
   <app-new-object-form
-    [userEmail]="userEmail"
     [formOpend]="formOpend"
     [coordinates]="coordinates"
     (closeForm)="onOpenCloseForm()"

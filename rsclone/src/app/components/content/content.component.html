@@ -1,4 +1,4 @@
-  <app-start-screen id="start-screen"></app-start-screen>
+<app-start-screen id="start-screen"></app-start-screen>
   <div class="menu-button" [class.menu-button--active]="!menuButton" (click)="toggleMenuButton()">
     <div class="menu-button__wrapper">
       <app-menu-button></app-menu-button>
@@ -8,10 +8,10 @@
       </i>
     </div>
   </div>
-  <router-outlet id="second-screen"></router-outlet>
-  <app-map
-    id="map-screen"
-    (addNewObject)="firebaseService.setData($event)"
-    [userEmail]="userEmail"
-  ></app-map>
-  <app-info id="info-screen"></app-info>
+</div>
+<router-outlet id="second-screen"></router-outlet>
+<app-map
+  id="map-screen"
+  (addNewObject)="firebaseService.setData($event)"s
+></app-map>
+<app-info id="info-screen"></app-info>

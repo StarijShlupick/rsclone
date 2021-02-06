@@ -12,7 +12,6 @@ import {DOCUMENT} from '@angular/common';
 })
 export class ContentComponent implements OnInit {
   wasteData: IWasteData[];
-  userEmail: string;
   menuButton = true;
   scrollDelay = false;
 
@@ -25,9 +24,9 @@ export class ContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.firebaseService.getData().subscribe((data) => {
-    //   this.wasteData = this.firebaseService.addDataToObject(data);
-    // });
+    this.firebaseService.getData().subscribe((data) => {
+      this.wasteData = this.firebaseService.addDataToObject(data);
+    });
   }
 
   onContentScrolled(e): void {

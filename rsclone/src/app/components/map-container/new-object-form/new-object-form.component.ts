@@ -23,7 +23,6 @@ export class NewObjectFormComponent implements OnChanges {
 
   @Input() formOpend: boolean;
   @Input() coordinates: number[];
-  @Input() userEmail: string;
 
   @Output() addNewObject: EventEmitter<object> = new EventEmitter<object>();
   @Output() closeForm: EventEmitter<any> = new EventEmitter();
@@ -41,7 +40,7 @@ export class NewObjectFormComponent implements OnChanges {
         phone: null,
         schedule: null,
         information: null,
-        email: this.userEmail
+        email: null
       });
     }
   }
