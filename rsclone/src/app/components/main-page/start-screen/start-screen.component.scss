@@ -171,21 +171,21 @@
 @keyframes start-screen-content {
   from {
     transform: translateY(20%);
-    opacity: 0%;
+    opacity: 0;
   }
   to {
     transform: translateY(0%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 @keyframes theme-switcher {
   from {
     transform: translateX(20%);
-    opacity: 0%;
+    opacity: 0;
   }
   to {
     transform: translateX(0%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
