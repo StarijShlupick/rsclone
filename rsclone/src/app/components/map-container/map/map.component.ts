@@ -65,8 +65,10 @@ export class MapComponent implements OnInit {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [27.55, 53.902],
-        zoom: 10.5
+        zoom: 10.5,
       });
+
+      this.map.scrollZoom.disable();
 
       this.map.on('click', (event) => {
         if (this.formOpend) {
@@ -165,11 +167,11 @@ export class MapComponent implements OnInit {
         mapMarker.addEventListener('mouseenter', () => {
           mapMarker.style.cursor = 'pointer';
         });
-  
+
         mapMarker.addEventListener('click', (e) => {
           this.flyToPoint(marker.geometry.coordinates);
         });
-  
+
         const mainPopupInfo: string = `
         <h3 class='popup-title'>${lng === "en" ? marker.properties.titleEn: lng === "ru" ?  marker.properties.titleRu :  marker.properties.titleBy}</h3>
         ${marker.properties.addressEn ? `<span class='popup-main-info popup-address'>${lng === "en" ? marker.properties.addressEn : lng === "ru" ? marker.properties.addressRu : marker.properties.addressBy}</span>` : ''}
@@ -181,7 +183,7 @@ export class MapComponent implements OnInit {
           className: 'map-popup'
         })
           .setHTML(mainPopupInfo);
-  
+
        new mapboxgl.Marker(mapMarker).setLngLat(marker.geometry.coordinates).setPopup(popup).addTo(this.map);
       });
     });
